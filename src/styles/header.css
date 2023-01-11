@@ -47,7 +47,6 @@ nav {
 
 .nav-list {
   display: flex;
-  list-style: none;
   text-transform: capitalize;
   align-items: center;
   gap: 3.1rem;
