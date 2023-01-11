@@ -75,7 +75,7 @@ nav {
   }
 
   .nav-list {
-    position: fixed;
+    position: absolute;
     left: 100%;
     top: 68px;
     gap: 0;
