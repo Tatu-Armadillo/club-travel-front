@@ -4,7 +4,6 @@
     border: 1px solid black;
 }
 
-.box-services,
 .box-aboutUs,
 .box-networks {
     background-color: cadetblue;
@@ -32,7 +31,6 @@
         grid-template-columns: auto;
     }
 
-    .box-services,
     .box-aboutUs,
     .box-networks {
         text-align: center;
