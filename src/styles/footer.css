@@ -21,6 +21,7 @@
 
 .list-networks {
     display: flex;
+    /* flex-direction: column; */
     justify-content: center;
     gap: 3.1rem;
 }
@@ -35,4 +36,12 @@
     .box-networks {
         text-align: center;
     }
+}
+
+.copyright {
+    border: 2px solid yellow;
+    grid-column: 1/3;
+    text-align: center;
+    text-transform: capitalize;
+    color: #FFF;
 }
