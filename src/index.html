@@ -1,158 +1,225 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1"
+    />
+    <link rel="shortcut icon" href="images/globo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/global.css" />
+    <link rel="stylesheet" href="./styles/header.css" />
+    <link rel="stylesheet" href="./styles/footer.css" />
+    <link rel="stylesheet" href="./styles/main-content.css" />
+    <link rel="stylesheet" href="./styles/text-presets.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <title>Travel Club</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-  <link rel="shortcut icon" href="images/globo.png" type="image/x-icon" />
-  <link rel="stylesheet" href="./styles/reset.css" />
-  <link rel="stylesheet" href="./styles/global.css" />
-  <link rel="stylesheet" href="./styles/header.css" />
-  <link rel="stylesheet" href="./styles/footer.css" />
-  <link rel="stylesheet" href="./styles/main-content.css" />
-  <link rel="stylesheet" href="./styles/text-presets.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
-  <title>Travel Club</title>
-</head>
+  <body>
+    <header>
+      <nav>
+        <a class="logo" href="#">travel club</a>
 
-<body>
-  <header>
-    <nav>
-      <a class="logo" href="#">travel club</a>
+        <ul class="nav-list">
+          <li><a class="linkNav" href="#">início</a></li>
+          <li><a class="linkNav" href="#">infográficos</a></li>
+          <li><a class="linkNav" href="#">cadastro</a></li>
+          <li><a class="linkNav" href="#">sobre nós</a></li>
+        </ul>
 
-      <ul class="nav-list">
-        <li><a class="linkNav" href="#">início</a></li>
-        <li><a class="linkNav" href="#">infográficos</a></li>
-        <li><a class="linkNav" href="#">cadastro</a></li>
-        <li><a class="linkNav" href="#">sobre nós</a></li>
-      </ul>
+        <div class="mobile-menu">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </div>
+      </nav>
+    </header>
 
-      <div class="mobile-menu">
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
-      </div>
-    </nav>
-  </header>
+    <main class="grid-container">
+      <aside class="lateral-content-container container">
+        <h2>Destaques</h2>
+        <div class="most-visitd-container">
+          <div class="slider">
+            <div class="slides">
+              <input type="radio" name="radio-image" id="radio-image-1" />
+              <input type="radio" name="radio-image" id="radio-image-2" />
+              <input type="radio" name="radio-image" id="radio-image-3" />
+              <input type="radio" name="radio-image" id="radio-image-4" />
 
-  <main class="grid-container">
-    <aside class="lateral-content-container container">
-      <h2>Destaques</h2>
-      <div class="most-visitd-container">
-        <div class="slides">
-          <div class="slide">
-            <img src="" alt="Imagem Relacionada ao conteudo" />
-            <p>Titulo da noticia</p>
+              <div class="slide first">
+                <img
+                  src="https://uploads.jovemnerd.com.br/wp-content/uploads/2022/12/melhores_games_de_2022_1__2e0apk2l.jpg"
+                  alt=""
+                />
+                <p class="title text-md">Titulo da noticia</p>
+              </div>
+              <div class="slide">
+                <img
+                  src="https://uploads.jovemnerd.com.br/wp-content/uploads/2022/12/melhores_games_de_2022_3__49eq2j6.jpg"
+                  alt=""
+                />
+                <p class="title text-md">Titulo da noticia</p>
+              </div>
+              <div class="slide">
+                <img
+                  src="https://uploads.jovemnerd.com.br/wp-content/uploads/2022/12/melhores_games_de_2022_4__j1ay2121.jpg"
+                  alt=""
+                />
+                <p class="title text-md">Titulo da noticia</p>
+              </div>
+              <div class="slide">
+                <img
+                  src="https://uploads.jovemnerd.com.br/wp-content/uploads/2022/12/melhores_games_de_2022_7__ilko1v1.jpg"
+                  alt=""
+                />
+                <p class="title text-md">Titulo da noticia</p>
+              </div>
+            </div>
+            <div class="navigation">
+              <label for="radio-image-1" class="btn-navegation"></label>
+              <label for="radio-image-2" class="btn-navegation"></label>
+              <label for="radio-image-3" class="btn-navegation"></label>
+              <label for="radio-image-4" class="btn-navegation"></label>
+            </div>
           </div>
         </div>
-      </div>
-      <iframe src="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" frameborder="0"></iframe>
-    </aside>
-    <section class="main-content-container container">
-      <h2>Em alta</h2>
-      <div class="hot-container">
-        <a class="hot-item" href="#" id="city-one">
-          <img src="https://www.maladeaventuras.com/wp-content/uploads/2022/05/Pipa.jpg" alt="Imagem do Local" />
-          <p>Nome do Local</p>
-        </a>
-        <a class="hot-item" href="#" id="city-two">
-          <img src="https://www.maladeaventuras.com/wp-content/uploads/2022/05/Pipa.jpg" alt="Imagem do Local" />
-          <p>Nome do Local</p>
-        </a>
-        <a class="hot-item" href="#" id="city-three">
-          <img src="https://www.maladeaventuras.com/wp-content/uploads/2022/05/Pipa.jpg" alt="Imagem do Local" />
-          <p>Nome do Local</p>
-        </a>
-      </div>
+        <iframe
+          src="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
+          frameborder="0"
+        ></iframe>
+      </aside>
+      <section class="main-content-container container">
+        <h2>Em alta</h2>
+        <div class="hot-container">
+          <a class="hot-item" href="#" id="city-one">
+            <img
+              src="https://www.maladeaventuras.com/wp-content/uploads/2022/05/Pipa.jpg"
+              alt="Imagem do Local"
+            />
+            <p>Nome do Local</p>
+          </a>
+          <a class="hot-item" href="#" id="city-two">
+            <img
+              src="https://www.maladeaventuras.com/wp-content/uploads/2022/05/Pipa.jpg"
+              alt="Imagem do Local"
+            />
+            <p class="">Nome do Local</p>
+          </a>
+          <a class="hot-item" href="#" id="city-three">
+            <img
+              src="https://www.maladeaventuras.com/wp-content/uploads/2022/05/Pipa.jpg"
+              alt="Imagem do Local"
+            />
+            <p>Nome do Local</p>
+          </a>
+        </div>
 
-      <div class="last-articles-container container">
-        <h2>Ultimas notícias</h2>
-        <a href="" class="link-wrapper">
-          <div class="article-item">
-            <div class="header-article">
-              <h3 class="text-lg title-news">Titulo da noticia</h3>
-              <p>Autor</p>
-              <p>Data de publicação</p>
+        <div class="last-articles-container container">
+          <h2>Ultimas notícias</h2>
+          <a href="" class="link-wrapper">
+            <div class="article-item">
+              <div class="header-article">
+                <h3 class="text-lg title-news">Titulo da noticia</h3>
+                <p>Autor</p>
+                <p>Data de publicação</p>
+              </div>
+              <div class="footer-article">
+                <img
+                  src="https://www.maladeaventuras.com/wp-content/uploads/2017/12/foto2-768x432.jpg"
+                  alt="Imagem Relacionado ao conteudo"
+                />
+              </div>
             </div>
-            <div class="footer-article">
-              <img src="https://www.maladeaventuras.com/wp-content/uploads/2017/12/foto2-768x432.jpg"
-                alt="Imagem Relacionado ao conteudo" />
+          </a>
+          <a href="" class="link-wrapper">
+            <div class="article-item">
+              <div class="header-article">
+                <h3 class="text-lg title-news">Titulo da noticia</h3>
+                <p>Autor</p>
+                <p>Data de publicação</p>
+              </div>
+              <div class="footer-article">
+                <img
+                  src="https://www.maladeaventuras.com/wp-content/uploads/2017/12/foto2-768x432.jpg"
+                  alt="Imagem Relacionado ao conteudo"
+                />
+              </div>
             </div>
-          </div>
-        </a>
-        <a href="" class="link-wrapper">
-          <div class="article-item">
-            <div class="header-article">
-              <h3 class="text-lg title-news">Titulo da noticia</h3>
-              <p>Autor</p>
-              <p>Data de publicação</p>
+          </a>
+          <a href="" class="link-wrapper">
+            <div class="article-item">
+              <div class="header-article">
+                <h3 class="text-lg title-news">Titulo da noticia</h3>
+                <p>Autor</p>
+                <p>Data de publicação</p>
+              </div>
+              <div class="footer-article">
+                <img
+                  src="https://www.maladeaventuras.com/wp-content/uploads/2017/12/foto2-768x432.jpg"
+                  alt="Imagem Relacionado ao conteudo"
+                />
+              </div>
             </div>
-            <div class="footer-article">
-              <img src="https://www.maladeaventuras.com/wp-content/uploads/2017/12/foto2-768x432.jpg"
-                alt="Imagem Relacionado ao conteudo" />
+          </a>
+          <a href="" class="link-wrapper">
+            <div class="article-item">
+              <div class="header-article">
+                <h3 class="text-lg title-news">Titulo da noticia</h3>
+                <p>Autor</p>
+                <p>Data de publicação</p>
+              </div>
+              <div class="footer-article">
+                <img
+                  src="https://www.maladeaventuras.com/wp-content/uploads/2017/12/foto2-768x432.jpg"
+                  alt="Imagem Relacionado ao conteudo"
+                />
+              </div>
             </div>
-          </div>
-        </a>
-        <a href="" class="link-wrapper">
-          <div class="article-item">
-            <div class="header-article">
-              <h3 class="text-lg title-news">Titulo da noticia</h3>
-              <p>Autor</p>
-              <p>Data de publicação</p>
-            </div>
-            <div class="footer-article">
-              <img src="https://www.maladeaventuras.com/wp-content/uploads/2017/12/foto2-768x432.jpg"
-                alt="Imagem Relacionado ao conteudo" />
-            </div>
-          </div>
-        </a>
-        <a href="" class="link-wrapper">
-          <div class="article-item">
-            <div class="header-article">
-              <h3 class="text-lg title-news">Titulo da noticia</h3>
-              <p>Autor</p>
-              <p>Data de publicação</p>
-            </div>
-            <div class="footer-article">
-              <img src="https://www.maladeaventuras.com/wp-content/uploads/2017/12/foto2-768x432.jpg"
-                alt="Imagem Relacionado ao conteudo" />
-            </div>
-          </div>
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <section class="box-aboutUs">
-        <h3>sobre nós</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-          eaque quam asperiores placeat deserunt ratione quis distinctio
-          sapiente, ad, facere iste praesentium architecto dolorum dolore
-          ullam debitis earum molestiae labore.
-        </p>
+          </a>
+        </div>
       </section>
+    </main>
 
-      <section class="box-networks">
-        <h3>contatos</h3>
-        <ul class="list-networks">
-          <li>
-            <a href="#"><img src="images/icons/facebook.svg" alt="ícon facebook" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="images/icons/instagram.svg" alt="ícone instagram" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="images/icons/whatsapp.svg" alt="ícone instagram" /></a>
-          </li>
-        </ul>
-      </section>
-    </div>
-  </footer>
-  <script src="./script/main.js" type="module" defer></script>
-</body>
+    <footer>
+      <div class="container">
+        <section class="box-aboutUs">
+          <h3>sobre nós</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+            eaque quam asperiores placeat deserunt ratione quis distinctio
+            sapiente, ad, facere iste praesentium architecto dolorum dolore
+            ullam debitis earum molestiae labore.
+          </p>
+        </section>
 
+        <section class="box-networks">
+          <h3>contatos</h3>
+          <ul class="list-networks">
+            <li>
+              <a href="#"
+                ><img src="images/icons/facebook.svg" alt="ícon facebook"
+              /></a>
+            </li>
+            <li>
+              <a href="#"
+                ><img src="images/icons/instagram.svg" alt="ícone instagram"
+              /></a>
+            </li>
+            <li>
+              <a href="#"
+                ><img src="images/icons/whatsapp.svg" alt="ícone instagram"
+              /></a>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </footer>
+    <script src="./script/main.js" type="module" defer></script>
+  </body>
 </html>
