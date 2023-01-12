@@ -175,6 +175,7 @@ a {
 .slides .slide img {
   width: 100%;
   height: 100%;
+  transition: all linear 0.5s;
 }
 
 .navigation {
@@ -212,6 +213,10 @@ a {
 #radio-image-4:checked ~ .slide img {
   margin-left: -300%;
 }
+
+#radio-image-1:checked ~ .navigation .btn-navegation {
+  background-color: #f29f05;
+}
 #radio-image-1:checked ~ .slide .title {
   position: absolute;
 
@@ -242,4 +247,9 @@ a {
   background-color: rgba(0, 0, 0, 0.527);
   padding: 1rem;
   width: 100%;
+  border-radius: 0.5rem;
+}
+iframe {
+  height: 50vh;
+  border-radius: 0.5rem;
 }
