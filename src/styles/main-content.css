@@ -214,28 +214,32 @@ a {
 }
 #radio-image-1:checked ~ .slide .title {
   position: absolute;
-  top: 70%;
+
   left: 5%;
 }
 #radio-image-2:checked ~ .slide .title {
   position: absolute;
-  top: 70%;
+
   left: -95%;
 }
 #radio-image-3:checked ~ .slide .title {
   position: absolute;
-  top: 70%;
+
   left: -195%;
 }
 #radio-image-4:checked ~ .slide .title {
   position: absolute;
-  top: 70%;
+
   left: -295%;
 }
 
 .title {
   position: absolute;
-  top: 70%;
+  top: 0;
   left: 10%;
   color: #fff;
+  transition: all linear 0.5s;
+  background-color: rgba(0, 0, 0, 0.527);
+  padding: 1rem;
+  width: 100%;
 }
