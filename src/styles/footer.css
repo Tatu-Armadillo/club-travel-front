@@ -1,32 +1,37 @@
-.container {
+:root {
+    --text--color: #FFFFFF;
+    --background--footer: #03738C;
+}
+
+.container-footer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     border: 1px solid black;
+    background: var(--background--footer);
+    color: var(--text--color);
 }
 
-.box-aboutUs,
-.box-networks {
-    background-color: cadetblue;
-    text-align: center;
-    text-transform: capitalize;
+.box-aboutUs h3,
+.box-email h3 {
+    text-transform: uppercase;
 }
 
-.box-aboutUs {
-    background-color: aqua;
+.box-aboutUs h3,
+p,
+.box-networks, .box-email h3
+{
+padding: 0.5rem;
 }
 
 .box-networks {
     display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: rgb(106, 160, 45);
 }
 
 .list-networks {
     display: flex;
-    /* flex-direction: column; */
-    justify-content: center;
-    gap: 3.1rem;
+    gap: 2.0rem;
+
 }
 
 
@@ -46,5 +51,5 @@
     grid-column: 1/3;
     text-align: center;
     text-transform: capitalize;
-    color: #FFF;
+    color: var(--text--color);
 }
