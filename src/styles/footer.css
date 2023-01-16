@@ -1,53 +1,40 @@
 :root {
-    --text--color: #FFFFFF;
+    --text--color: #cfcfcf;
     --background--footer: #03738C;
 }
 
 .container-footer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    border: 1px solid black;
-    background: var(--background--footer);
+}
+
+.box-aboutUs,
+.box-contact {
     color: var(--text--color);
+    padding: 0.5rem;
 }
 
 .box-aboutUs h3,
-.box-email h3 {
+.box-contact h3 {
     text-transform: uppercase;
-}
-
-.box-aboutUs h3,
-p,
-.box-networks, .box-email h3
-{
-padding: 0.5rem;
-}
-
-.box-networks {
-    display: flex;
-    align-items: center;
+    margin-bottom: 0.5rem;
 }
 
 .list-networks {
     display: flex;
-    gap: 2.0rem;
-
+    gap: 0.5rem;
+    padding-top: 0.5rem;
 }
 
-
-@media (max-width: 500px) {
-    .container {
-        grid-template-columns: auto;
-    }
-
-    .box-aboutUs,
-    .box-networks {
-        text-align: center;
-    }
+.form-contact {
+    display: flex;
+    flex-direction: column;
+    text-transform: capitalize;
+    gap: 0.5rem;
+    margin: 0 auto;
 }
 
-.copyright {
-    border: 2px solid yellow;
+.copyright { 
     grid-column: 1/3;
     text-align: center;
     text-transform: capitalize;
