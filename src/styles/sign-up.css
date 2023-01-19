@@ -124,3 +124,21 @@ body {
   border-radius: 0.5rem;
   background-color: #03258c;
 }
+.input-img-container {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* .input-img-container label {
+  width: 100%;
+  height: 1rem;
+} */
+.input-img-container label img {
+  width: 100%;
+  height: 10vh;
+}
+.input-img-container input {
+  display: none;
+}
