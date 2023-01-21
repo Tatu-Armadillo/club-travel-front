@@ -294,8 +294,9 @@ iframe {
 .pop-up .form-container {
   width: 50%;
   background-color: #f29f05;
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 0.5rem;
+  display: table;
 }
 .pop-up .form-container:hover {
   box-shadow: 30px 30px 20px rgba(0, 0, 0, 0.3);
@@ -326,4 +327,15 @@ iframe {
   padding: 0.4rem 1rem;
   border-radius: 0.5rem;
   cursor: pointer;
+}
+@media (max-width: 750px) {
+  .pop-up .img-container {
+    display: none;
+  }
+  .pop-up .form-container {
+    width: 100%;
+  }
+  .pop-up .form-container:hover {
+    transform: none;
+  }
 }
