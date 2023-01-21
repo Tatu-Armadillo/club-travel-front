@@ -264,16 +264,66 @@ iframe {
   height: 40vh;
   box-shadow: 0 0 1em rgba(255 255 255 / 0.3);
   position: fixed;
+  display: flex;
+  gap: 1rem;
 }
 .pop-up .btn-close-modal {
   position: absolute;
-  right: 1rem;
+  color: #03258c;
+}
+.pop-up .btn-close-modal:hover {
+  color: #fff;
+  background-color: #03258c;
+  border: 1px solid #fff;
 }
 
 .pop-up::backdrop {
   background-color: rgba(0, 0, 0, 0.6);
 }
-.pop-up .pop-up-container {
-  display: grid;
-  grid-template-columns: 50% 50%;
+.pop-up .img-container {
+  grid-column: 1;
+  width: 50%;
+  height: 100%;
+  margin: 0;
+}
+.pop-up .img-container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.pop-up .form-container {
+  width: 50%;
+  background-color: #f29f05;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+.pop-up .form-container:hover {
+  box-shadow: 30px 30px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1%);
+}
+.input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.input-box input {
+  margin: 0.6rem 1.2rem;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 0.7rem;
+  box-shadow: 1px 1px 6px #0000001c;
+}
+.input-box label {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.input-box input::placeholder {
+  color: #000000c0;
+}
+.btn {
+  border: 1px solid #03258c;
+  padding: 0.4rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
 }
