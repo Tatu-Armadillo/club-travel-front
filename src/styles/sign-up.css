@@ -139,7 +139,11 @@ body {
 .input-img-container input {
   display: none;
 }
-
+@media (max-width: 1368px) {
+  .continue-button {
+    margin-top: 0;
+  }
+}
 @media (max-width: 1150px) {
   .container .img-container {
     display: none;
