@@ -10,6 +10,8 @@ function handleClickActive() {
   burguer.classList.toggle("active");
 }
 
-document.querySelector("body").onload = () => {
+document.querySelector("body").onload = () =>
   document.querySelector("dialog").showModal();
-};
+
+document.querySelector(".btn-close-modal").onclick = () =>
+  document.querySelector("dialog").close();
