@@ -255,4 +255,20 @@ a {
 iframe {
   height: 50vh;
   border-radius: 0.5rem;
+  transition: 0.5s all ease;
+}
+.pop-up {
+  border: none;
+  border-radius: 0.5rem;
+  width: 40vw;
+  height: 40vh;
+  position: relative;
+}
+.pop-up .btn-close-modal {
+  position: absolute;
+  right: 1rem;
+}
+
+.pop-up::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
 }
