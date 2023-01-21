@@ -263,7 +263,7 @@ iframe {
   width: 60vw;
   height: 40vh;
   box-shadow: 0 0 1em rgba(255 255 255 / 0.3);
-  position: relative;
+  position: fixed;
 }
 .pop-up .btn-close-modal {
   position: absolute;
@@ -272,4 +272,8 @@ iframe {
 
 .pop-up::backdrop {
   background-color: rgba(0, 0, 0, 0.6);
+}
+.pop-up .pop-up-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
