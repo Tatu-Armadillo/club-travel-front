@@ -9,9 +9,10 @@
 .lateral-content-container {
     display: flex;
     flex-direction: column;
+    height: 100vh;
     gap: 1rem;
     grid-column: 2;
-    grid-row: 1/2;
+    grid-row: 1;
     background-color: rgba(255, 255, 255, 0.7);
 }
 
@@ -118,7 +119,7 @@ a {
     width: 27vw;
     height: 24vh;
 }
-@media (max-width: 750px) {
+@media (max-width: 1000px) {
     .grid-container {
         display: flex;
         flex-direction: column;
