@@ -303,7 +303,7 @@ iframe {
 .input-box {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 .input-box input {
     margin: 0.6rem 1.2rem;
