@@ -19,12 +19,12 @@ const Notice = (url, title, author, datePost, urlImage, descImage) => {
 };
 const setNotice = (json) => {
     for (let i = 0; i < 5; i++) {
-        const { svg } = json[i].flags;
+        const { png } = json[i].flags;
         const { region } = json[i];
         const { common: countryName } = json[i].name;
         document
             .querySelector('.last-articles-container')
-            .append(Notice(svg, countryName, region, region, svg, countryName));
+            .append(Notice(png, countryName, region, region, png, countryName));
     }
 };
 
