@@ -17,17 +17,5 @@ const Notice = (url, title, author, datePost, urlImage, descImage) => {
     </div>`;
     return notice;
 };
-const setNotice = (json) => {
-    for (let i = 0; i < 5; i++) {
-        const { png } = json[i].flags;
-        const { region } = json[i];
-        const { common: countryName } = json[i].name;
-        document
-            .querySelector('.last-articles-container')
-            .append(Notice(png, countryName, region, region, png, countryName));
-    }
-};
 
-fetch('https://restcountries.com/v3.1/all')
-    .then((response) => response.json())
-    .then((response) => setNotice(response));
+export default Notice;
