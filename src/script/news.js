@@ -17,6 +17,7 @@ const Notice = (url, title, author, datePost, urlImage, descImage) => {
     </div>`;
     return notice;
 };
+
 const setNotice = (json) => {
     for (let i = 0; i < 5; i++) {
         const { png } = json[i].flags;
