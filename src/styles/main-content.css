@@ -93,7 +93,7 @@ a {
     color: #000;
 }
 .last-articles-container .article-item:hover {
-    background-color: rgba(240, 158, 5, 0.308);
+    background-color: #f29f05;
     cursor: pointer;
     box-shadow: 30px 30px 20px rgba(0, 0, 0, 0.3);
     color: #fff;
