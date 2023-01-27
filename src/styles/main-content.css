@@ -336,4 +336,18 @@ iframe {
     .pop-up .form-container:hover {
         transform: none;
     }
+    .last-articles-container .link-wrapper .article-item {
+        display: table;
+        padding: 1rem;
+        padding-left: 0.5rem;
+    }
+    .last-articles-container .link-wrapper .article-item .footer-article {
+        width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-left: 0;
+    }
+    .last-articles-container .link-wrapper .article-item .footer-article img {
+        width: 100%;
+    }
 }
