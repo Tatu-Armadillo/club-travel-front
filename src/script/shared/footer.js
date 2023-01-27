@@ -32,12 +32,12 @@ function section() {
     ul.className = "list-networks";
 
     linkInfos.forEach(info => {
-        let li = document.createElement("li");
+        const li = document.createElement("li");
         ul.append(li);
-        let a = document.createElement("a");
+        const a = document.createElement("a");
         a.href = info.href;
         li.append(a);
-        let img = document.createElement("img");
+        const img = document.createElement("img");
         img.src = info.src;
         img.alt = info.alt;
         a.append(img);

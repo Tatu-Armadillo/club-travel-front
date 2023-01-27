@@ -2,15 +2,7 @@ import { gereneteHomePage } from "./home-page.js";
 
 window.addEventListener("load", () => gereneteHomePage());
 
-    menuMobile.classList.toggle('active');
-    burguer.classList.toggle('active');
-}
-
-document.querySelector('body').onload = () =>
-    document.querySelector('dialog').showModal();
-
-document.querySelector('.btn-close-modal').onclick = () =>
-    document.querySelector('dialog').close();
+document.querySelector('body').onload = () => document.querySelector('dialog').showModal();
 
 const setNotice = (json) => {
     for (let i = 0; i < 5; i++) {
