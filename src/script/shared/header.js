@@ -4,9 +4,19 @@ export function header() {
     return header;
 };
 
+function linkAndNames(name, href) {
+    return {name, href};
+}
+
+const arrLinkAndNames = [
+    linkAndNames("início", "home.html"),
+    linkAndNames("infográficos", "#"),
+    linkAndNames("cadastro", "sign-up.html"),
+    linkAndNames("sobre nós", "#")
+]
+
 function navBar() {
     const nav = document.createElement("nav");
-    const nameList = ["início", "infográficos", "cadastro", "sobre nós"];
 
     const a = document.createElement("a");
     a.className = "logo";
@@ -17,14 +27,14 @@ function navBar() {
     const ul = document.createElement("ul");
     ul.className = "nav-list";
 
-    nameList.forEach(name => {
+    arrLinkAndNames.forEach(info => {
         const li = document.createElement("li");
         ul.append(li);
 
         const anchor = document.createElement("a");
         anchor.className = "linkNav";
-        anchor.href = "#";
-        anchor.innerText = name;
+        anchor.href = info.href;
+        anchor.innerText = info.name;
 
         li.append(anchor);
 
