@@ -283,7 +283,7 @@ iframe {
 .pop-up {
     border: none;
     border-radius: 0.5rem;
-    width: 60vw;
+    width: 70vw;
     height: 40vh;
     box-shadow: 0 0 1em rgba(255 255 255 / 0.3);
     position: fixed;
@@ -293,6 +293,7 @@ iframe {
 
 .pop-up .btn-close-modal {
     position: absolute;
+    left: 1%;
 }
 
 .pop-up::backdrop {
@@ -353,6 +354,9 @@ iframe {
 }
 
 @media (max-width: 750px) {
+    .pop-up {
+        padding: 0;
+    }
     .pop-up .img-container {
         display: none;
     }
