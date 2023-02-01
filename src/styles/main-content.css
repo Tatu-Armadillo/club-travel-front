@@ -42,7 +42,7 @@
     transition: all 0.5s;
 }
 
-.hot-container .hot-item:hover>p,
+.hot-container .hot-item:hover > p,
 a {
     opacity: 1;
     color: white;
@@ -62,7 +62,7 @@ a {
     transition: all 0.3s;
 }
 
-.hot-container .hot-item>p {
+.hot-container .hot-item > p {
     opacity: 0;
     position: relative;
     top: -2rem;
@@ -156,7 +156,7 @@ a {
         text-align: center;
     }
 
-    .hot-container .hot-item>p {
+    .hot-container .hot-item > p {
         opacity: 1;
     }
 
@@ -219,45 +219,45 @@ a {
     background-color: #f29f05;
 }
 
-#radio-image-1:checked~.slide img {
+#radio-image-1:checked ~ .slide img {
     margin-left: 0;
 }
 
-#radio-image-2:checked~.slide img {
+#radio-image-2:checked ~ .slide img {
     margin-left: -100%;
 }
 
-#radio-image-3:checked~.slide img {
+#radio-image-3:checked ~ .slide img {
     margin-left: -200%;
 }
 
-#radio-image-4:checked~.slide img {
+#radio-image-4:checked ~ .slide img {
     margin-left: -300%;
 }
 
-#radio-image-1:checked~.navigation .btn-navegation {
+#radio-image-1:checked ~ .navigation .btn-navegation {
     background-color: #f29f05;
 }
 
-#radio-image-1:checked~.slide .title {
+#radio-image-1:checked ~ .slide .title {
     position: absolute;
 
     left: 5%;
 }
 
-#radio-image-2:checked~.slide .title {
+#radio-image-2:checked ~ .slide .title {
     position: absolute;
 
     left: -95%;
 }
 
-#radio-image-3:checked~.slide .title {
+#radio-image-3:checked ~ .slide .title {
     position: absolute;
 
     left: -195%;
 }
 
-#radio-image-4:checked~.slide .title {
+#radio-image-4:checked ~ .slide .title {
     position: absolute;
 
     left: -295%;
@@ -284,7 +284,7 @@ iframe {
 .pop-up {
     border: none;
     border-radius: 0.5rem;
-    width: 60vw;
+    width: 70vw;
     height: 40vh;
     box-shadow: 0 0 1em rgba(255 255 255 / 0.3);
     position: fixed;
@@ -294,6 +294,7 @@ iframe {
 
 .pop-up .btn-close-modal {
     position: absolute;
+    left: 1%;
 }
 
 .pop-up::backdrop {
@@ -318,7 +319,9 @@ iframe {
     background-color: #f29f05;
     padding: 0.5rem;
     border-radius: 0.5rem;
-    display: table;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .input-box {
@@ -352,6 +355,9 @@ iframe {
 }
 
 @media (max-width: 750px) {
+    .pop-up {
+        padding: 0;
+    }
     .pop-up .img-container {
         display: none;
     }
