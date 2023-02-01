@@ -1,8 +1,10 @@
 import { header } from "./shared/header.js";
 import { footer } from "./shared/footer.js";
+import { head } from "./shared/head.js";
 
 export function gereneteHomePage() {
+    document.head.append(head());
     document.body.prepend(header());
     document.body.append(footer());
-    document.querySelector('.btn-close-modal').onclick = () => document.querySelector('dialog').close();
+    // document.querySelector('.btn-close-modal').onclick = () => document.querySelector('dialog').close();
 };
