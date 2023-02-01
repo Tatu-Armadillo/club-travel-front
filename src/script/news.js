@@ -1,4 +1,4 @@
-const Notice = (url, title, author, datePost, urlImage, descImage) => {
+export const Notice = (url, title, author, datePost, urlImage, descImage) => {
     const notice = document.createElement('a');
     notice.href = url;
     notice.classList.add('link-wrapper');
@@ -18,4 +18,13 @@ const Notice = (url, title, author, datePost, urlImage, descImage) => {
     return notice;
 };
 
-export default Notice;
+export const setNotice = (json) => {
+    for (let i = 0; i < 5; i++) {
+        const { png } = json[i].flags;
+        const { region } = json[i];
+        const { common: countryName } = json[i].name;
+        document
+            .querySelector('.last-articles-container')
+            .append(Notice(png, countryName, region, region, png, countryName));
+    }
+};
