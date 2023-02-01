@@ -1,5 +1,5 @@
 import { gereneteHomePage } from './home-page.js';
-import { setNotice } from './news.js';
+import { setNotice } from './notice.js';
 import { searchNews } from './services.js';
 
 window.addEventListener('load', () => gereneteHomePage());
