@@ -1,10 +1,6 @@
 @charset 'utf-8';
-
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .form-header .title h1 {
@@ -13,11 +9,6 @@
 
 a {
   text-decoration: none;
-}
-
-body {
-  scroll-behavior: smooth;
-  background: linear-gradient(340deg, #032ca6 20%, #03258c 30%, #03738c 50%);
 }
 
 .container {

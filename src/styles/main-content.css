@@ -4,6 +4,7 @@
     grid-gap: 1rem;
     padding: 2rem;
     height: 100%;
+    text-transform: capitalize;
 }
 
 .lateral-content-container {

@@ -1,17 +1,17 @@
 :root {
-    --text--color: #cfcfcf;
-    --background--footer: #03738C;
+    --footer--text: #cfcfcf;
+    --footer--background: #03258c;
+    --footer--White: #ffffff;
 }
 
 .container-footer {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    margin: 0 1rem;
+    background-color: var(--footer--background);
 }
 
-.box-aboutUs,
-.box-contact {
-    color: var(--text--color);
+.box-aboutUs {
+    color: var(--footer--text);
     padding: 0.5rem;
 }
 
@@ -19,8 +19,7 @@
     text-align: center;
 }
 
-.box-aboutUs h3,
-.box-contact h3 {
+.box-aboutUs h3 {
     text-transform: uppercase;
     margin-bottom: 0.5rem;
     text-align: center;
@@ -31,40 +30,13 @@
     gap: 0.5rem;
     padding-top: 0.5rem;
     justify-content: center;
-}
-
-.form-contact {
-    display: flex;
-    flex-direction: column;
-    text-transform: capitalize;
-    gap: 0.5rem;
-    text-align: center;
-}
-
-.form-contact input {
-    width: 25rem;
-    align-self: center;
+    list-style: none;
 }
 
 .copyright {
     grid-column: 1/3;
     text-align: center;
     text-transform: capitalize;
-    color: var(--text--color);
+    color: var(--footer--text);
     margin-top: .6rem;
-}
-
-@media (max-width: 750px) {
-    .container-footer {
-        grid-template-columns: auto;
-    }
-
-    .copyright {
-        grid-column: auto;
-    }
-
-    .form-contact input {
-        width: 15rem;
-        align-self: center;
-    }
 }

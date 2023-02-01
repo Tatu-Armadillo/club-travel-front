@@ -1,5 +1,5 @@
 :root {
-  --nav--background: #03738c;
+  --nav--background: #03258c;
   --nav--text: #cfcfcf;
   --nav--textWhite: #ffffff;
 }
@@ -49,6 +49,7 @@ nav {
   display: flex;
   text-transform: capitalize;
   align-items: center;
+  list-style: none;
   gap: 3.1rem;
 }
 

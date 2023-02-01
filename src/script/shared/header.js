@@ -12,7 +12,7 @@ const arrLinkAndNames = [
     linkAndNames("início", "home.html"),
     linkAndNames("infográficos", "#"),
     linkAndNames("cadastro", "sign-up.html"),
-    linkAndNames("sobre nós", "#")
+    linkAndNames("sobre nós", "about.html")
 ]
 
 function navBar() {
@@ -20,7 +20,7 @@ function navBar() {
 
     const a = document.createElement("a");
     a.className = "logo";
-    a.href = "#";
+    a.href = "home.html";
     a.innerText = "travel club";
     nav.append(a);
 

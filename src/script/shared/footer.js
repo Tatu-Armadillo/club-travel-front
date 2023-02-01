@@ -5,17 +5,17 @@ export function footer() {
     return footer;
 }
 
-function newLinkInfo(href, src, alt) {
-    return { href, src, alt };
+function newLinkInfo(href, src, alt, className) {
+    return { href, src, alt, className };
 }
 
 const linkInfos = [
-    newLinkInfo("https://t.me/+e-UE2kn0mGkwZWVh", "images/icons/telegram.svg", "ícone telegran"),
-    newLinkInfo("https://www.instagram.com/agenciadeviagem.eth/", "images/icons/instagram.svg", "ícone instagram"),
-    newLinkInfo("https://api.whatsapp.com/message/C4GH5VQQYFZAD1?autoload=1&app_absent=0", "images/icons/whatsapp.svg", "ícone whatsapp"),
-    newLinkInfo("https://tiktok.com/@agenciadeviagem.eth", "images/icons/tiktok.svg", "ícone tiktok"),
-    newLinkInfo("https://twitter.com/Web3TravelClub", "images/icons/twitter.svg", "ícone twitter"),
-    newLinkInfo("mailto:agenciadeviagem.eth@gmail.com", "images/icons/gmail.svg", "ícone gmail")
+    newLinkInfo("https://t.me/+e-UE2kn0mGkwZWVh", "images/icons/telegram.svg", "ícone telegran", "svgImg"),
+    newLinkInfo("https://www.instagram.com/agenciadeviagem.eth/", "images/icons/instagram.svg", "ícone instagram", "svgImg"),
+    newLinkInfo("https://api.whatsapp.com/message/C4GH5VQQYFZAD1?autoload=1&app_absent=0", "images/icons/whatsapp.svg", "ícone whatsapp", "svgImg"),
+    newLinkInfo("https://tiktok.com/@agenciadeviagem.eth", "images/icons/tiktok.svg", "ícone tiktok", "svgImg"),
+    newLinkInfo("https://twitter.com/Web3TravelClub", "images/icons/twitter.svg", "ícone twitter", "svgImg"),
+    newLinkInfo("mailto:agenciadeviagem.eth@gmail.com", "images/icons/gmail.svg", "ícone gmail", "svgImg")
 ];
 
 function section() {
@@ -39,6 +39,7 @@ function section() {
         li.append(a);
         const img = document.createElement("img");
         img.src = info.src;
+        img.className = info.className;
         img.alt = info.alt;
         a.append(img);
     });
