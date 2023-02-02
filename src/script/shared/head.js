@@ -4,12 +4,20 @@ export function head() {
     head.append(metas().metaHttp);
     head.append(metas().metaName);
 
+    linksConfig.forEach(info => {
+        const link = document.createElement("link");
+        link.rel = info.rel;
+        link.href = info.href;
+        link.type = info.type;
+        head.append(link);
+    });
+
     return head;
 }
 
 function metas() {
     const metaCharset = document.createElement("meta");
-    metaCharset.httpEquiv = "UTF-8";
+    metaCharset.setAttribute("charset", "UTF-8");
 
     const metaHttp = document.createElement("meta");
     metaHttp.httpEquiv = "X-UA-Compatible";
@@ -26,27 +34,15 @@ function links(rel, href, type) {
     return { rel, href, type };
 }
 
-const linksConfig = [
-    links("shortcut icon", "images/logo/logo-travel.png", "image/x-icon"),
-    links("stylesheet", "./styles/reset.css", ""),
-    links("stylesheet", "./styles/global.css", ""),
-    links("stylesheet", "./styles/header.css", ""),
-    links("stylesheet", "./styles/footer.css", ""),
-    links("stylesheet", "./styles/news.css", ""),
-    links("stylesheet", "./styles/main-content.css", ""),
-    links("stylesheet", "./styles/text-presets.css", ""),
-    links("stylesheet", "./styles/sign-up.css", ""),
-    links("stylesheet", "https://fonts.googleapis.com/css2?family=Montserrat&display=swap", "")
-];
-
-function linkInHead() {
-    linksConfig.map(info => {
-        const link = document.createElement("link");
-        link.rel = info.rel;
-        link.href = info.href;
-        link.type = info.type;
-    })
-}
-
-
-console.log(linkInHead());
+// const linksConfig = [
+//     links("shortcut icon", "images/logo/logo-travel.png", "image/x-icon"),
+//     links("stylesheet", "./styles/reset.css", ""),
+//     links("stylesheet", "./styles/global.css", ""),
+//     links("stylesheet", "./styles/header.css", ""),
+//     links("stylesheet", "./styles/footer.css", ""),
+//     links("stylesheet", "./styles/news.css", ""),
+//     links("stylesheet", "./styles/main-content.css", ""),
+//     links("stylesheet", "./styles/text-presets.css", ""),
+//     links("stylesheet", "./styles/sign-up.css", ""),
+//     links("stylesheet", "https://fonts.googleapis.com/css2?family=Montserrat&display=swap", "")
+// ];
