@@ -1,6 +1,6 @@
 export const Notice = (url, title, author, datePost, urlImage, descImage) => {
     const notice = document.createElement('a');
-    notice.href = url;
+    notice.href = './news.html';
     notice.classList.add('link-wrapper');
     notice.innerHTML = `<div class='article-item'>
         <div class='header-article'>

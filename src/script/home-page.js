@@ -1,6 +1,7 @@
 import { header } from './shared/header.js';
 import { footer } from './shared/footer.js';
 import { head, links } from './shared/head.js';
+import { Slider, fakeResponse } from './slider.js';
 
 const linksConfig = [
     links('shortcut icon', 'images/logo/logo-travel.png', 'image/x-icon'),
@@ -16,10 +17,33 @@ const linksConfig = [
         ''
     ),
 ];
+let list = Array(
+    fakeResponse(
+        'https://www.maladeaventuras.com/wp-content/uploads/2022/12/melhore-hoteis-em-belo-horizonte-com-piscina-Bourbon-Belo-Horizonte.jpg',
+        'Qualquer',
+        'Qualquer'
+    ),
+    fakeResponse(
+        'https://www.maladeaventuras.com/wp-content/uploads/2022/12/melhores-passeios-malta-1536x1229.jpg.webp',
+        'Qualquer',
+        'Qualquer'
+    ),
+    fakeResponse(
+        'https://www.maladeaventuras.com/wp-content/uploads/2022/11/Mellieha-Beach-Malta-1536x1229.jpg.webp',
+        'Qualquer',
+        'Qualquer'
+    ),
+    fakeResponse(
+        'https://www.maladeaventuras.com/wp-content/uploads/2022/12/melhores-passeios-malta-1536x1229.jpg.webp',
+        'Qualquer',
+        'Qualquer'
+    )
+);
 
 export function gereneteHomePage() {
     head(linksConfig);
     document.body.prepend(header());
+    Slider(list);
     document.body.append(footer());
     // document.querySelector('.btn-close-modal').onclick = () => document.querySelector('dialog').close();
 }
