@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 body {
     height: 100vh;
@@ -12,7 +13,7 @@ h1 {
 main {
     display: flex;
     width: 90vw;
-    padding: 1rem 0 1rem 1rem;
+    padding: 1rem;
     margin: auto;
     flex-direction: column;
     justify-content: center;
@@ -26,24 +27,45 @@ main {
     width: 100%;
     height: 5vh;
 }
+.header-news p {
+    font-size: 1.2rem;
+    opacity: 0.5;
+    display: flex;
+    gap: 0.5rem;
+}
+
 .header-news .destination {
     display: flex;
     border: 1px solid #f29f05;
     width: 20vw;
-    justify-content: center;
     align-items: center;
     height: 5vh;
     align-self: flex-start;
     justify-self: flex-end;
-    border-radius: 0.5rem 0 0 0.5rem;
+    border-radius: 0.5rem;
     transition: all ease 0.3s;
     font-size: 1.2rem;
-    color: #000;
+    color: #f29f05;
+    font-weight: 600;
+    position: relative;
 }
+.header-news .destination img {
+    width: 100%;
+    height: 80%;
+    transition: all ease 0.3s;
+    left: -15%;
+    position: absolute;
+}
+
 .header-news .destination:hover {
     transform: scale(1.01);
+    background-color: #f29f05;
+    color: #fff;
 }
-.header-news p {
+.header-news .destination:hover > img {
+    transform: translate(50%);
+}
+.header-news .destination p {
     padding: 1rem;
 }
 .container-news {

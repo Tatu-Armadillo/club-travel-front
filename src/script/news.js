@@ -12,6 +12,7 @@ const linksConfig = [
         'https://fonts.googleapis.com/css2?family=Montserrat&display=swap',
         ''
     ),
+    ,
 ];
 
 const Main = document.querySelector('main');
@@ -45,8 +46,10 @@ const buildNews = (date, destination, title, content) => {
     document.body.append(footer());
     Main.innerHTML = `
             <div class="header-news">
-                <p>${date}</p>
-                <a class="destination" href="#">${destination}</a>
+                <p><span class="material-symbols-outlined">
+                chronic
+                </span>${date}</p>
+                <a class="destination" href="#"><p>${destination}</p><img src="./images/icons/map.svg" alt="" /></a>
             </div>
             <div class="container-news">
                 <h1 >${title}</h1>
@@ -61,7 +64,7 @@ const buildNews = (date, destination, title, content) => {
 
 document.body.onload = buildNews(
     '26/01/2023',
-    'Marcos',
+    'Bahia',
     'Pousadas em Barra Grande, Bahia: as 15 mais charmosas',
     post
 );
