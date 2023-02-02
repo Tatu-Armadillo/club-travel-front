@@ -12,19 +12,39 @@ h1 {
 main {
     display: flex;
     width: 90vw;
-    padding: 1rem;
+    padding: 1rem 0 1rem 1rem;
     margin: auto;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #fff;
+    background-color: rgba(255, 255, 255, 0.7);
     gap: 1rem;
 }
 .header-news {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
     height: 5vh;
+}
+.header-news .destination {
+    display: flex;
+    border: 1px solid #f29f05;
+    width: 20vw;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    align-self: flex-start;
+    justify-self: flex-end;
+    border-radius: 0.5rem 0 0 0.5rem;
+    transition: all ease 0.3s;
+    font-size: 1.2rem;
+    color: #000;
+}
+.header-news .destination:hover {
+    transform: scale(1.01);
+}
+.header-news p {
+    padding: 1rem;
 }
 .container-news {
     width: 100%;

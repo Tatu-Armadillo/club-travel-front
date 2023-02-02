@@ -1,3 +1,19 @@
+import { head, links } from './shared/head.js';
+import { header } from './shared/header.js';
+import { footer } from './shared/footer.js';
+const linksConfig = [
+    links('shortcut icon', 'images/logo/logo-travel.png', 'image/x-icon'),
+    links('stylesheet', './styles/global.css', ''),
+    links('stylesheet', './styles/news.css', ''),
+    links('stylesheet', './styles/header.css', ''),
+    links('stylesheet', './styles/footer.css', ''),
+    links(
+        'stylesheet',
+        'https://fonts.googleapis.com/css2?family=Montserrat&display=swap',
+        ''
+    ),
+];
+
 const Main = document.querySelector('main');
 let post = [
     {
@@ -24,11 +40,13 @@ let post = [
     },
 ];
 
-const buildNews = (date, author, title, content) => {
+const buildNews = (date, destination, title, content) => {
+    document.body.prepend(header());
+    document.body.append(footer());
     Main.innerHTML = `
             <div class="header-news">
                 <p>${date}</p>
-                <a href="#">${author}</a>
+                <a class="destination" href="#">${destination}</a>
             </div>
             <div class="container-news">
                 <h1 >${title}</h1>
@@ -47,6 +65,7 @@ document.body.onload = buildNews(
     'Pousadas em Barra Grande, Bahia: as 15 mais charmosas',
     post
 );
+document.body.onload = head(linksConfig);
 
 function setComponent(object) {
     let { tagname, content } = object;
