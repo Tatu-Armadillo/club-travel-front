@@ -1,4 +1,4 @@
-import { gereneteHomePage } from './home-page.js';
+import { gereneteHomePage } from './pages/home-page.js';
 import { setNotice } from './notice.js';
 import { searchNews } from './services.js';
 

@@ -1,6 +1,6 @@
-import { head, links } from './shared/head.js';
-import { header } from './shared/header.js';
-import { footer } from './shared/footer.js';
+import { head, links } from '../shared/head.js';
+import { header } from '../shared/header.js';
+import { footer } from '../shared/footer.js';
 const linksConfig = [
     links('shortcut icon', 'images/logo/logo-travel.png', 'image/x-icon'),
     links('stylesheet', './styles/global.css', ''),
