@@ -2,6 +2,8 @@ import { header } from '../shared/header.js';
 import { footer } from '../shared/footer.js';
 import { head, links } from '../shared/head.js';
 import { Slider, fakeResponse } from '../slider.js';
+import { setNotice } from '../notice.js';
+import { searchNews } from '../services.js';
 
 const linksConfig = [
     links('shortcut icon', 'images/logo/logo-travel.png', 'image/x-icon'),
@@ -45,5 +47,9 @@ export function gereneteHomePage() {
     document.body.prepend(header());
     Slider(list);
     document.body.append(footer());
+
+    searchNews('https://restcountries.com/v3.1/all').then((result) =>
+        setNotice(result)
+    );
     // document.querySelector('.btn-close-modal').onclick = () => document.querySelector('dialog').close();
 }
