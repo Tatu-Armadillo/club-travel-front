@@ -1,20 +1,20 @@
-import { Slider } from '../Slider';
 import { SwiperProps, SwiperSlide } from 'swiper/react';
 import { HotItem } from '../HotItem';
 
-export const Highlights = () => {
+import { Slider } from '../Slider';
+export const Destinations = () => {
     const sliderConfig: SwiperProps = {
-        spaceBetween: 50,
-        slidesPerView: 1,
-        slidesPerGroup: 1,
-        navigation: false,
+        spaceBetween: 20,
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+        navigation: true,
         pagination: {
             clickable: true,
         },
     };
     return (
         <div>
-            <h1 className='text-center text-3xl'>Destaques</h1>
+            <h1 className='text-3xl'>Destinos</h1>
             <Slider settings={sliderConfig}>
                 <SwiperSlide>
                     <HotItem />
