@@ -1,9 +1,8 @@
+import { Main } from './shared/Components/Main';
+
 function App() {
-  return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  )
+    const Element = [<div>Teste 1</div>,<div>Teste 2</div>];
+    return <Main childrens={Element} />;
 }
 
-export default App
+export default App;
