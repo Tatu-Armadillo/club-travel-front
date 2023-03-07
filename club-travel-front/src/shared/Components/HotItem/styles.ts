@@ -9,6 +9,7 @@ export const LinkWraper = styled.a<LinkWraperProps>`
     align-items: center;
     padding: 0;
     border-radius: 1rem;
+    flex-direction: column;
 
     &&:hover > p,
     a {
@@ -24,9 +25,7 @@ export const LinkWraper = styled.a<LinkWraperProps>`
 
     && > p {
         opacity: 0;
-        position: relative;
-        top: -25%;
-        left: -25%;
+        position: fixed;
         transition: all linear 0.5s;
         background-color: rgba(0, 0, 0, 0.295);
         padding: 1rem;
