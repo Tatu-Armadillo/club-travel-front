@@ -1,11 +1,11 @@
-import { GridContainer } from './styles';
+import { GridContainer, FlexContainer } from './styles';
 import { Destinations } from '../Destinations';
 import { Highlights } from '../Highlights';
 import { LastNewsContainer } from '../LastNewsContainer';
 export const Main = () => {
     return (
         <GridContainer>
-            <div>
+            <FlexContainer>
                 <Destinations />
                 <LastNewsContainer>
                     <div>News1</div>
@@ -14,10 +14,10 @@ export const Main = () => {
                     <div>News1</div>
                     <div>News1</div>
                 </LastNewsContainer>
-            </div>
-            <div>
+            </FlexContainer>
+            <FlexContainer>
                 <Highlights />
-            </div>
+            </FlexContainer>
         </GridContainer>
     );
 };

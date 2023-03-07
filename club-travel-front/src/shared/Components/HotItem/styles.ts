@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
-export const LinkWraper = styled.a`
+export interface LinkWraperProps {
+    hoverState: boolean;
+}
+export const LinkWraper = styled.a<LinkWraperProps>`
     display: flex;
     transition: all 0.5s;
     align-items: center;
@@ -15,7 +18,8 @@ export const LinkWraper = styled.a`
     }
 
     &&:hover {
-        transform: scale(0.9);
+        transform: ${(props) =>
+            props.hoverState === true ? 'scale(0.9) ' : 'none'};
     }
 
     && > p {

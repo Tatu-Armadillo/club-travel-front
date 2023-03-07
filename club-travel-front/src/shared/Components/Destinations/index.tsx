@@ -1,5 +1,6 @@
 import { SwiperProps, SwiperSlide } from 'swiper/react';
 import { HotItem } from '../HotItem';
+import { LinkWraperProps } from '../HotItem/styles';
 
 import { Slider } from '../Slider';
 export const Destinations = () => {
@@ -12,21 +13,24 @@ export const Destinations = () => {
             clickable: true,
         },
     };
+    const hotItemConfig: LinkWraperProps = {
+        hoverState: true,
+    };
     return (
         <div>
             <h1 className='text-3xl'>Destinos</h1>
             <Slider settings={sliderConfig}>
                 <SwiperSlide>
-                    <HotItem />
+                    <HotItem config={hotItemConfig} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <HotItem />
+                    <HotItem config={hotItemConfig} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <HotItem />
+                    <HotItem config={hotItemConfig} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <HotItem />
+                    <HotItem config={hotItemConfig} />
                 </SwiperSlide>
             </Slider>
         </div>
