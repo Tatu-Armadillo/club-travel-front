@@ -1,8 +1,10 @@
 import { SwiperProps, SwiperSlide } from 'swiper/react';
 import { HotItem } from '../HotItem';
 import { LinkWraperProps } from '../HotItem/styles';
+import { MapPin } from 'lucide-react';
 
 import { Slider } from '../Slider';
+
 export const Destinations = () => {
     const sliderConfig: SwiperProps = {
         spaceBetween: 20,
@@ -18,19 +20,19 @@ export const Destinations = () => {
     };
     return (
         <div>
-            <h1 className='text-3xl'>Destinos</h1>
+            <h1 className='text-3xl'>Destinos </h1>
             <Slider settings={sliderConfig}>
                 <SwiperSlide>
-                    <HotItem config={hotItemConfig} />
+                    <HotItem title='Lugar 1' config={hotItemConfig} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <HotItem config={hotItemConfig} />
+                    <HotItem title='Lugar 2' config={hotItemConfig} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <HotItem config={hotItemConfig} />
+                    <HotItem title='Lugar 3' config={hotItemConfig} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <HotItem config={hotItemConfig} />
+                    <HotItem title='Lugar 4' config={hotItemConfig} />
                 </SwiperSlide>
             </Slider>
         </div>

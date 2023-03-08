@@ -21,16 +21,16 @@ export const Highlights = () => {
             <h1 className='text-center text-3xl'>Destaques</h1>
             <Slider settings={sliderConfig}>
                 <SwiperSlide>
-                    <HotItem config={hotItemConfig} />
+                    <HotItem title='Lugar 1' config={hotItemConfig} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <HotItem config={hotItemConfig} />
+                    <HotItem title='Lugar 2' config={hotItemConfig} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <HotItem config={hotItemConfig} />
+                    <HotItem title='Lugar 3' config={hotItemConfig} />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <HotItem config={hotItemConfig} />
+                    <HotItem title='Lugar 4' config={hotItemConfig} />
                 </SwiperSlide>
             </Slider>
         </div>
