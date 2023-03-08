@@ -428,6 +428,11 @@
     "@types/react" "*"
     hoist-non-react-statics "^3.3.0"
 
+"@types/node@^18.14.6":
+  version "18.14.6"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.14.6.tgz#ae1973dd2b1eeb1825695bb11ebfb746d27e3e93"
+  integrity sha512-93+VvleD3mXwlLI/xASjw0FzKcwzl3OdTCzm1LaRfqgS21gfFtK3zDXM5Op9TeeMsJVOaJ2VRDpT9q4Y3d0AvA==
+
 "@types/prop-types@*":
   version "15.7.5"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
@@ -896,6 +901,11 @@ lru-cache@^5.1.1:
   integrity sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==
   dependencies:
     yallist "^3.0.2"
+
+lucide-react@^0.124.0:
+  version "0.124.0"
+  resolved "https://registry.yarnpkg.com/lucide-react/-/lucide-react-0.124.0.tgz#ed76909f8d90c0f0dd84a4e2ee73b0e8e595bba8"
+  integrity sha512-U1TGpFPLVOOIfs4SIeJ1F6gNcdpFpt5GDesgOaak6Tr7jTLkhjCdmBok0UksmpYfehN5zMMW+g37nzU2XHCtnw==
 
 magic-string@^0.27.0:
   version "0.27.0"
