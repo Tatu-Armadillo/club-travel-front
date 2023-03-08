@@ -20,7 +20,3 @@ export const BoxLogo = styled.img`
     height: 3.5rem;
     width: auto;
 `;
-
-export const BoxMobile = styled.div<Props>`
-    display: ${(props) => props.open ? "block" : "none"};
-`;
