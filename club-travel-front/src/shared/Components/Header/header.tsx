@@ -1,14 +1,11 @@
-import { Navbar, BoxImages, BoxLogo, BoxMobile } from "./header.styled";
+import { Navbar, BoxImages, BoxLogo } from "./header.styled";
 import LogoName from "../../img/web3travelclub4.png";
 import Logo from "../../img/web3reallogoamarela.png";
 import { Menu } from "lucide-react"
 import { Link } from "react-router-dom";
 import { Button } from "@/shared/Components";
-import { useState } from "react";
 
 export const Header = () => {
-    const [show, setShow] = useState(true);
-
     type Props = {
         name: string,
         link: string
