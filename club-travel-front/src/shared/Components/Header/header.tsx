@@ -1,9 +1,9 @@
 import { Navbar, BoxImages, BoxLogo } from "./header.styled";
 import LogoName from "../../img/web3travelclub4.png";
 import Logo from "../../img/web3reallogoamarela.png";
-import { Menu } from "lucide-react"
 import { Link } from "react-router-dom";
 import { Button } from "@/shared/Components";
+import { IoMdMenu } from "@react-icons/all-files/io/IoMdMenu"
 
 export const Header = () => {
     type Props = {
@@ -28,7 +28,7 @@ export const Header = () => {
                 <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                     <div className="relative flex h-20 items-center justify-between">
                         <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                            <Button typeButton="button" classButton="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-blue-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" text={<Menu color="white" className="block h-6 w-6" />} funcClick={handleClassHidden} />
+                            <Button typeButton="button" classButton="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-blue-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" text={<IoMdMenu color="white" className="block h-6 w-6" />} funcClick={handleClassHidden} />
 
                         </div>
                         <BoxImages>
@@ -55,7 +55,7 @@ export const Header = () => {
                         </div>
                     </div>
                 </div>
-                <div className="lg:hidden md:hidden hidden" id="mobile-menu">
+                <div className="lg:hidden md:hidden sm:hidden" id="mobile-menu">
                     <div className="space-y-1 px-2 pt-2 pb-3">
                         {arrItems.map((item, key) => {
                             const { link, name } = item;
