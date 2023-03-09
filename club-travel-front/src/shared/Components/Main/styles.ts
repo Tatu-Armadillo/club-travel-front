@@ -7,11 +7,16 @@ export const GridContainer = styled.div`
     height: 100%;
 `;
 
-export const FlexContainer = styled.div`
+interface FlexContainerProps {
+    viewHeightControl?: number;
+}
+export const FlexContainer = styled.div<FlexContainerProps>`
     display: flex;
     flex-direction: column;
     background-color: aliceblue;
     padding: 1rem;
     border-radius: 1rem;
     gap: 1rem;
+    height: ${(props) =>
+        props.viewHeightControl ? props.viewHeightControl + 'rem' : 'auto'};
 `;

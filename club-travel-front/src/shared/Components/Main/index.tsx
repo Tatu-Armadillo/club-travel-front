@@ -37,7 +37,7 @@ export const Main = () => {
                     ))}
                 />
             </FlexContainer>
-            <FlexContainer>
+            <FlexContainer viewHeightControl={50}>
                 <Highlights />
             </FlexContainer>
         </GridContainer>
