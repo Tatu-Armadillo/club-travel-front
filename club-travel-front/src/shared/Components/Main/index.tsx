@@ -8,6 +8,7 @@ import { CardNews } from '../CardNews';
 interface FlagProps {
     original_title: string;
     poster_path: string;
+    overview: string;
 }
 
 export const Main = () => {
@@ -31,6 +32,7 @@ export const Main = () => {
                         <CardNews
                             title={item.original_title}
                             url={ApiImageLink + item.poster_path}
+                            description={item.overview}
                         />
                     ))}
                 />
