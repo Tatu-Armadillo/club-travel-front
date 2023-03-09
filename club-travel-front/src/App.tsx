@@ -1,4 +1,4 @@
-import { Header } from "@/shared/Components";
+import { Footer, Header } from "@/shared/Components";
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       <main>
 
       </main>
-      
+      <Footer />
     </div>
   )
 }
