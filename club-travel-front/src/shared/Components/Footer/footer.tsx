@@ -1,10 +1,6 @@
 import { BoxFooter } from "./footer.styled";
-import { AiOutlineInstagram } from "@react-icons/all-files/ai/AiOutlineInstagram";
-import { AiOutlineTwitter } from "@react-icons/all-files/ai/AiOutlineTwitter";
-import { AiOutlineWhatsApp } from "@react-icons/all-files/ai/AiOutlineWhatsApp";
-import { FaTelegramPlane } from "@react-icons/all-files/fa/FaTelegramPlane";
-import { SiTiktok } from "@react-icons/all-files/si/SiTiktok";
-import { AiOutlineMail } from "@react-icons/all-files/ai/AiOutlineMail";
+import { FaInstagram, FaTwitter, FaWhatsapp, FaTiktok, FaTelegramPlane } from "react-icons/fa";
+import { AiOutlineMail } from "react-icons/ai";
 import Logo from "../../img/web3reallogoamarela.png";
 import LogoName from "../../img/web3travelclub4.png";
 import { Link } from "react-router-dom";
@@ -18,11 +14,11 @@ export const Footer = () => {
     const sizeIcon: string = "1.3rem";
 
     const arrAnchor: Props[] = [
-        { href: "https://www.instagram.com/agenciadeviagem.eth/", icon: <AiOutlineInstagram size={sizeIcon} /> },
-        { href: "https://twitter.com/Web3TravelClub", icon: <AiOutlineTwitter size={sizeIcon} /> },
-        { href: "https://api.whatsapp.com/message/C4GH5VQQYFZAD1?autoload=1&app_absent=0", icon: <AiOutlineWhatsApp size={sizeIcon} /> },
+        { href: "https://www.instagram.com/agenciadeviagem.eth/", icon: <FaInstagram size={sizeIcon} /> },
+        { href: "https://twitter.com/Web3TravelClub", icon: <FaTwitter size={sizeIcon} /> },
+        { href: "https://api.whatsapp.com/message/C4GH5VQQYFZAD1?autoload=1&app_absent=0", icon: <FaWhatsapp size={sizeIcon} /> },
         { href: "https://t.me/+e-UE2kn0mGkwZWVh", icon: <FaTelegramPlane size={sizeIcon} /> },
-        { href: "https://tiktok.com/@agenciadeviagem.eth", icon: <SiTiktok size={sizeIcon} /> },
+        { href: "https://tiktok.com/@agenciadeviagem.eth", icon: <FaTiktok size={sizeIcon} /> },
         { href: "mailto:agenciadeviagem.eth@gmail.com", icon: <AiOutlineMail size={sizeIcon} /> },
     ];
 
