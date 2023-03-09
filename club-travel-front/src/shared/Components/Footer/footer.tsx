@@ -5,6 +5,9 @@ import { AiOutlineWhatsApp } from "@react-icons/all-files/ai/AiOutlineWhatsApp";
 import { FaTelegramPlane } from "@react-icons/all-files/fa/FaTelegramPlane";
 import { SiTiktok } from "@react-icons/all-files/si/SiTiktok";
 import { AiOutlineMail } from "@react-icons/all-files/ai/AiOutlineMail";
+import Logo from "../../img/web3reallogobranca.png";
+import LogoName from "../../img/web3travelclub5.png";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
     type Props = {
@@ -27,10 +30,10 @@ export const Footer = () => {
         <BoxFooter className="p-4">
             <div className="md:flex md:justify-between mx-auto max-w-7xl">
                 <div className="mb-6 md:mb-0 justify-center items-center flex">
-                    <a href="https://flowbite.com/" className="flex items-center">
-                        <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 mr-3" alt="FlowBite Logo" />
-                        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-                    </a>
+                    <Link to="/" className="flex items-center">
+                        <img src={Logo} className="h-12 mr-3" alt="FlowBite Logo" />
+                        <img src={LogoName} className="h-12" />
+                    </Link>
                 </div>
                 <div className="flex space-x-6 items-center sm:mt-0 justify-center">
                     {arrAnchor.map((item, key) => {
