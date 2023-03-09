@@ -5,7 +5,5 @@ export const LastNewsContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.5rem;
 `;
-
-
