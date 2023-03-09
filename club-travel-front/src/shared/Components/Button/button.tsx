@@ -5,7 +5,6 @@ type Props = {
     funcClick?: () => any
 };
 
-
 export const Button = ({ typeButton, classButton, funcClick, text }: Props) => {
     const handleClick = () => {
         if (funcClick) {
