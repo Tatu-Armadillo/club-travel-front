@@ -55,7 +55,7 @@ export const Header = () => {
                         </div>
                     </div>
                 </div>
-                <div className="lg:hidden md:hidden sm:hidden" id="mobile-menu">
+                <div className="lg:hidden md:hidden sm:hidden hidden" id="mobile-menu">
                     <div className="space-y-1 px-2 pt-2 pb-3">
                         {arrItems.map((item, key) => {
                             const { link, name } = item;
