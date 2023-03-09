@@ -5,8 +5,8 @@ import { AiOutlineWhatsApp } from "@react-icons/all-files/ai/AiOutlineWhatsApp";
 import { FaTelegramPlane } from "@react-icons/all-files/fa/FaTelegramPlane";
 import { SiTiktok } from "@react-icons/all-files/si/SiTiktok";
 import { AiOutlineMail } from "@react-icons/all-files/ai/AiOutlineMail";
-import Logo from "../../img/web3reallogobranca.png";
-import LogoName from "../../img/web3travelclub5.png";
+import Logo from "../../img/web3reallogoamarela.png";
+import LogoName from "../../img/web3travelclub4.png";
 import { Link } from "react-router-dom";
 
 export const Footer = () => {
