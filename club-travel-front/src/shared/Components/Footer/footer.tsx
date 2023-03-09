@@ -9,28 +9,30 @@ import { AiOutlineMail } from "@react-icons/all-files/ai/AiOutlineMail";
 export const Footer = () => {
     type Props = {
         href: string,
-        icon: JSX.Element
+        icon: JSX.Element,
     };
 
+    const sizeIcon: string = "1.3rem";
+
     const arrAnchor: Props[] = [
-        { href: "https://www.instagram.com/agenciadeviagem.eth/", icon: <AiOutlineInstagram /> },
-        { href: "https://twitter.com/Web3TravelClub", icon: <AiOutlineTwitter /> },
-        { href: "https://api.whatsapp.com/message/C4GH5VQQYFZAD1?autoload=1&app_absent=0", icon: <AiOutlineWhatsApp /> },
-        { href: "https://t.me/+e-UE2kn0mGkwZWVh", icon: <FaTelegramPlane /> },
-        { href: "https://tiktok.com/@agenciadeviagem.eth", icon: <SiTiktok /> },
-        { href: "mailto:agenciadeviagem.eth@gmail.com", icon: <AiOutlineMail /> },
+        { href: "https://www.instagram.com/agenciadeviagem.eth/", icon: <AiOutlineInstagram size={sizeIcon} /> },
+        { href: "https://twitter.com/Web3TravelClub", icon: <AiOutlineTwitter size={sizeIcon} /> },
+        { href: "https://api.whatsapp.com/message/C4GH5VQQYFZAD1?autoload=1&app_absent=0", icon: <AiOutlineWhatsApp size={sizeIcon} /> },
+        { href: "https://t.me/+e-UE2kn0mGkwZWVh", icon: <FaTelegramPlane size={sizeIcon} /> },
+        { href: "https://tiktok.com/@agenciadeviagem.eth", icon: <SiTiktok size={sizeIcon} /> },
+        { href: "mailto:agenciadeviagem.eth@gmail.com", icon: <AiOutlineMail size={sizeIcon} /> },
     ];
 
     return (
-        <BoxFooter className="p-4 sm:p-6 ">
-            <div className="md:flex md:justify-between">
-                <div className="mb-6 md:mb-0">
+        <BoxFooter className="p-4">
+            <div className="md:flex md:justify-between mx-auto max-w-7xl">
+                <div className="mb-6 md:mb-0 justify-center items-center flex">
                     <a href="https://flowbite.com/" className="flex items-center">
                         <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 mr-3" alt="FlowBite Logo" />
                         <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
                     </a>
                 </div>
-                <div className="flex space-x-6 items-center sm:mt-0">
+                <div className="flex space-x-6 items-center sm:mt-0 justify-center">
                     {arrAnchor.map((item, key) => {
                         const { href, icon } = item;
                         return (
