@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { TitleTopic } from '../TitleTopic';
 import { LastNewsContainer } from './styles';
 interface LastNewsProps {
     children: ReactNode;
@@ -8,7 +9,7 @@ interface LastNewsProps {
 export const LastNews = ({ children, title }: LastNewsProps) => {
     return (
         <div>
-            <h1 className='text-3xl mb-8'>{title}</h1>
+            <TitleTopic title={title} />
             <LastNewsContainer>{children}</LastNewsContainer>
         </div>
     );

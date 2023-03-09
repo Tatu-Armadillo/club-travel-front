@@ -1,9 +1,9 @@
 import { SwiperProps, SwiperSlide } from 'swiper/react';
 import { HotItem } from '../HotItem';
 import { LinkWraperProps } from '../HotItem/styles';
-import { MapPin } from 'lucide-react';
 
 import { Slider } from '../Slider';
+import { TitleTopic } from '../TitleTopic';
 
 export const Destinations = () => {
     const sliderConfig: SwiperProps = {
@@ -20,7 +20,7 @@ export const Destinations = () => {
     };
     return (
         <div>
-            <h1 className='text-3xl'>Destinos </h1>
+            <TitleTopic title='Destinos' />
             <Slider settings={sliderConfig}>
                 <SwiperSlide>
                     <HotItem title='Lugar 1' config={hotItemConfig} />

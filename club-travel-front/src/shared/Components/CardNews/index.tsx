@@ -3,7 +3,7 @@ import { CardImage } from './styles';
 interface CardNewsProps {
     url: string;
     title: string;
-    description: string;
+    description?: string;
 }
 export const CardNews = ({ url, title, description }: CardNewsProps) => {
     return (

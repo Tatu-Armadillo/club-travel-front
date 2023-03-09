@@ -2,6 +2,7 @@ import { Slider } from '../Slider';
 import { SwiperProps, SwiperSlide } from 'swiper/react';
 import { HotItem } from '../HotItem';
 import { LinkWraperProps } from '../HotItem/styles';
+import { TitleTopic } from '../TitleTopic';
 
 export const Highlights = () => {
     const sliderConfig: SwiperProps = {
@@ -18,7 +19,7 @@ export const Highlights = () => {
     };
     return (
         <div>
-            <h1 className='text-center text-3xl'>Destaques</h1>
+            <TitleTopic title='Destaques' />
             <Slider settings={sliderConfig}>
                 <SwiperSlide>
                     <HotItem title='Lugar 1' config={hotItemConfig} />
