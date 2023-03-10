@@ -3,7 +3,7 @@ import { SwiperProps, SwiperSlide } from 'swiper/react';
 import { HotItem } from '@/shared/Components';
 import { LinkWraperProps } from '../HotItem/hotItem.styled';
 import { TitleTopic } from '@/shared/Components';
-
+import { GiPalmTree } from 'react-icons/gi';
 export const Highlights = () => {
     const sliderConfig: SwiperProps = {
         spaceBetween: 50,
@@ -19,7 +19,12 @@ export const Highlights = () => {
     };
     return (
         <div className='p-3'>
-            <TitleTopic title='Destaques' />
+            <div className='flex gap-2'>
+                <TitleTopic title='Destaques' />
+                <GiPalmTree size={'2em'} color={'green'} />
+            </div>
+
+            <span></span>
             <Slider settings={sliderConfig}>
                 <SwiperSlide>
                     <HotItem title='Lugar 1' config={hotItemConfig} />

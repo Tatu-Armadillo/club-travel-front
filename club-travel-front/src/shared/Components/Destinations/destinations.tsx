@@ -1,7 +1,7 @@
 import { SwiperProps, SwiperSlide } from 'swiper/react';
 import { HotItem } from '@/shared/Components';
 import { LinkWraperProps } from '../HotItem/hotItem.styled';
-
+import { FaMapSigns } from 'react-icons/fa';
 import { Slider } from '@/shared/Components';
 import { TitleTopic } from '@/shared/Components';
 
@@ -19,8 +19,11 @@ export const Destinations = () => {
         hoverState: true,
     };
     return (
-        <div className="p-3">
-            <TitleTopic title='Destinos' />
+        <div className='p-3'>
+            <div className='flex gap-2'>
+                <TitleTopic title='Destinos' />
+                <FaMapSigns size={'2em'} />
+            </div>
             <Slider settings={sliderConfig}>
                 <SwiperSlide>
                     <HotItem title='Lugar 1' config={hotItemConfig} />

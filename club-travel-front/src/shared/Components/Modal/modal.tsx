@@ -1,4 +1,27 @@
-export const Modal = () => {
+import { ChangeEvent, useState } from 'react';
+
+interface ModalProps {
+    externFunc: () => void;
+}
+
+interface ModalFormProps {
+    name: string;
+    phone: string;
+    mail: string;
+}
+
+export const Modal = ({ externFunc }: ModalProps) => {
+    const [inputValues, setInputValue] = useState<ModalFormProps>({
+        name: '',
+        phone: '',
+        mail: '',
+    });
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setInputValue({
+            ...inputValues,
+            [e.currentTarget.name]: e.currentTarget.value,
+        });
+    };
     return (
         <div
             className='relative z-10'
@@ -27,15 +50,17 @@ export const Modal = () => {
                                     >
                                         <div className='col-span-6 sm:col-span-3'>
                                             <label
-                                                htmlFor='first-name'
+                                                htmlFor='name'
                                                 className='block text-sm font-medium leading-6 text-gray-900'
                                             >
                                                 Nome
                                             </label>
                                             <input
+                                                onChange={handleChange}
                                                 type='text'
-                                                name='first-name'
-                                                id='first-name'
+                                                name='name'
+                                                id='name'
+                                                value={inputValues?.name}
                                                 placeholder='seu nome'
                                                 autoComplete='given-name'
                                                 className='p-2 mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
@@ -43,32 +68,34 @@ export const Modal = () => {
                                         </div>
                                         <div className='col-span-6 sm:col-span-3'>
                                             <label
-                                                htmlFor='first-name'
+                                                htmlFor='phone'
                                                 className='block text-sm font-medium leading-6 text-gray-900'
                                             >
                                                 Número
                                             </label>
                                             <input
+                                                onChange={handleChange}
                                                 type='text'
-                                                name='first-name'
-                                                id='first-name'
-                                                autoComplete='given-name'
+                                                name='phone'
+                                                id='phone'
+                                                value={inputValues?.phone}
                                                 placeholder='(xx) x xxxx-xxxx'
                                                 className='p-2 mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
                                             />
                                         </div>
                                         <div className='col-span-6 sm:col-span-4'>
                                             <label
-                                                htmlFor='email-address'
+                                                htmlFor='mail'
                                                 className='block text-sm font-medium leading-6 text-gray-900'
                                             >
                                                 Email
                                             </label>
                                             <input
+                                                onChange={handleChange}
                                                 type='text'
-                                                name='email-address'
-                                                id='email-address'
-                                                autoComplete='email'
+                                                name='mail'
+                                                id='mail'
+                                                value={inputValues?.mail}
                                                 placeholder='seuemail@email.com'
                                                 className='p-2 mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
                                             />
@@ -79,12 +106,13 @@ export const Modal = () => {
                         </div>
                         <div className='bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6'>
                             <button
-                                type='button'
+                                type='submit'
                                 className='inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto'
                             >
                                 Enviar
                             </button>
                             <button
+                                onClick={() => externFunc()}
                                 type='button'
                                 className='mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto'
                             >
