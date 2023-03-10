@@ -2,13 +2,13 @@ type Props = {
     typeButton: "submit" | "button" | "reset" | undefined,
     classButton: string,
     text: string | JSX.Element,
-    funcClick?: () => any
+    funcClick?: (e?: any) => any
 };
 
 export const Button = ({ typeButton, classButton, funcClick, text }: Props) => {
     const handleClick = () => {
         if (funcClick) {
-            funcClick()
+            funcClick();
         };
     };
 
