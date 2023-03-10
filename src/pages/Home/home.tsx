@@ -39,8 +39,9 @@ export const Home = () => {
                 <Destinations />
                 <LastNews
                     title={'Últimas noticias'}
-                    children={flag.map((item) => (
+                    children={flag.map((item, key) => (
                         <CardNews
+                            key={key}
                             title={item.original_title}
                             url={ApiImageLink + item.poster_path}
                             description={item.overview}
