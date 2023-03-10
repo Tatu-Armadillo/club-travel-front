@@ -4,7 +4,7 @@ import { Footer, Header } from '@/shared/Components';
 import './styles/index.css';
 
 import { BrowserRouter } from 'react-router-dom';
-import { Router } from './src/routes/Router';
+import { Router } from './routes/Router';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
