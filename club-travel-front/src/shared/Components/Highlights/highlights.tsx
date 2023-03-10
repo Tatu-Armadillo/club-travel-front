@@ -1,8 +1,8 @@
-import { Slider } from '../Slider';
+import { Slider } from '../Slider/slider';
 import { SwiperProps, SwiperSlide } from 'swiper/react';
-import { HotItem } from '../HotItem';
+import { HotItem } from '../HotItem/hotItem';
 import { LinkWraperProps } from '../HotItem/styles';
-import { TitleTopic } from '../TitleTopic';
+import { TitleTopic } from '../TitleTopic/titleTopic';
 
 export const Highlights = () => {
     const sliderConfig: SwiperProps = {

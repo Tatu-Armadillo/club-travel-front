@@ -1,17 +1,19 @@
 import { GridContainer, FlexContainer } from './styles';
-import { Destinations } from '../Destinations';
-import { Highlights } from '../Highlights';
-import { LastNews } from '../LastNews';
+import {
+    CardNews,
+    Destinations,
+    Highlights,
+    LastNews,
+    Modal,
+} from '@/shared/Components';
 import { useEffect, useState } from 'react';
-import { CardNews } from '../CardNews';
-
 interface FlagProps {
     original_title: string;
     poster_path: string;
     overview: string;
 }
 
-export const Main = () => {
+export const Home = () => {
     const ApiImageLink = 'https://image.tmdb.org/t/p/w500/';
     const [flag, setFlag] = useState<FlagProps[]>([]);
     useEffect(() => {

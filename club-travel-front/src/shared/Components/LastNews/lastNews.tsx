@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { TitleTopic } from '../TitleTopic';
+import { TitleTopic } from '../TitleTopic/titleTopic';
 import { LastNewsContainer } from './styles';
 interface LastNewsProps {
     children: ReactNode;
