@@ -18,8 +18,8 @@ export const Header = () => {
 
     const arrItems: Props[] = [
         { name: "início", link: "/" },
-        { name: "infográficos", link: "#" },
-        { name: "cadastro", link: "#" },
+        { name: "infográficos", link: "/infographics" },
+        { name: "cadastro", link: "/signIn" },
         { name: "sobre nós", link: "/about" },
     ];
 
