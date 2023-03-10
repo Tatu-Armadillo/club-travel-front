@@ -20,7 +20,7 @@ export const Highlights = () => {
     return (
         <div className='p-3'>
             <div className='flex gap-2'>
-                <TitleTopic title='Destaques' />
+                <TitleTopic title='destaques' />
                 <GiPalmTree size={'2em'} color={'green'} />
             </div>
 

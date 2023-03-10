@@ -38,7 +38,7 @@ export const Home = () => {
             <FlexContainer>
                 <Destinations />
                 <LastNews
-                    title={'Últimas noticias'}
+                    title={'últimas noticias'}
                     children={flag.map((item, key) => (
                         <CardNews
                             key={key}

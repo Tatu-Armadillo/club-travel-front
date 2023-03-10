@@ -21,7 +21,7 @@ export const Destinations = () => {
     return (
         <div className='p-3'>
             <div className='flex gap-2'>
-                <TitleTopic title='Destinos' />
+                <TitleTopic title='destinos' />
                 <FaMapSigns size={'2em'} />
             </div>
             <Slider settings={sliderConfig}>
