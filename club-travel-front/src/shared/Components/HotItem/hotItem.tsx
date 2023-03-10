@@ -1,4 +1,4 @@
-import { LinkWraper, LinkWraperProps } from './styles';
+import { LinkWraper, LinkWraperProps } from './hotItem.styled';
 
 interface HotItemProps {
     config: LinkWraperProps;

@@ -1,8 +1,8 @@
-import { Slider } from '../Slider/slider';
+import { Slider } from '@/shared/Components';
 import { SwiperProps, SwiperSlide } from 'swiper/react';
-import { HotItem } from '../HotItem/hotItem';
-import { LinkWraperProps } from '../HotItem/styles';
-import { TitleTopic } from '../TitleTopic/titleTopic';
+import { HotItem } from '@/shared/Components';
+import { LinkWraperProps } from '../HotItem/hotItem.styled';
+import { TitleTopic } from '@/shared/Components';
 
 export const Highlights = () => {
     const sliderConfig: SwiperProps = {
@@ -18,7 +18,7 @@ export const Highlights = () => {
         hoverState: false,
     };
     return (
-        <div>
+        <div className='p-3'>
             <TitleTopic title='Destaques' />
             <Slider settings={sliderConfig}>
                 <SwiperSlide>

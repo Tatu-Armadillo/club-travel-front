@@ -1,4 +1,4 @@
-import { CardImage } from './styles';
+import { CardImage } from './cardNews.styled';
 
 interface CardNewsProps {
     url: string;

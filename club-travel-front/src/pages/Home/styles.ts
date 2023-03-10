@@ -17,6 +17,5 @@ export const FlexContainer = styled.div<FlexContainerProps>`
     padding: 1rem;
     border-radius: 1rem;
     gap: 1rem;
-    height: ${(props) =>
-        props.viewHeightControl ? props.viewHeightControl + 'rem' : 'auto'};
+    height: ${(props) => props.viewHeightControl ? props.viewHeightControl + 'rem' : 'auto'};
 `;
