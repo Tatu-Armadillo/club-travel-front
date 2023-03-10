@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 
 interface ModalProps {
     externFunc: () => void;
@@ -16,6 +16,12 @@ export const Modal = ({ externFunc }: ModalProps) => {
         phone: '',
         mail: '',
     });
+    const handleClick = (e: FormEvent<HTMLButtonElement>) => {
+        const { name, phone, mail } = inputValues;
+        if (name === '' || phone === '' || mail === '') {
+            alert('Preencha todos os dados para enviar o fomulário');
+        }
+    };
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setInputValue({
             ...inputValues,
@@ -78,6 +84,7 @@ export const Modal = ({ externFunc }: ModalProps) => {
                                                 type='text'
                                                 name='phone'
                                                 id='phone'
+                                                maxLength={11}
                                                 value={inputValues?.phone}
                                                 placeholder='(xx) x xxxx-xxxx'
                                                 className='p-2 mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
@@ -92,7 +99,7 @@ export const Modal = ({ externFunc }: ModalProps) => {
                                             </label>
                                             <input
                                                 onChange={handleChange}
-                                                type='text'
+                                                type='email'
                                                 name='mail'
                                                 id='mail'
                                                 value={inputValues?.mail}
@@ -106,6 +113,7 @@ export const Modal = ({ externFunc }: ModalProps) => {
                         </div>
                         <div className='bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6'>
                             <button
+                                onClick={handleClick}
                                 type='submit'
                                 className='inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto'
                             >
