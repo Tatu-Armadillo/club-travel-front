@@ -25,13 +25,6 @@ export const Home = () => {
     useEffect(() => {
         loadInformation();
     }, []);
-    // useEffect(() => {
-    //     fetch(
-    //         'https://api.themoviedb.org/3/movie/popular?api_key=d9933aa94f6c72dd8b077673c359fc82&language=en-US&page=1'
-    //     )
-    //         .then((response) => response.json())
-    //         .then((json) => setFlag(json.results));
-    // }, []);
 
     return (
         <GridContainer>
