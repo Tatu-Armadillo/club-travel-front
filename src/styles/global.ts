@@ -6,14 +6,8 @@ export default createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
     }
-
-    .mainContent {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
+    
+    main {
+        min-height: calc(100vh - 149px);
     }
-   
-    .mainContent  main {
-        flex: 1;
-    }
-`
+`;
