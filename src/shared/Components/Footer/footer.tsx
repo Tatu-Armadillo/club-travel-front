@@ -48,7 +48,7 @@ export const Footer = () => {
 
     return (
         <BoxFooter className='p-4'>
-            <div className='md:flex md:justify-between mx-auto max-w-7xl'>
+            <div className='md:flex md:justify-between mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
                 <div className='mb-6 md:mb-0 justify-center items-center flex'>
                     <Link to='/' className='flex items-center'>
                         <img
