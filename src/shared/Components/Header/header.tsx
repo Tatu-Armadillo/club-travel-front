@@ -21,7 +21,7 @@ export const Header = () => {
     const arrItems: Props[] = [
         { name: 'início', link: '/' },
         { name: 'infográficos', link: '/infographics' },
-        { name: 'cadastro', link: '/signIn' },
+        { name: 'login', link: '/signIn' },
         { name: 'sobre nós', link: '/about' },
     ];
     if (auth.user)
@@ -86,8 +86,7 @@ export const Header = () => {
                             <div className='flex space-x-4'>
                                 {arrItems.map((item, key) => {
                                     const { link, name } = item;
-                                    if (name === 'cadastro' && auth.user)
-                                        return;
+                                    if (name === 'login' && auth.user) return;
                                     return (
                                         <Link
                                             to={link}
@@ -102,9 +101,7 @@ export const Header = () => {
                                     <Link
                                         to={'/'}
                                         className='capitalize text-gray-300 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-base font-medium'
-                                        onClick={async () =>
-                                            await auth.signOut()
-                                        }
+                                        onClick={() => auth.signOut()}
                                     >
                                         Sair
                                     </Link>
