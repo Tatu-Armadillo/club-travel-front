@@ -1,8 +1,8 @@
 import { createContext } from 'react';
-import { User } from '@/shared/Interface/IAuthContext';
+import { IUser } from '@/shared/Interface/IUser';
 
 interface IAuthContext {
-    user: User | null;
+    user: IUser | null;
     signIn: (name: string, password: string) => Promise<boolean>;
     signOut: () => void;
 }
