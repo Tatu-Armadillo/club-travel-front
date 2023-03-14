@@ -2,6 +2,7 @@ import { IUser } from '@/shared/Interface/IUser';
 import { useState } from 'react';
 import { AuthContext } from './AuthContext';
 import { api } from '@/shared/Service/index';
+
 export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     const [user, setUser] = useState<IUser | null>(null);
 
