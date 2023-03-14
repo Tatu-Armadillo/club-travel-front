@@ -49,13 +49,16 @@ export const Home = () => {
             <FlexContainer viewHeightControl={50}>
                 <Highlights />
             </FlexContainer>
-            {modalOpen && !auth.user && (
-                <Modal
-                    externFunc={() => {
-                        setModalOpen(!modalOpen);
-                    }}
-                />
-            )}
+            {modalOpen &&
+                !auth.user &&
+                !sessionStorage.getItem('modalOpen') &&(
+                    <Modal
+                        externFunc={() => {
+                            setModalOpen(!modalOpen);
+                            sessionStorage.setItem('modalOpen', 'never');
+                        }}
+                    />
+                )}
         </GridContainer>
     );
 };
