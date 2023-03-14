@@ -13,4 +13,16 @@ export const api = {
         );
         return response.data;
     },
+    signIn: async (name: string, password: string) => {
+        const response = await axios.post('./', { name, password });
+        return response.data;
+    },
+    validateToken: async (token: string) => {
+        const response = await axios.post('/validate', { token });
+        return response.data;
+    },
+    signOut: async () => {
+        const response = await axios.post('/logout');
+        return response.data;
+    },
 };
