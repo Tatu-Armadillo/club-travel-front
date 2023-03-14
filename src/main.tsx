@@ -5,13 +5,16 @@ import './styles/index.css';
 
 import { BrowserRouter } from 'react-router-dom';
 import { Router } from './routes/Router';
+import { AuthProvider } from './context/AuthProvider';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
-        <BrowserRouter>
-            <Header />
-            <Router />
-            <Footer />
-        </BrowserRouter>
+        <AuthProvider>
+            <BrowserRouter>
+                <Header />
+                <Router />
+                <Footer />
+            </BrowserRouter>
+        </AuthProvider>
     </React.StrictMode>
 );
