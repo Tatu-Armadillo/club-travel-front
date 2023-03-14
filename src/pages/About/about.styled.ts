@@ -21,7 +21,7 @@ export const BoxTitle = styled.div`
 export const Card = styled.section`
     background-color: #F2B705;
     border-radius: .8rem 0rem;
-    width: 70%;
+    width: 85%;
     min-width: auto;
     padding: 2rem;
 

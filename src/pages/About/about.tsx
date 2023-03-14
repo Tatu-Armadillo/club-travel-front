@@ -7,7 +7,7 @@ export const About = () => {
                 <h1>Sobre a Travel Club</h1>
                 <p>Conheça mais sobre o grupo Travel</p>
             </BoxTitle>
-            <div className="grid lg:grid-cols-3 justify-items-center grid-cols-1 lg:gap-0 gap-4 py-10">
+            <div className="grid lg:grid-cols-3 mx-auto max-w-7xl justify-items-center grid-cols-1 lg:gap-0 gap-4 py-10">
                 <Card>
                     <h3>title</h3>
                     <hr className="my-2 border-slate-500" />
