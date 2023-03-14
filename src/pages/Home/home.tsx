@@ -7,7 +7,7 @@ import {
     Modal,
 } from '@/shared/Components';
 import { useEffect, useState } from 'react';
-import { api } from '@/shared/Service';
+import { useApi } from '@/shared/hooks/useApi';
 interface FlagProps {
     original_title: string;
     poster_path: string;
@@ -15,6 +15,7 @@ interface FlagProps {
 }
 
 export const Home = () => {
+    const api = useApi();
     const ApiImageLink = 'https://image.tmdb.org/t/p/w500/';
     const [flag, setFlag] = useState<FlagProps[]>([]);
     const [modalOpen, setModalOpen] = useState(true);

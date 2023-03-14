@@ -1,12 +1,40 @@
 import { MainContainr } from './signIn.styled';
-import { FormEvent } from 'react';
+
 import { FaUser } from 'react-icons/fa';
 import Logo from '../../shared/img/web3travelclub4.png';
 import { Button } from '@/shared/Components';
-
+import { ChangeEvent, useState } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '@/context/AuthContext';
+import { useNavigate } from 'react-router-dom';
+interface SignInFormProps {
+    userName: string;
+    password: string;
+}
 export const SignIn = () => {
-    const handleSubmit = () => {
-        console.log('Olá');
+    const auth = useContext(AuthContext);
+    const navigate = useNavigate();
+    const [inputValues, setInputValues] = useState<SignInFormProps>({
+        userName: '',
+        password: '',
+    });
+    const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
+        setInputValues({
+            ...inputValues,
+            [e.currentTarget.name]: e.currentTarget.value,
+        });
+    };
+    const handleSubmit = async () => {
+        const { userName, password } = inputValues;
+        if (userName && password) {
+            try {
+                const isOn = await auth.signIn(userName, password);
+                navigate('/');
+                return true;
+            } catch (e) {
+                return false;
+            }
+        }
     };
     return (
         <div className='flex items-center justify-center'>
@@ -30,6 +58,8 @@ export const SignIn = () => {
                                 type='text'
                                 name='userName'
                                 id='user'
+                                value={inputValues.userName}
+                                onChange={handleInput}
                                 placeholder='Digite seu usuário...'
                                 autoComplete='given-name'
                                 className='p-2 mt-2 block w-4/6 rounded-md border-none py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
@@ -45,6 +75,8 @@ export const SignIn = () => {
                             <input
                                 type='text'
                                 name='password'
+                                onChange={handleInput}
+                                value={inputValues.password}
                                 id='password'
                                 placeholder='Digite seu nome...'
                                 autoComplete='given-name'
