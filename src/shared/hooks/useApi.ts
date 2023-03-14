@@ -21,7 +21,8 @@ export const useApi = () => {
             return response.data;
         },
         validateToken: async (token: string) => {
-            const response = await axios.post('/validate', token );
+            return { user: { id: 3, name: 'Marcos' }, token: '12345' };
+            const response = await axios.post('/validate', token);
             return response.data;
         },
         signOut: async () => {

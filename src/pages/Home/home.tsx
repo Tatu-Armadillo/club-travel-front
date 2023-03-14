@@ -6,8 +6,9 @@ import {
     LastNews,
     Modal,
 } from '@/shared/Components';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useApi } from '@/shared/hooks/useApi';
+import { AuthContext } from '@/context/AuthContext';
 interface FlagProps {
     original_title: string;
     poster_path: string;
@@ -15,6 +16,7 @@ interface FlagProps {
 }
 
 export const Home = () => {
+    const auth = useContext(AuthContext);
     const api = useApi();
     const ApiImageLink = 'https://image.tmdb.org/t/p/w500/';
     const [flag, setFlag] = useState<FlagProps[]>([]);
@@ -47,7 +49,7 @@ export const Home = () => {
             <FlexContainer viewHeightControl={50}>
                 <Highlights />
             </FlexContainer>
-            {modalOpen && (
+            {modalOpen && !auth.user && (
                 <Modal
                     externFunc={() => {
                         setModalOpen(!modalOpen);
