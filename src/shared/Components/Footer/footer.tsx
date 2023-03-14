@@ -74,7 +74,7 @@ export const Footer = () => {
                     })}
                 </div>
             </div>
-            <hr className='my-6 sm:mx-auto dark:border-gray-700 ' />
+            <hr className='my-6 sm:mx-auto border-slate-500' />
             <div className='flex items-center justify-center'>
                 <span className='text-sm text-slate-300 dark:text-gray-400 capitalize'>
                     © 2023 travel club. todos os direitos reservados.
