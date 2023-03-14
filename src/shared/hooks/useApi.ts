@@ -26,6 +26,7 @@ export const useApi = () => {
             return response.data;
         },
         signOut: async () => {
+            return { status: true };
             const response = await axios.post('/logout');
             return response.data;
         },

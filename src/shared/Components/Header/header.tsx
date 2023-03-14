@@ -25,7 +25,7 @@ export const Header = () => {
         { name: 'sobre nós', link: '/about' },
     ];
     if (auth.user)
-        arrItems.push({ name: 'painel de contrle', link: '/controlPanel' });
+        arrItems.push({ name: 'painel de controle', link: '/controlPanel' });
 
     const handleClassHidden = () => {
         const addHidden = document
@@ -86,6 +86,8 @@ export const Header = () => {
                             <div className='flex space-x-4'>
                                 {arrItems.map((item, key) => {
                                     const { link, name } = item;
+                                    if (name === 'cadastro' && auth.user)
+                                        return;
                                     return (
                                         <Link
                                             to={link}
@@ -96,6 +98,17 @@ export const Header = () => {
                                         </Link>
                                     );
                                 })}
+                                {auth.user && (
+                                    <Link
+                                        to={'/'}
+                                        className='capitalize text-gray-300 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-base font-medium'
+                                        onClick={async () =>
+                                            await auth.signOut()
+                                        }
+                                    >
+                                        Sair
+                                    </Link>
+                                )}
                             </div>
                         </div>
                     </div>

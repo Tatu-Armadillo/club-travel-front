@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
 import { useApi } from '@/shared/hooks/useApi';
 import { setToken } from '@/shared/services/setToken';
+
 export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     const api = useApi();
     const [user, setUser] = useState<User | null>(null);
