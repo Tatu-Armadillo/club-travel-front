@@ -1,4 +1,4 @@
-import { GridContainer, FlexContainer } from './styles';
+import { GridContainer, FlexContainer } from './home.styled';
 import {
     CardNews,
     Destinations,
@@ -51,7 +51,7 @@ export const Home = () => {
             </FlexContainer>
             {modalOpen &&
                 !auth.user &&
-                !sessionStorage.getItem('modalOpen') &&(
+                !sessionStorage.getItem('modalOpen') && (
                     <Modal
                         externFunc={() => {
                             setModalOpen(!modalOpen);
