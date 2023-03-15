@@ -1,3 +1,4 @@
 export const setToken = (token: string) => {
     localStorage.setItem('authenticationToken', token);
+    console.log('test')
 };
