@@ -1,8 +1,7 @@
 import { SwiperProps } from 'swiper/react';
-
 import { ReactNode } from 'react';
 
-export interface SliderProps {
+export interface ISlider {
     settings: SwiperProps;
     children?: ReactNode;
 }

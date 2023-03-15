@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-type Props = {
-    open: boolean
-};
-
 export const Navbar = styled.nav`
     background-color: #03258C;
 `;
