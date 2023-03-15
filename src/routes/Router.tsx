@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import { Home, About, Infographics, SignIn } from '@/pages';
 import { RequireAuth } from '@/context/RequireAuth';
+import { ControlPanel } from '@/pages/ControlPanel/controlPanel';
 
 export const Router = () => {
     return (
@@ -17,6 +18,14 @@ export const Router = () => {
                 }
             />
             <Route path='/signIn' element={<SignIn />} />
+            <Route
+                path='/controlPanel'
+                element={
+                    <RequireAuth>
+                        <ControlPanel />
+                    </RequireAuth>
+                }
+            />
         </Routes>
     );
 };

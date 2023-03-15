@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from 'react';
-import { api } from '@/shared/Service';
+import { useApi } from '@/shared/hooks/useApi';
 import { Button } from '@/shared/Components';
 
 interface ModalProps {
@@ -13,6 +13,7 @@ interface ModalFormProps {
 }
 
 export const Modal = ({ externFunc }: ModalProps) => {
+    const api = useApi();
     const [inputValues, setInputValue] = useState<ModalFormProps>({
         name: '',
         phone: '',
