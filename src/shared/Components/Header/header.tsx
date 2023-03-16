@@ -54,7 +54,7 @@ export const Header = () => {
                         </div>
                         <BoxImages>
                             <Link to='/'>
-                                {/* <BoxLogo
+                                <BoxLogo
                                     className='hidden lg:block'
                                     src={Logo}
                                     alt='Your Company'
@@ -63,7 +63,7 @@ export const Header = () => {
                                     className='hidden lg:block'
                                     src={LogoName}
                                     alt='Your Company'
-                                /> */}
+                                />
                             </Link>
                         </BoxImages>
                         <div className='flex flex-1 items-center justify-center sm:items-stretch sm:justify-start'>
