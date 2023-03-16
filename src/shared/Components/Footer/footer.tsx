@@ -50,14 +50,14 @@ export const Footer = () => {
         <BoxFooter className='p-4'>
             <div className='md:flex md:justify-between mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
                 <div className='mb-6 md:mb-0 justify-center items-center flex'>
-                    <Link to='/' className='flex items-center'>
+                    {/* <Link to='/' className='flex items-center'>
                         <img
                             src={Logo}
                             className='h-12 mr-3'
                             alt='FlowBite Logo'
                         />
                         <img src={LogoName} className='h-12' />
-                    </Link>
+                    </Link> */}
                 </div>
                 <div className='flex space-x-6 items-center sm:mt-0 justify-center'>
                     {arrAnchor.map((item, key) => {
