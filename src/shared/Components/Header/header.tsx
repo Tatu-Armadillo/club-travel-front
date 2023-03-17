@@ -54,7 +54,7 @@ export const Header = () => {
                         </div>
                         <BoxImages>
                             <Link to='/'>
-                                <BoxLogo
+                                {/* <BoxLogo
                                     className='hidden lg:block'
                                     src={Logo}
                                     alt='Your Company'
@@ -63,7 +63,7 @@ export const Header = () => {
                                     className='hidden lg:block'
                                     src={LogoName}
                                     alt='Your Company'
-                                />
+                                /> */}
                             </Link>
                         </BoxImages>
                         <div className='flex flex-1 items-center justify-center sm:items-stretch sm:justify-start'>
@@ -91,8 +91,7 @@ export const Header = () => {
                                         <Link
                                             to={link}
                                             className='capitalize text-gray-300 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-base font-medium'
-                                            key={key}
-                                        >
+                                            key={key}>
                                             {name}
                                         </Link>
                                     );
@@ -101,8 +100,7 @@ export const Header = () => {
                                     <Link
                                         to={'/'}
                                         className='capitalize text-gray-300 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-base font-medium'
-                                        onClick={() => auth.signOut()}
-                                    >
+                                        onClick={() => auth.signOut()} >
                                         Sair
                                     </Link>
                                 )}
@@ -110,10 +108,7 @@ export const Header = () => {
                         </div>
                     </div>
                 </div>
-                <div
-                    className='lg:hidden md:hidden sm:hidden hidden'
-                    id='mobile-menu'
-                >
+                <div className='lg:hidden md:hidden sm:hidden hidden' id='mobile-menu'>
                     <div className='space-y-1 px-2 pt-2 pb-3'>
                         {arrItems.map((item, key) => {
                             const { link, name } = item;
