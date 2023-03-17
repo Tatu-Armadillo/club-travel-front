@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const BoxContainer = styled.div`
     max-width: 80rem;  
     margin: 3rem auto;
-
 `;
 
 export const BoxTitle = styled.div`
@@ -33,7 +32,7 @@ export const Card = styled.section`
     width: 85%;
     min-width: auto;
     padding: 2rem;
-    box-shadow: 5px 5px 12px black, -5px -5px 12px black;
+    box-shadow: 5px 5px 12px black;
 
     h3 {
         font-weight: 800;
@@ -48,11 +47,15 @@ export const Card = styled.section`
 `;
 
 export const BoxInfo = styled.section`
-
+    /* border-radius: .8rem 0rem; */
 `;
 
-export const InfoText = styled.div`
-
+export const InfoText = styled.p`
+    max-width: 60rem;
+    padding: 1rem;
+    /* border-radius: .8rem 0 .1rem; */
 `;
 
-export const InfoImg = styled.img``;
+export const InfoImg = styled.img`
+    /* border-radius: .8rem 0rem; */
+`;

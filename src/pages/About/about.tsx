@@ -25,25 +25,26 @@ export const About = () => {
                 </Card>
             </BoxCards>
 
-            <div className="grid grid-rows-4 gap-10">
-                <BoxInfo className="border border-black grid grid-cols-3">
+            <div className="grid grid-rows-4 gap-10 justify-items-center lg:mx-0 mx-10 ">
+                <BoxInfo className="lg:flex-row flex flex-col-reverse ">
+                    <InfoText className="bg-black text-white lg:rounded-tl-xl lg:rounded-br-none">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores, unde. Distinctio tempora labore quae laborum nam mollitia beatae iure? Voluptatibus doloremque itaque, distinctio rem saepe sapiente blanditiis cumque qui dolore.</InfoText>
+                    <InfoImg src="#" className="bg-amber-500 rounded-tl-xl rounded-br-xl" />
+                </BoxInfo>
+{/* 
+                <BoxInfo>
+                    <InfoImg src="#" className="bg-black text-white" />
+                    <InfoText className="bg-amber-500">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores, unde. Distinctio tempora labore quae laborum nam mollitia beatae iure? Voluptatibus doloremque itaque, distinctio rem saepe sapiente blanditiis cumque qui dolore.</InfoText>
+                </BoxInfo>
+
+                <BoxInfo>
                     <InfoText className="bg-black col-start-1 col-end-3 text-white">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores, unde. Distinctio tempora labore quae laborum nam mollitia beatae iure? Voluptatibus doloremque itaque, distinctio rem saepe sapiente blanditiis cumque qui dolore.</InfoText>
                     <InfoImg src="#" className="bg-amber-500" />
                 </BoxInfo>
 
-                <BoxInfo className="border border-black grid grid-cols-3">
-                    <InfoImg src="#" className="bg-black col-start-1 text-white" />
-                    <InfoText className="bg-amber-500 col-start-2 col-end-4">1</InfoText>
-                </BoxInfo>
-
-                <BoxInfo className="border border-black grid grid-cols-3">
-                    <InfoText className="bg-black col-start-1 col-end-3 text-white">1</InfoText>
-                    <InfoImg src="#" className="bg-amber-500" />
-                </BoxInfo>
-                <BoxInfo className="border border-black grid grid-cols-3">
-                    <InfoImg src="#" className="bg-black col-start-1 text-white" />
-                    <InfoText className="bg-amber-500 col-start-2 col-end-4">1</InfoText>
-                </BoxInfo>
+                <BoxInfo>
+                    <InfoImg src="#" className="bg-black text-white" />
+                    <InfoText className="bg-amber-500 ">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores, unde. Distinctio tempora labore quae laborum nam mollitia beatae iure? Voluptatibus doloremque itaque, distinctio rem saepe sapiente blanditiis cumque qui dolore.</InfoText>
+                </BoxInfo> */}
             </div>
         </BoxContainer>
     );
