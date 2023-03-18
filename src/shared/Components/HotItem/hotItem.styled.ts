@@ -19,6 +19,7 @@ export const LinkWraper = styled.a<LinkWraperProps>`
     }
 
     &&:hover {
+        cursor: pointer;
         transform: ${(props) =>
             props.hoverState === true ? 'scale(0.9) ' : 'none'};
     }

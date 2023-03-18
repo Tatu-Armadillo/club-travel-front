@@ -30,7 +30,7 @@ export const Home = () => {
     }, []);
 
     return (
-        <GridContainer>
+        <FlexContainer>
             <FlexContainer>
                 <Destinations />
                 <LastNews
@@ -45,10 +45,6 @@ export const Home = () => {
                     ))}
                 />
             </FlexContainer>
-
-            <FlexContainer viewHeightControl={50}>
-                <Highlights />
-            </FlexContainer>
             {modalOpen &&
                 !auth.user &&
                 !sessionStorage.getItem('modalOpen') && (
@@ -59,6 +55,6 @@ export const Home = () => {
                         }}
                     />
                 )}
-        </GridContainer>
+        </FlexContainer>
     );
 };

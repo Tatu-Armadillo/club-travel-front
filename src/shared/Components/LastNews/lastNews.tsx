@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { TitleTopic } from '@/shared/Components';
-import { LastNewsContainer } from './lasNews.styled';
+import { LastNewsContainer } from './lastNews.styled';
 import { GiNewspaper } from 'react-icons/gi';
 interface LastNewsProps {
     children: ReactNode[];
