@@ -19,7 +19,7 @@ export const Destinations = () => {
         hoverState: true,
     };
     return (
-        <div className='p-3'>
+        <div>
             <div className='flex gap-2'>
                 <TitleTopic title='destinos' />
                 <FaMapSigns size={'2em'} />
