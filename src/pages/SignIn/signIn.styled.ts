@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const MainContainr = styled.div`
+export const MainContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,12 +9,10 @@ export const MainContainr = styled.div`
     height: 70vh;
     border-radius: 1rem;
     margin: 1rem;
-    border: 4px dashed #03258c;
-    background-color: #93cedb;
-
-    &&:hover {
-        border: 4px solid #03258c;
-    }
+    background-color: #f29f05;
 `;
 
-export const Input = styled.input``;
+export const Image = styled.img`
+    width: 50vw;
+    height: 70vh;
+`;
