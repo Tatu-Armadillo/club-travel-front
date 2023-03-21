@@ -2,14 +2,15 @@ import { MouseEvent } from 'react';
 import BackGround from '@/shared/img/image-background-panel.jpg';
 import { Button, Flex, Box } from '@chakra-ui/react';
 import { BiArrowFromLeft } from 'react-icons/bi';
-import { useNavigate } from 'react-router-dom';
-export const SelectForm = () => {
-    const navigate = useNavigate();
+
+export interface SelectFormProps {
+    funcfunc: (e: MouseEvent<HTMLButtonElement>) => void;
+}
+export const SelectForm = ({ funcfunc }: SelectFormProps) => {
     const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
-        if (e.currentTarget.name === 'newsButton') navigate('/formNews');
-        if (e.currentTarget.name === 'destinationButton')
-            console.log('clicou no destinations');
+        funcfunc(e);
     };
+
     return (
         <Flex
             align='center'

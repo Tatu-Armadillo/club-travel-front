@@ -1,14 +1,25 @@
 import { AuthContext } from '@/context/AuthContext';
 import { useContext } from 'react';
 import React, { useState } from 'react';
-import { FormRouter } from '@/routes/FormRouter';
-
+import { SelectForm } from '@/shared/Components/SelectForm/selectForm';
+import { FormNews } from '@/shared/Components/FormNews/formNews';
+import { useComponent } from '@/shared/hooks/useComponent';
+import { FormDestinations } from '@/shared/Components/FormDestinations/formDestinations';
 export const ControlPanel = () => {
     const [timerLogin, setTimerLogin] = useState(true);
     setTimeout(() => {
         setTimerLogin(false);
     }, 4000);
-
+    const componentList = [
+        <SelectForm
+            funcfunc={(e) => {
+                changeComponent(e);
+            }}
+        />,
+        <FormNews />,
+        <FormDestinations />,
+    ];
+    const { currentComponent, changeComponent } = useComponent(componentList);
     const auth = useContext(AuthContext);
     return (
         <React.Fragment>
@@ -21,7 +32,7 @@ export const ControlPanel = () => {
                     , Bem vindo ao seu painel de controle
                 </h1>
             ) : null}
-            <FormRouter />
+            {currentComponent}
         </React.Fragment>
     );
 };
