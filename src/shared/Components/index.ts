@@ -9,3 +9,4 @@ export { LastNews } from './LastNews/lastNews';
 export { Modal } from './Modal/modal';
 export { Slider } from './Slider/slider';
 export { TitleTopic } from './TitleTopic/titleTopic';
+export { CardAbout } from "./CardAbout/cardAbout";
