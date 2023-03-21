@@ -1,7 +1,7 @@
 import { IUser } from '@/shared/Interface/IUser';
 import { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
-import { useApi } from '@/shared/hooks/useApi';
+import { useApi } from '@/shared/hooks';
 import { setToken } from '@/shared/services/setToken';
 
 export const AuthProvider = ({ children }: { children: JSX.Element }) => {

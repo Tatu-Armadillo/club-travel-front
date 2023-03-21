@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from 'react';
-import { useApi } from '@/shared/hooks/useApi';
+import { useApi } from '@/shared/hooks';
 import { Button } from '@/shared/Components';
 import { loginIsValid } from '@/shared/services/loginIsValid';
 interface ModalProps {
