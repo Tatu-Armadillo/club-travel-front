@@ -47,15 +47,51 @@ export const Card = styled.section`
 `;
 
 export const BoxInfo = styled.section`
-    /* border-radius: .8rem 0rem; */
+    display: flex;
+    
+    @media (max-width: 700px) {
+        flex-direction: column-reverse;
+    }
+
+    &&.inverter {
+        @media (max-width: 700px) {
+            flex-direction: column;
+        }   
+    }
 `;
 
 export const InfoText = styled.p`
     max-width: 60rem;
     padding: 1rem;
-    /* border-radius: .8rem 0 .1rem; */
+    background-color: #000000;
+    color: #FFFFFF;
+    border-radius: .8rem 0 0;
+
+    &&.leftTxt {
+        border-radius: 0 .8rem 0 0;
+    }
+
+    @media (max-width: 700px) {
+        border-radius: 0 0 .8rem;
+        
+        &&.leftTxt {    
+            border-radius: 0 0 .8rem;
+        }
+    }
 `;
 
 export const InfoImg = styled.img`
-    /* border-radius: .8rem 0rem; */
+    border-radius: 0 0 .8rem;
+
+    &&.leftImg {
+        border-radius: 0 0 0 .8rem;
+    }
+
+    @media (max-width: 700px) {
+        border-radius: .8rem 0 0;
+
+        &&.leftImg {
+            border-radius: .8rem 0 0 0;
+        }
+    }
 `;
