@@ -25,10 +25,12 @@ export const Modal = ({ externFunc }: ModalProps) => {
             alert('Preencha todos os dados para enviar o formulário');
             return;
         }
-        const action = await api.postAddNew(name, mail, parseInt(phone));
-        if (action.id) {
+        const action = await api.postAddNew(name, phone, mail);
+        if (action.message) {
+            alert('Parabens seu cadastro funfou newba');
             externFunc();
         }
+        console.log(action);
     };
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setInputValue({

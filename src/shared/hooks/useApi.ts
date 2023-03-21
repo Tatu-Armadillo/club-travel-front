@@ -8,10 +8,10 @@ export const useApi = () => {
             );
             return response.data;
         },
-        postAddNew: async (title: string, body: string, userId: number) => {
+        postAddNew: async (name: string, phone: string, email: string) => {
             const response = await axios.post(
-                'https://jsonplaceholder.typicode.com/posts',
-                { title, body, userId }
+                'http://localhost:8080/blog/contact',
+                { name, phone, email }
             );
             return response.data;
         },
