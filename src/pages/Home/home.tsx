@@ -7,7 +7,7 @@ import {
     Modal,
 } from '@/shared/Components';
 import { useContext, useEffect, useState } from 'react';
-import { useApi } from '@/shared/hooks/useApi';
+import { useApi } from '@/shared/hooks';
 import { AuthContext } from '@/context/AuthContext';
 interface FlagProps {
     original_title: string;

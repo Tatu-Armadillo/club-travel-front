@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import React, { useState } from 'react';
 import { SelectForm } from '@/shared/Components/SelectForm/selectForm';
 import { FormNews } from '@/shared/Components/FormNews/formNews';
-import { useComponent } from '@/shared/hooks/useComponent';
+import { useComponent } from '@/shared/hooks';
 import { FormDestinations } from '@/shared/Components/FormDestinations/formDestinations';
 export const ControlPanel = () => {
     const [timerLogin, setTimerLogin] = useState(true);

@@ -2,12 +2,19 @@ import { BoxContainer, BoxTitle, BoxCards } from "./about.styled";
 import { CardAbout } from "./CardAbout/cardAbout";
 import { CardLine } from "./CardLine/cardLine";
 import Logo from "../../shared/img/web3reallogoamarela.png";
+import { Instance } from "@/shared/hooks";
 
 export const About = () => {
     type Props = {
         title: string,
         paragraph: string
     };
+
+    const teste = Instance.get("/news").then(res => res.data)
+    // console.log("🚀 ~ file: about.tsx:14 ~ About ~ teste:", teste)
+
+    console.log("🚀 ~ file: about.tsx:16 ~ About ~ teste:", teste.then(console.log))
+
 
     type CardLine = {
         text: string,
