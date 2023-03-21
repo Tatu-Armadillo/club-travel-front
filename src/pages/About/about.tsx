@@ -1,5 +1,7 @@
-import { BoxContainer, BoxTitle, BoxCards, BoxInfo, InfoText, InfoImg } from "./about.styled";
+import { BoxContainer, BoxTitle, BoxCards } from "./about.styled";
 import { CardAbout } from "./CardAbout/cardAbout";
+import { CardLine } from "./CardLine/cardLine";
+import Logo from "../../shared/img/web3reallogoamarela.png";
 
 export const About = () => {
     type Props = {
@@ -7,10 +9,22 @@ export const About = () => {
         paragraph: string
     };
 
+    type CardLine = {
+        text: string,
+        image: string
+    };
+
     const cardsArr: Props[] = [
         { title: "title", paragraph: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus natus amet dolor earum pariatur aliquid laboriosam nam repellat repudiandae consequatur voluptatum alias tempore officia, ut facere sequi nihil quo delectus!" },
         { title: "title", paragraph: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus natus amet dolor earum pariatur aliquid laboriosam nam repellat repudiandae consequatur voluptatum alias tempore officia, ut facere sequi nihil quo delectus!" },
         { title: "title", paragraph: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus natus amet dolor earum pariatur aliquid laboriosam nam repellat repudiandae consequatur voluptatum alias tempore officia, ut facere sequi nihil quo delectus!" }
+    ];
+
+    const cardLineArr: CardLine[] = [
+        { text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores, unde. Distinctio tempora labore quae laborum nam mollitia beatae iure? Voluptatibus doloremque itaque, distinctio rem saepe sapiente blanditiis cumque qui dolore.", image: Logo },
+        { text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores, unde. Distinctio tempora labore quae laborum nam mollitia beatae iure? Voluptatibus doloremque itaque, distinctio rem saepe sapiente blanditiis cumque qui dolore.", image: Logo },
+        { text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores, unde. Distinctio tempora labore quae laborum nam mollitia beatae iure? Voluptatibus doloremque itaque, distinctio rem saepe sapiente blanditiis cumque qui dolore.", image: Logo },
+        { text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores, unde. Distinctio tempora labore quae laborum nam mollitia beatae iure? Voluptatibus doloremque itaque, distinctio rem saepe sapiente blanditiis cumque qui dolore.", image: Logo },
     ];
 
     return (
@@ -28,26 +42,13 @@ export const About = () => {
                 })}
             </BoxCards>
 
-            <div className="grid grid-rows-4 gap-10 justify-items-center lg:mx-0 mx-10 ">
-                <BoxInfo>
-                    <InfoText>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores, unde. Distinctio tempora labore quae laborum nam mollitia beatae iure? Voluptatibus doloremque itaque, distinctio rem saepe sapiente blanditiis cumque qui dolore.</InfoText>
-                    <InfoImg src="#" className="bg-amber-500" />
-                </BoxInfo>
-
-                <BoxInfo className="inverter">
-                    <InfoImg src="#" className="leftImg bg-amber-500" />
-                    <InfoText className="leftTxt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores, unde. Distinctio tempora labore quae laborum nam mollitia beatae iure? Voluptatibus doloremque itaque, distinctio rem saepe sapiente blanditiis cumque qui dolore.</InfoText>
-                </BoxInfo>
-
-                <BoxInfo>
-                    <InfoText className="bg-black col-start-1 col-end-3 text-white">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores, unde. Distinctio tempora labore quae laborum nam mollitia beatae iure? Voluptatibus doloremque itaque, distinctio rem saepe sapiente blanditiis cumque qui dolore.</InfoText>
-                    <InfoImg src="#" className="bg-amber-500" />
-                </BoxInfo>
-
-                <BoxInfo className="inverter">
-                    <InfoImg src="#" className="leftImg bg-amber-500" />
-                    <InfoText className="leftTxt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores, unde. Distinctio tempora labore quae laborum nam mollitia beatae iure? Voluptatibus doloremque itaque, distinctio rem saepe sapiente blanditiis cumque qui dolore.</InfoText>
-                </BoxInfo>
+            <div className="grid grid-rows-4 gap-10 justify-items-center w-full">
+                {cardLineArr.map((card, key) => {
+                    const { image, text } = card;
+                    return (
+                        <CardLine paragraph={text} img={image} key={key} />
+                    )
+                })}
             </div>
         </BoxContainer>
     );
