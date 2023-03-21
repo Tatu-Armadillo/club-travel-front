@@ -1,4 +1,5 @@
-import { Card } from "@/pages/About/about.styled";
+import { Card } from "./cardAbout.styled";
+
 type Props = {
     title: string,
     paragraph: string,

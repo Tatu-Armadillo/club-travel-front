@@ -1,5 +1,5 @@
 import { BoxContainer, BoxTitle, BoxCards, BoxInfo, InfoText, InfoImg } from "./about.styled";
-import { CardAbout } from "@/shared/Components";
+import { CardAbout } from "./CardAbout/cardAbout";
 
 export const About = () => {
     type Props = {
