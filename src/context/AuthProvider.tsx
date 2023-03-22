@@ -8,6 +8,7 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     const api = useApi();
     const [user, setUser] = useState<IUser | null>(null);
     useEffect(() => {
+        console.log(user + 'alterado');
         const hasToken = async () => {
             const saveData = localStorage.getItem('authenticationToken');
             if (saveData) {
@@ -18,14 +19,14 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
             }
         };
         hasToken();
-        console.log(user + 'alterado');
-    }, [user]);
+    }, []);
 
     const signIn = async (username: string, password: string) => {
-        const data = await api.signIn(username, password);
-        if (data.data.username && data.data.token) {
-            setUser(data.data.user);
-            setToken(data.data.token);
+        const response = await api.signIn(username, password);
+        console.log(response);
+        if (response.data.username && response.data.token) {
+            setUser(response.data);
+            setToken(response.data.token);
             return true;
         }
         return false;
