@@ -1,8 +1,8 @@
 import { BoxContainer, BoxTitle, BoxCards } from "./about.styled";
 import { CardAbout } from "./CardAbout/cardAbout";
 import { CardLine } from "./CardLine/cardLine";
-import Logo from "../../assets/img/web3reallogoamarela.png";
-import { Instance } from "@/shared/services/api";
+import Logo from "../../shared/img/web3reallogoamarela.png";
+import { Instance } from "@/shared/hooks";
 
 export const About = () => {
     type Props = {

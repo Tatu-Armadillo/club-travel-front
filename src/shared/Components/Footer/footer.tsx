@@ -7,8 +7,8 @@ import {
     FaTelegramPlane,
 } from 'react-icons/fa';
 import { AiOutlineMail } from 'react-icons/ai';
-import Logo from '../../../assets/img/web3reallogoamarela.png';
-import LogoName from '../../../assets/img/web3travelclub4.png';
+import Logo from '../../img/web3reallogoamarela.png';
+import LogoName from '../../img/web3travelclub4.png';
 import { Link } from 'react-router-dom';
 
 export const Footer = () => {
