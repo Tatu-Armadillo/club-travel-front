@@ -12,20 +12,20 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
             const saveData = localStorage.getItem('authenticationToken');
             if (saveData) {
                 const data = await api.validateToken(saveData);
-                if (data.user) {
+                if (data.token) {
                     setUser(data.user);
                 }
             }
         };
-
         hasToken();
-    }, []);
+        console.log(user + 'alterado');
+    }, [user]);
 
-    const signIn = async (name: string, password: string) => {
-        const data = await api.signIn(name, password);
-        if (data.user && data.token) {
-            setUser(data.user);
-            setToken(data.token);
+    const signIn = async (username: string, password: string) => {
+        const data = await api.signIn(username, password);
+        if (data.data.username && data.data.token) {
+            setUser(data.data.user);
+            setToken(data.data.token);
             return true;
         }
         return false;
