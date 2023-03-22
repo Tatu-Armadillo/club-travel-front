@@ -28,10 +28,11 @@ export const SignIn = () => {
         const { userName, password } = inputValues;
         if (userName && password) {
             try {
-                const isOn = await auth.signIn(userName, password);
+                await auth.signIn(userName, password);
                 navigate('/');
                 return true;
             } catch (e) {
+                alert('O username ou senha não correspondem ao banco de dados');
                 return false;
             }
         }
