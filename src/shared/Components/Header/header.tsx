@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { Navbar, BoxImages, BoxLogo } from './header.styled';
-import LogoName from '../../img/web3travelclub4.png';
-import Logo from '../../img/web3reallogoamarela.png';
+import LogoName from '../../../assets/img/web3travelclub4.png';
+import Logo from '../../../assets/img/web3reallogoamarela.png';
 import { Link } from 'react-router-dom';
 import { Button } from '@/shared/Components';
 import { IoMdMenu } from 'react-icons/io';
