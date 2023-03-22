@@ -15,13 +15,19 @@ export const useApi = () => {
             );
             return response.data;
         },
-        signIn: async (name: string, password: string) => {
-            return { user: { id: 3, name: 'Marcos' }, token: '12345' };
-            const response = await axios.post('./', { name, password });
-            return response.data;
+        signIn: async (username: string, password: string) => {
+            try {
+                const res = await axios.post(
+                    'http://localhost:8080/blog/auth/signin',
+                    { username, password }
+                );
+                return res.data;
+            } catch (error) {
+                console.error(error);
+            }
         },
         validateToken: async (token: string) => {
-            return { user: { id: 3, name: 'Marcos' }, token: '12345' };
+            return { user: { id: 3, username: 'king' }, token: 'king123456' };
             const response = await axios.post('/validate', token);
             return response.data;
         },

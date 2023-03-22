@@ -8,24 +8,25 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     const api = useApi();
     const [user, setUser] = useState<IUser | null>(null);
     useEffect(() => {
+        console.log(user + 'alterado');
         const hasToken = async () => {
             const saveData = localStorage.getItem('authenticationToken');
             if (saveData) {
                 const data = await api.validateToken(saveData);
-                if (data.user) {
+                if (data.token) {
                     setUser(data.user);
                 }
             }
         };
-
         hasToken();
     }, []);
 
-    const signIn = async (name: string, password: string) => {
-        const data = await api.signIn(name, password);
-        if (data.user && data.token) {
-            setUser(data.user);
-            setToken(data.token);
+    const signIn = async (username: string, password: string) => {
+        const response = await api.signIn(username, password);
+        console.log(response);
+        if (response.data.username && response.data.token) {
+            setUser(response.data);
+            setToken(response.data.token);
             return true;
         }
         return false;
