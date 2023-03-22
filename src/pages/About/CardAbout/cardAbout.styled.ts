@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Card = styled.section`
-    background-color: #F2B705;
+    background-color: ${props => props.theme === "light" ? "#032CA6" : "#F2B705"};
+    color: ${props => props.theme === "light" ? "#FFFFFF" : "#000000"};
     border-radius: .8rem 0rem;
     width: 85%;
     min-width: auto;
