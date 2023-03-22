@@ -2,7 +2,7 @@ import { MainContainer, Image } from './signIn.styled';
 import IconWorld from '@/shared/img/computer-login-animate.svg';
 import { FaUser } from 'react-icons/fa';
 import Logo from '../../shared/img/web3travelclub4.png';
-import { Button } from '@/shared/Components';
+import { Button } from '@chakra-ui/react';
 import { ChangeEvent, useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '@/context/AuthContext';
@@ -14,6 +14,7 @@ interface SignInFormProps {
 export const SignIn = () => {
     const auth = useContext(AuthContext);
     const navigate = useNavigate();
+    const [isLoading, setIsloading] = useState(false);
     const [inputValues, setInputValues] = useState<SignInFormProps>({
         userName: '',
         password: '',
@@ -28,6 +29,7 @@ export const SignIn = () => {
 
     const handleSubmit = async () => {
         const { userName, password } = inputValues;
+        setIsloading(true);
         if (userName && password) {
             try {
                 await auth.signIn(userName, password);
@@ -36,6 +38,8 @@ export const SignIn = () => {
             } catch (e) {
                 alert('O username ou senha não correspondem ao banco de dados');
                 return false;
+            } finally {
+                setIsloading(false);
             }
         }
     };
@@ -93,11 +97,13 @@ export const SignIn = () => {
                             </div>
                             <div className='flex flex-col items-center mt-20'>
                                 <Button
-                                    typeButton='button'
-                                    funcClick={handleSubmit}
-                                    classButton='rounded-md w-32 capitalize bg-white px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-black hover:text-orange-600focus-visible:outline focus-visible:outline-2 hover:text-white  focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-                                    text={'Entrar'}
-                                />
+                                    type='button'
+                                    isLoading={isLoading}
+                                    onClick={handleSubmit}
+                                    className='rounded-md w-32 capitalize bg-white px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-black hover:text-orange-600focus-visible:outline focus-visible:outline-2 hover:text-white  focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+                                >
+                                    Entrar
+                                </Button>
                             </div>
                         </div>
                     </form>

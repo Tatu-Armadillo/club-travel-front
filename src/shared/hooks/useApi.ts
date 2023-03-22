@@ -16,7 +16,6 @@ export const useApi = () => {
             return response.data;
         },
         signIn: async (username: string, password: string) => {
-            console.log('entrando no useApi');
             try {
                 const res = await axios.post(
                     'http://localhost:8080/blog/auth/signin',
