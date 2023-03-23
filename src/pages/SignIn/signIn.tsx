@@ -1,7 +1,7 @@
 import { MainContainer, Image } from './signIn.styled';
 import IconWorld from '@/assets/img/computer-login-animate.svg';
 import { FaUser } from 'react-icons/fa';
-import Logo from '@/shared/img/web3travelclub4.png';
+import Logo from '@/assets/img/web3travelclub4.png';
 import { Button } from '@chakra-ui/react';
 import { ChangeEvent, useState } from 'react';
 import { useContext } from 'react';
