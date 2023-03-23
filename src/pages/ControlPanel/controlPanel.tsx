@@ -6,12 +6,11 @@ import { FormNews } from '@/shared/Components/FormNews/formNews';
 import { useComponent } from '@/shared/hooks';
 import { FormDestinations } from '@/shared/Components/FormDestinations/formDestinations';
 
-
 export const ControlPanel = () => {
     const [timerLogin, setTimerLogin] = useState(true);
     setTimeout(() => {
         setTimerLogin(false);
-    }, 4000);
+    }, 1000);
 
     const componentList = [
         <SelectForm
@@ -24,7 +23,7 @@ export const ControlPanel = () => {
     ];
 
     const { currentComponent, changeComponent } = useComponent(componentList);
-    
+
     const auth = useContext(AuthContext);
     return (
         <React.Fragment>
