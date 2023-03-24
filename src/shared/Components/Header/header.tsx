@@ -7,11 +7,14 @@ import { Button } from '@/shared/Components';
 import { IoMdMenu } from 'react-icons/io';
 import { BiMenuAltLeft } from 'react-icons/bi';
 import { AuthContext } from '@/context/AuthContext';
+import { BsMoon } from "react-icons/bs";
+import { BsSun } from "react-icons/bs";
 
 export const Header = () => {
     const auth = useContext(AuthContext);
     const iconSet = <IoMdMenu color='white' className='block h-6 w-6' />;
     const [icon, setIcon] = useState(iconSet);
+    const [theme, setTheme] = useState<JSX.Element>(<BsSun />);
 
     type Props = {
         name: string;
@@ -24,19 +27,23 @@ export const Header = () => {
         { name: 'login', link: '/signIn' },
         { name: 'sobre nós', link: '/about' },
     ];
-    if (auth.user)
+    if (auth.user) {
         arrItems.push({ name: 'painel de controle', link: '/controlPanel' });
+    };
 
     const handleClassHidden = () => {
-        const addHidden = document
-            .querySelector('#mobile-menu')
-            ?.classList.toggle('hidden');
+        const addHidden = document.querySelector('#mobile-menu')?.classList.toggle('hidden');
 
         const newIcon = (
             <BiMenuAltLeft color='white' className='block h-6 w-6' />
         );
 
         addHidden === false ? setIcon(newIcon) : setIcon(iconSet);
+    };
+
+    const handleTheme = () => {
+        auth.setThemeuser();
+        auth.theme === "light" ? setTheme(<BsMoon />) : setTheme(<BsSun />)
     };
 
     return (
@@ -96,6 +103,9 @@ export const Header = () => {
                                         </Link>
                                     );
                                 })}
+                                <span onClick={handleTheme} className="flex items-center text-gray-300 hover:text-white hover:bg-blue-900 rounded-md px-3 py-2 hover:cursor-pointer">
+                                    {theme}
+                                </span>
                                 {auth.user && (
                                     <Link
                                         to={'/'}
