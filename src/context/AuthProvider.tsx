@@ -3,12 +3,15 @@ import { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
 import { useApi } from '@/shared/hooks';
 import { setToken } from '@/shared/services/setToken';
-import { ITheme } from '@/shared/Interface/ITheme';
+import light from '@/styles/themes/light';
+import dark from '@/styles/themes/dark';
+import { ThemeProvider } from 'styled-components';
+
 
 export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     const api = useApi();
     const [user, setUser] = useState<IUser | null>(null);
-    const [theme, setTheme] = useState<ITheme | string>("light");
+    const [theme, setTheme] = useState(light);
 
     useEffect(() => {
         console.log(user + 'alterado');
@@ -42,12 +45,14 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     };
 
     const setThemeuser = () => {
-        setTheme(theme === "light" ? "dark" : "light");
+        setTheme(theme.title === "light" ? dark : light);
     };
 
     return (
-        <AuthContext.Provider value={{ user, signIn, signOut, theme, setThemeuser }}>
-            {children}
+        <AuthContext.Provider value={{ user, signIn, signOut, setThemeuser }}>
+            <ThemeProvider theme={theme}>
+                {children}
+            </ThemeProvider>
         </AuthContext.Provider>
     );
 };
