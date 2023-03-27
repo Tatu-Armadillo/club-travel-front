@@ -1,5 +1,7 @@
 import axios from 'axios';
-
+import { IDestination } from '../Interface/IDestionation';
+import { IResponse } from '../Interface/IResponse';
+import { providerInput } from '@/shared/services/providerInput';
 export const useApi = () => {
     const api = {
         getAll: async () => {
@@ -8,33 +10,53 @@ export const useApi = () => {
             );
             return response.data;
         },
-        postAddNew: async (name: string, phone: string, email: string) => {
-            const response = await axios.post(
-                'http://localhost:8080/blog/contact',
-                { name, phone, email }
-            );
-            return response.data;
-        },
-        signIn: async (username: string, password: string) => {
-            try {
-                const res = await axios.post(
-                    'http://localhost:8080/blog/auth/signin',
-                    { username, password }
+        generalInserts: {
+            insertContact: async (
+                name: string,
+                phone: string,
+                email: string
+            ): Promise<IResponse> => {
+                const response = await axios.post(
+                    'http://localhost:8080/blog/contact',
+                    { name, phone, email }
                 );
-                return res.data;
-            } catch (error) {
-                console.error(error);
-            }
+                return response.data;
+            },
+            insertDestination: async (
+                destination: IDestination
+            ): Promise<IResponse> => {
+                const response = await axios.post(
+                    'http://localhost:8080/blog/destinations',
+                    destination
+                );
+                return response.data;
+            },
         },
-        validateToken: async (token: string) => {
-            return { user: { id: 3, username: 'king' }, token: 'king123456' };
-            const response = await axios.post('/validate', token);
-            return response.data;
-        },
-        signOut: async () => {
-            return { status: true };
-            const response = await axios.post('/logout');
-            return response.data;
+        loginConnections: {
+            signIn: async (username: string, password: string) => {
+                try {
+                    const res = await axios.post(
+                        'http://localhost:8080/blog/auth/signin',
+                        { username, password }
+                    );
+                    return res.data;
+                } catch (error) {
+                    console.error(error);
+                }
+            },
+            validateToken: async (token: string) => {
+                return {
+                    user: { id: 3, username: 'king' },
+                    token: 'king123456',
+                };
+                const response = await axios.post('/validate', token);
+                return response.data;
+            },
+            signOut: async () => {
+                return { status: true };
+                const response = await axios.post('/logout');
+                return response.data;
+            },
         },
     };
     return api;

@@ -23,7 +23,11 @@ export const Modal = ({ externFunc }: ModalProps) => {
         const { name, phone, email } = inputValues;
         if (loginIsValid(name, phone, email)) {
             try {
-                const action = await api.postAddNew(name, phone, email);
+                const action = await api.generalInserts.insertContact(
+                    name,
+                    phone,
+                    email
+                );
                 alert('Parabens seu cadastro funfou newba');
                 externFunc();
             } catch (error) {
