@@ -1,6 +1,4 @@
 import { Card } from "./cardAbout.styled";
-import { useContext } from "react";
-import { AuthContext } from "@/context/AuthContext";
 
 type Props = {
     title: string,
@@ -8,9 +6,8 @@ type Props = {
 };
 
 export const CardAbout = ({ paragraph, title }: Props) => {
-    const auth = useContext(AuthContext);
     return (
-        <Card theme={auth.theme}>
+        <Card>
             <h3>{title}</h3>
             <hr className="my-2 border-slate-500" />
             <p>{paragraph}</p>

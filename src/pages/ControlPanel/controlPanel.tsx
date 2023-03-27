@@ -1,11 +1,7 @@
 import { AuthContext } from '@/context/AuthContext';
-import { useContext } from 'react';
-import React, { useState } from 'react';
-import { SelectForm } from '@/shared/Components/SelectForm/selectForm';
-import { FormNews } from '@/shared/Components/FormNews/formNews';
+import React, { useState, useContext } from 'react';
+import {SelectForm, FormNews, FormDestinations} from "@/shared/Components";
 import { useComponent } from '@/shared/hooks';
-import { FormDestinations } from '@/shared/Components/FormDestinations/formDestinations';
-
 
 export const ControlPanel = () => {
     const [timerLogin, setTimerLogin] = useState(true);
@@ -24,7 +20,7 @@ export const ControlPanel = () => {
     ];
 
     const { currentComponent, changeComponent } = useComponent(componentList);
-    
+
     const auth = useContext(AuthContext);
     return (
         <React.Fragment>

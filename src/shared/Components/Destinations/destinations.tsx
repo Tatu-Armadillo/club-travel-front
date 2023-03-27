@@ -1,9 +1,7 @@
 import { SwiperProps, SwiperSlide } from 'swiper/react';
-import { HotItem } from '@/shared/Components';
 import { LinkWraperProps } from '../HotItem/hotItem.styled';
 import { FaMapSigns } from 'react-icons/fa';
-import { Slider } from '@/shared/Components';
-import { TitleTopic } from '@/shared/Components';
+import { Slider, TitleTopic, HotItem } from '@/shared/Components';
 
 export const Destinations = () => {
     const sliderConfig: SwiperProps = {

@@ -9,6 +9,7 @@ import {
 import { useContext, useEffect, useState } from 'react';
 import { useApi } from '@/shared/hooks';
 import { AuthContext } from '@/context/AuthContext';
+
 interface FlagProps {
     original_title: string;
     poster_path: string;

@@ -1,6 +1,4 @@
 import { BoxInfo, BoxText, InfoImg, BoxImg } from "./cardLine.styled";
-import { useContext } from "react";
-import { AuthContext } from "@/context/AuthContext";
 
 type Props = {
     paragraph: string,
@@ -8,10 +6,8 @@ type Props = {
 };
 
 export const CardLine = ({ paragraph, img }: Props) => {
-    const auth = useContext(AuthContext);
-
     return (
-        <BoxInfo theme={auth.theme}>
+        <BoxInfo>
             <BoxText>
                 <p>{paragraph}</p>
             </BoxText>
