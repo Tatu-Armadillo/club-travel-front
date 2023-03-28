@@ -10,5 +10,3 @@ export { Modal } from './Modal/modal';
 export { Slider } from './Slider/slider';
 export { TitleTopic } from './TitleTopic/titleTopic';
 export { SelectForm } from "./SelectForm/selectForm";
-export { FormNews } from "./FormNews/formNews";
-export { FormDestinations } from "./FormDestinations/formDestinations";
