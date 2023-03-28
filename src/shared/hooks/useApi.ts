@@ -2,13 +2,22 @@ import axios from 'axios';
 import { IDestination } from '../Interface/IDestionation';
 import { IResponse } from '../Interface/IResponse';
 import { providerInput } from '@/shared/services/providerInput';
+import { ICity } from '../../pages/ControlPanel/FormDestinations/formDestinations';
 export const useApi = () => {
     const api = {
-        getAll: async () => {
-            const response = await axios.get(
-                'https://api.themoviedb.org/3/movie/popular?api_key=d9933aa94f6c72dd8b077673c359fc82&language=en-US&page=1'
-            );
-            return response.data;
+        generalSearchs: {
+            getAll: async () => {
+                const response = await axios.get(
+                    'https://api.themoviedb.org/3/movie/popular?api_key=d9933aa94f6c72dd8b077673c359fc82&language=en-US&page=1'
+                );
+                return response.data;
+            },
+            getCityByName: async (query: string): Promise<ICity[]> => {
+                const response = await axios.get(
+                    `http://localhost:8080/blog/city?name=${query}`
+                );
+                return response.data.data;
+            },
         },
         generalInserts: {
             insertContact: async (

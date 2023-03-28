@@ -17,13 +17,19 @@ interface FlagProps {
 
 export const Home = () => {
     const auth = useContext(AuthContext);
-    const api = useApi();
+    const { generalSearchs } = useApi();
     const ApiImageLink = 'https://image.tmdb.org/t/p/w500/';
     const [flag, setFlag] = useState<FlagProps[]>([]);
     const [modalOpen, setModalOpen] = useState(true);
     const loadInformation = async () => {
-        let json = await api.getAll();
-        setFlag(json.results);
+        try {
+            let json = await generalSearchs.getAll();
+            setFlag(json.results);
+        } catch (error) {
+            alert(
+                'não foi possível carregar o feed, tente novamente mais tarde'
+            );
+        }
     };
     useEffect(() => {
         loadInformation();
@@ -33,17 +39,21 @@ export const Home = () => {
         <FlexContainer>
             <FlexContainer>
                 <Destinations />
-                <LastNews
-                    title={'últimas noticias'}
-                    children={flag.map((item, key) => (
-                        <CardNews
-                            key={key}
-                            title={item.original_title}
-                            url={ApiImageLink + item.poster_path}
-                            description={item.overview}
-                        />
-                    ))}
-                />
+                {flag.length > 2 ? (
+                    <LastNews
+                        title={'últimas noticias'}
+                        children={flag.map((item, key) => (
+                            <CardNews
+                                key={key}
+                                title={item.original_title}
+                                url={ApiImageLink + item.poster_path}
+                                description={item.overview}
+                            />
+                        ))}
+                    />
+                ) : (
+                    <h2 className='txtbold'>Não foi possível exibir o feed</h2>
+                )}
             </FlexContainer>
             {modalOpen &&
                 !auth.user &&
