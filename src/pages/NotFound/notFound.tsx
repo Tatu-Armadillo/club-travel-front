@@ -1,4 +1,4 @@
-import ImgNotFound from '@/shared/img/page-not-found.png';
+import ImgNotFound from '@/assets/img/page-not-found.png';
 import { Link } from 'react-router-dom';
 
 export const NotFound = () => {

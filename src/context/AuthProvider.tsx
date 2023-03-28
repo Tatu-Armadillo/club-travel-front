@@ -14,11 +14,10 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     const [theme, setTheme] = useState(light);
 
     useEffect(() => {
-        console.log(user + 'alterado');
         const hasToken = async () => {
             const saveData = localStorage.getItem('authenticationToken');
             if (saveData) {
-                const data = await api.validateToken(saveData);
+                const data = await api.loginConnections.validateToken(saveData);
                 if (data.token) {
                     setUser(data.user);
                 }
@@ -28,7 +27,7 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     }, []);
 
     const signIn = async (username: string, password: string) => {
-        const response = await api.signIn(username, password);
+        const response = await api.loginConnections.signIn(username, password);
         console.log(response);
         if (response.data.username && response.data.token) {
             setUser(response.data);
@@ -39,7 +38,7 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     };
 
     const signOut = async () => {
-        await api.signOut();
+        await api.loginConnections.signOut();
         setToken('');
         setUser(null);
     };

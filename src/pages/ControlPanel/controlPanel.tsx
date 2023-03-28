@@ -7,7 +7,7 @@ export const ControlPanel = () => {
     const [timerLogin, setTimerLogin] = useState(true);
     setTimeout(() => {
         setTimerLogin(false);
-    }, 4000);
+    }, 1000);
 
     const componentList = [
         <SelectForm

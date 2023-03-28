@@ -1,5 +1,5 @@
 import { MainContainer, Image } from './signIn.styled';
-import IconWorld from '../../assets/img/computer-login-animate.svg';
+import IconWorld from '@/assets/img/computer-login-animate.svg';
 import { FaUser } from 'react-icons/fa';
 import Logo from '../../assets/img/web3travelclub4.png';
 import { Button } from '@chakra-ui/react';
@@ -30,6 +30,8 @@ export const SignIn = () => {
     const handleSubmit = async () => {
         const { userName, password } = inputValues;
         setIsloading(true);
+        console.log(userName, password);
+
         if (userName && password) {
             try {
                 await auth.signIn(userName, password);
@@ -100,7 +102,7 @@ export const SignIn = () => {
                                     type='button'
                                     isLoading={isLoading}
                                     onClick={handleSubmit}
-                                    className='rounded-md w-32 capitalize bg-white px-3.5 py-2.5 text-sm font-semibold text-black shadow-sm hover:bg-black hover:text-orange-600focus-visible:outline focus-visible:outline-2 hover:text-white  focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+                                    className='rounded-md w-32 capitalize bg-gradient-to-t from-black to-black hover:from-orange-200 hover:to-orange-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-black focus-visible:outline focus-visible:outline-2  focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
                                 >
                                     Entrar
                                 </Button>
