@@ -1,4 +1,4 @@
-import { ReactNode, useState, MouseEvent } from 'react';
+import { useState, MouseEvent } from 'react';
 
 export const useComponent = (list: JSX.Element[]) => {
     const [currentItem, setCurrentItem] = useState(0);

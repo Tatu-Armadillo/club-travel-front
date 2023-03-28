@@ -3,8 +3,7 @@ import { Card } from "./cardAbout.styled";
 type Props = {
     title: string,
     paragraph: string,
-
-}
+};
 
 export const CardAbout = ({ paragraph, title }: Props) => {
     return (

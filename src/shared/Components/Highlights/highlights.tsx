@@ -1,9 +1,8 @@
-import { Slider } from '@/shared/Components';
+import { Slider, TitleTopic, HotItem } from '@/shared/Components';
 import { SwiperProps, SwiperSlide } from 'swiper/react';
-import { HotItem } from '@/shared/Components';
 import { LinkWraperProps } from '../HotItem/hotItem.styled';
-import { TitleTopic } from '@/shared/Components';
 import { GiPalmTree } from 'react-icons/gi';
+
 export const Highlights = () => {
     const sliderConfig: SwiperProps = {
         spaceBetween: 50,

@@ -4,14 +4,16 @@ import LogoName from '../../../assets/img/web3travelclub4.png';
 import Logo from '../../../assets/img/web3reallogoamarela.png';
 import { Link } from 'react-router-dom';
 import { Button } from '@/shared/Components';
-import { IoMdMenu } from 'react-icons/io';
-import { BiMenuAltLeft } from 'react-icons/bi';
+import { BsMoon, BsSun, IoMdMenu, BiMenuAltLeft } from "react-icons/all";
+import { ThemeContext } from 'styled-components';
 import { AuthContext } from '@/context/AuthContext';
 
 export const Header = () => {
+    const { title } = useContext(ThemeContext);
     const auth = useContext(AuthContext);
     const iconSet = <IoMdMenu color='white' className='block h-6 w-6' />;
     const [icon, setIcon] = useState(iconSet);
+    const [theme, setTheme] = useState<JSX.Element>(<BsSun />);
 
     type Props = {
         name: string;
@@ -24,19 +26,23 @@ export const Header = () => {
         { name: 'login', link: '/signIn' },
         { name: 'sobre nós', link: '/about' },
     ];
-    if (auth.user)
+    if (auth.user) {
         arrItems.push({ name: 'painel de controle', link: '/controlPanel' });
+    };
 
     const handleClassHidden = () => {
-        const addHidden = document
-            .querySelector('#mobile-menu')
-            ?.classList.toggle('hidden');
+        const addHidden = document.querySelector('#mobile-menu')?.classList.toggle('hidden');
 
         const newIcon = (
             <BiMenuAltLeft color='white' className='block h-6 w-6' />
         );
 
         addHidden === false ? setIcon(newIcon) : setIcon(iconSet);
+    };
+
+    const handleTheme = () => {
+        auth.setThemeuser();
+        title === "light" ? setTheme(<BsMoon />) : setTheme(<BsSun />)
     };
 
     return (
@@ -96,6 +102,9 @@ export const Header = () => {
                                         </Link>
                                     );
                                 })}
+                                <span onClick={handleTheme} className="flex items-center text-gray-300 hover:text-white hover:bg-blue-900 rounded-md px-3 py-2 hover:cursor-pointer">
+                                    {theme}
+                                </span>
                                 {auth.user && (
                                     <Link
                                         to={'/'}

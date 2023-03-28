@@ -4,7 +4,8 @@ export const MainContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 2rem;
     width: 40vw;
     height: 70vh;
     border-radius: 1rem;

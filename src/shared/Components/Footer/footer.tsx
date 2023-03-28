@@ -1,12 +1,5 @@
 import { BoxFooter } from './footer.styled';
-import {
-    FaInstagram,
-    FaTwitter,
-    FaWhatsapp,
-    FaTiktok,
-    FaTelegramPlane,
-} from 'react-icons/fa';
-import { AiOutlineMail } from 'react-icons/ai';
+import { FaInstagram, FaTwitter, FaWhatsapp, FaTiktok, FaTelegramPlane, AiOutlineMail } from 'react-icons/all';
 import Logo from '../../../assets/img/web3reallogoamarela.png';
 import LogoName from '../../../assets/img/web3travelclub4.png';
 import { Link } from 'react-router-dom';

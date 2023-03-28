@@ -6,6 +6,10 @@ export default createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
     }
+
+    #root { 
+        background-color: ${props => props.theme.colors.background};
+    }
     
     main {
         min-height: calc(100vh - 149px);

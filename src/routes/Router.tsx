@@ -1,9 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-
-import { Home, About, Infographics, SignIn } from '@/pages';
+import { Home, About, Infographics, SignIn, ControlPanel, NotFound } from '@/pages';
 import { RequireAuth } from '@/context/RequireAuth';
-import { ControlPanel } from '@/pages/ControlPanel/controlPanel';
-import { NotFound } from '@/pages/NotFound/notFound';
 
 export const Router = () => {
     return (

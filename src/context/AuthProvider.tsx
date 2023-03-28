@@ -3,10 +3,16 @@ import { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
 import { useApi } from '@/shared/hooks';
 import { setToken } from '@/shared/services/setToken';
+import light from '@/styles/themes/light';
+import dark from '@/styles/themes/dark';
+import { ThemeProvider } from 'styled-components';
+
 
 export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     const api = useApi();
     const [user, setUser] = useState<IUser | null>(null);
+    const [theme, setTheme] = useState(light);
+
     useEffect(() => {
         const hasToken = async () => {
             const saveData = localStorage.getItem('authenticationToken');
@@ -36,9 +42,16 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
         setToken('');
         setUser(null);
     };
+
+    const setThemeuser = () => {
+        setTheme(theme.title === "light" ? dark : light);
+    };
+
     return (
-        <AuthContext.Provider value={{ user, signIn, signOut }}>
-            {children}
+        <AuthContext.Provider value={{ user, signIn, signOut, setThemeuser }}>
+            <ThemeProvider theme={theme}>
+                {children}
+            </ThemeProvider>
         </AuthContext.Provider>
     );
 };

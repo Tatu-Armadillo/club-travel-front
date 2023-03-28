@@ -1,5 +1,6 @@
 import ImgNotFound from '@/assets/img/page-not-found.png';
 import { Link } from 'react-router-dom';
+
 export const NotFound = () => {
     return (
         <div className='flex items-center justify-center flex-col'>
