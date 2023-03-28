@@ -7,25 +7,20 @@ import {
     Textarea,
     Button,
 } from '@chakra-ui/react';
-import { ChangeEvent, useState, MouseEvent, useEffect } from 'react';
-import { TitleTopic } from '../TitleTopic/titleTopic';
+import { ChangeEvent, useState, MouseEvent } from 'react';
+
 import { useApi } from '@/shared/hooks';
-import axios from 'axios';
 import { providerInput } from '@/shared/services/providerInput';
-interface City {
+import { ResponseCityList } from '@/pages/ControlPanel/ResponseCityList/responseCityList';
+import { ResponseCityItem } from '../ResponseCityItem/responseCityItem';
+
+export interface ICity {
     idCity: number;
     name: string;
 }
 export const FormDestinations = () => {
-    const [cities, setCities] = useState<City[]>([]);
-    useEffect(() => {
-        const getRes = async () => {
-            const res = await axios.get('http://localhost:8080/blog/city');
-            setCities(res.data.data);
-        };
-        getRes();
-    }, []);
-    const api = useApi();
+    const [cities, setCities] = useState<ICity[]>([]);
+    const { generalSearchs, generalInserts } = useApi();
 
     const [destination, setDestination] = useState<IDestination>({
         climate: '',
@@ -58,20 +53,33 @@ export const FormDestinations = () => {
         console.log(Object.values(destination));
         if (providerInput().validateInputs(Object.values(destination)))
             try {
-                await api.generalInserts.insertDestination(destination);
+                await generalInserts.insertDestination(destination);
                 alert('Dados inseridos com sucesso!');
             } catch (error) {
                 alert('Deu ruim');
             }
     };
+    const handleSearchCities = async (query: string) => {
+        const res = await generalSearchs.getCityByName(query);
+        setCities(res);
+    };
 
     const handleChange = (
         e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
     ) => {
+        if (
+            e.currentTarget.name.includes('city') &&
+            e.currentTarget.value.length > 3
+        )
+            handleSearchCities(e.currentTarget.value);
         setDestination({
             ...destination,
             [e.currentTarget.name]: e.currentTarget.value,
         });
+    };
+    const choiceCity = (cityName: string) => {
+        setDestination({ ...destination, city: cityName });
+        setCities([]);
     };
     return (
         <Flex
@@ -81,14 +89,18 @@ export const FormDestinations = () => {
             minHeight='80vh'
             width='full'
         >
-            <TitleTopic title='Cadastro de Destinos' />
-            <form className='grid grid-cols-6 place-content-center bg-blue-800 gap-16 p-5 ml-2 rounded-md'>
+            <form
+                autoComplete='off'
+                className=' lg:grid grid-cols-6 place-content-center bg-blue-800 gap-16 p-5 rounded-md m-auto'
+            >
                 <Flex direction='column' gap='.5rem'>
                     <FormControl isRequired>
                         <FormLabel fontWeight='bold' color='white'>
                             Clima
                         </FormLabel>
                         <Textarea
+                            borderRadius={5}
+                            padding={2}
                             placeholder='Fale sobre o clima'
                             resize='vertical'
                             size='md'
@@ -103,6 +115,8 @@ export const FormDestinations = () => {
                             Moeda Local
                         </FormLabel>
                         <Textarea
+                            borderRadius={5}
+                            padding={2}
                             placeholder='Qual a moeda local?'
                             resize='vertical'
                             size='md'
@@ -117,6 +131,8 @@ export const FormDestinations = () => {
                             Transporte
                         </FormLabel>
                         <Textarea
+                            borderRadius={5}
+                            padding={2}
                             placeholder='Como é o transporte?'
                             resize='vertical'
                             size='md'
@@ -131,6 +147,8 @@ export const FormDestinations = () => {
                             Alojamento
                         </FormLabel>
                         <Textarea
+                            borderRadius={5}
+                            padding={2}
                             placeholder='Fale sobre os alojamentos'
                             resize='vertical'
                             size='md'
@@ -147,6 +165,8 @@ export const FormDestinations = () => {
                             Passeio Turístico
                         </FormLabel>
                         <Textarea
+                            borderRadius={5}
+                            padding={2}
                             placeholder='Fale sobre os passeios'
                             resize='vertical'
                             size='md'
@@ -161,6 +181,8 @@ export const FormDestinations = () => {
                             Gastronômia
                         </FormLabel>
                         <Textarea
+                            borderRadius={5}
+                            padding={2}
                             placeholder='Fale sobre a gastronômia'
                             resize='vertical'
                             size='md'
@@ -189,6 +211,8 @@ export const FormDestinations = () => {
                             Documentos
                         </FormLabel>
                         <Textarea
+                            borderRadius={5}
+                            padding={2}
                             placeholder='Quais documentos são necessários?'
                             resize='vertical'
                             size='md'
@@ -205,6 +229,8 @@ export const FormDestinations = () => {
                             Segurança
                         </FormLabel>
                         <Textarea
+                            borderRadius={5}
+                            padding={2}
                             placeholder='Sobre segurança'
                             resize='vertical'
                             size='md'
@@ -219,6 +245,8 @@ export const FormDestinations = () => {
                             Custos
                         </FormLabel>
                         <Textarea
+                            borderRadius={5}
+                            padding={2}
                             placeholder='Sobre os custos'
                             resize='vertical'
                             size='md'
@@ -233,6 +261,8 @@ export const FormDestinations = () => {
                             Saúde
                         </FormLabel>
                         <Textarea
+                            borderRadius={5}
+                            padding={2}
                             placeholder='Sobre saúde local'
                             resize='vertical'
                             size='md'
@@ -247,6 +277,8 @@ export const FormDestinations = () => {
                             Cultura
                         </FormLabel>
                         <Textarea
+                            borderRadius={5}
+                            padding={2}
                             placeholder='E a cultura?'
                             resize='vertical'
                             size='md'
@@ -263,6 +295,8 @@ export const FormDestinations = () => {
                             Compras
                         </FormLabel>
                         <Textarea
+                            borderRadius={5}
+                            padding={2}
                             placeholder='Sobre compras locais'
                             resize='vertical'
                             size='md'
@@ -277,6 +311,8 @@ export const FormDestinations = () => {
                             Eventos
                         </FormLabel>
                         <Textarea
+                            borderRadius={5}
+                            padding={2}
                             placeholder='Fale dos Eventos'
                             resize='vertical'
                             size='md'
@@ -291,6 +327,8 @@ export const FormDestinations = () => {
                             Distâncias
                         </FormLabel>
                         <Textarea
+                            borderRadius={5}
+                            padding={2}
                             placeholder='Fale ???'
                             resize='vertical'
                             size='md'
@@ -305,6 +343,8 @@ export const FormDestinations = () => {
                             Horários
                         </FormLabel>
                         <Textarea
+                            borderRadius={5}
+                            padding={2}
                             placeholder='Sobre os horários'
                             resize='vertical'
                             size='md'
@@ -321,6 +361,8 @@ export const FormDestinations = () => {
                             Conexão de Internet
                         </FormLabel>
                         <Textarea
+                            borderRadius={5}
+                            padding={2}
                             placeholder='Conexão é boa?'
                             resize='vertical'
                             size='md'
@@ -335,6 +377,8 @@ export const FormDestinations = () => {
                             Transporte de Bagagem
                         </FormLabel>
                         <Textarea
+                            borderRadius={5}
+                            padding={2}
                             placeholder='Sobre transp. da bagagem'
                             resize='vertical'
                             size='md'
@@ -349,6 +393,8 @@ export const FormDestinations = () => {
                             Dicas Extras
                         </FormLabel>
                         <Textarea
+                            borderRadius={5}
+                            padding={2}
                             placeholder='Dê umas dicas'
                             resize='vertical'
                             size='md'
@@ -363,6 +409,8 @@ export const FormDestinations = () => {
                             Informações Úteis
                         </FormLabel>
                         <Textarea
+                            borderRadius={5}
+                            padding={2}
                             placeholder='Mais informações'
                             resize='vertical'
                             size='md'
@@ -379,6 +427,8 @@ export const FormDestinations = () => {
                             Pagamentos
                         </FormLabel>
                         <Textarea
+                            borderRadius={5}
+                            padding={2}
                             placeholder='???'
                             resize='vertical'
                             size='md'
@@ -393,6 +443,8 @@ export const FormDestinations = () => {
                             Contato para Informações
                         </FormLabel>
                         <Textarea
+                            borderRadius={5}
+                            padding={2}
                             placeholder='Info. para contato'
                             resize='vertical'
                             size='md'
@@ -407,6 +459,8 @@ export const FormDestinations = () => {
                             Link da Imagem
                         </FormLabel>
                         <Input
+                            borderRadius={5}
+                            padding={2}
                             type='text'
                             onChange={handleChange}
                             name='imageLink'
@@ -419,11 +473,25 @@ export const FormDestinations = () => {
                             Cidade
                         </FormLabel>
                         <Input
-                            type='search'
+                            borderRadius={5}
+                            padding={2}
+                            placeholder='escreva 3 letras'
+                            type='text'
                             onChange={handleChange}
                             name='city'
                             value={destination.city}
                         />
+                        {cities.length != 0 ? (
+                            <ResponseCityList>
+                                {cities.map((city) => (
+                                    <ResponseCityItem
+                                        idCity={city.idCity}
+                                        name={city.name}
+                                        externalFunc={choiceCity}
+                                    />
+                                ))}
+                            </ResponseCityList>
+                        ) : null}
                     </FormControl>
 
                     <Button
