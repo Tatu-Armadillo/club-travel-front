@@ -7,17 +7,19 @@ export const BoxContainer = styled.div`
 
 export const BoxTitle = styled.div`
     text-align: center;
-
+    
     h1 {
         font-size: 2.8rem;
         font-weight: 800;
         text-transform: uppercase;
+        color: ${props => props.theme.colors.title};
     }
 
     p {
         font-weight: 400;
         font-style: italic;
-        text-shadow: 0px 0px 10px #0000004d;
+        color: ${props => props.theme.colors.paragraph};
+        text-shadow: 0px 0px 10px ${props => props.theme.colors.paragraphShadow};
     }
 `;
 

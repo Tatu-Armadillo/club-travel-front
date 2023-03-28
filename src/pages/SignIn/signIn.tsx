@@ -74,10 +74,10 @@ export const SignIn = () => {
                                     onChange={handleInput}
                                     placeholder='Digite seu usuário...'
                                     autoComplete='given-name'
-                                    className='p-2 mt-2 block w-4/6 rounded-md border-none py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                                    className='p-2 block w-4/6 rounded-md border-none py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
                                 />
                             </div>
-                            <div className='flex flex-col items-center'>
+                            <div className='flex flex-col items-center mt-5'>
                                 <label
                                     htmlFor='name'
                                     className='block text-sm font-medium leading-6 text-white'
@@ -85,17 +85,17 @@ export const SignIn = () => {
                                     Senha
                                 </label>
                                 <input
-                                    type='text'
+                                    type='password'
                                     name='password'
                                     onChange={handleInput}
                                     value={inputValues.password}
                                     id='password'
-                                    placeholder='Digite seu nome...'
+                                    placeholder='Digite sua senha...'
                                     autoComplete='given-name'
-                                    className='p-2 mt-2 block w-4/6 rounded-md border-none py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                                    className='p-2 block w-4/6 rounded-md border-none py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
                                 />
                             </div>
-                            <div className='flex flex-col items-center mt-20'>
+                            <div className='flex flex-col items-center mt-10'>
                                 <Button
                                     type='button'
                                     isLoading={isLoading}

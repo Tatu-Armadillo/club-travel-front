@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 export const Card = styled.section`
-    background-color: ${props => props.theme === "light" ? "#032CA6" : "#F2B705"};
-    color: ${props => props.theme === "light" ? "#FFFFFF" : "#000000"};
+    background-color: ${props => props.theme.colors.backgroundCardAbout};
+    color: ${props => props.theme.colors.paragraphCardAbout};
     border-radius: .8rem 0rem;
     width: 85%;
     min-width: auto;
     padding: 2rem;
-    box-shadow: 5px 5px 12px black;
+    box-shadow: 5px 5px 12px ${props => props.theme.colors.boxShadowCardAbout};
+    text-align: justify;
 
     h3 {
         font-weight: 800;
@@ -16,7 +17,6 @@ export const Card = styled.section`
     }
 
     p {
-        letter-spacing: .04rem;
         font-weight: 400;
     }
 `;

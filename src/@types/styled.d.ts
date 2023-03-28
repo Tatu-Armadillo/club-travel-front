@@ -5,7 +5,15 @@ declare module "styled-components" {
         title: string,
 
         colors: {
-            background: string
+            background: string,
+            backgroundCardAbout: string,
+            backgroundCardLine: string,
+            boxShadowCardAbout:string,
+            title: string,
+            paragraph: string
+            paragraphShadow: string
+            paragraphCardAbout: string,
+            paragraphCardLine: string
         }
     }
 }
