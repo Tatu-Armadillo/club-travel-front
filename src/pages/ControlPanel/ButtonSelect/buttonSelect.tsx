@@ -16,12 +16,12 @@ export const ButtonSelect = ({
             width='20rem'
             height='10rem'
             padding='1rem'
+            borderRadius='1rem'
             transition='.5s all ease'
             size='md'
             name={name}
             _hover={{
                 backgroundColor: 'orange',
-                borderRadius: '1rem',
             }}
             onClick={externalFunc}
         >
