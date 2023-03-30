@@ -27,7 +27,6 @@ export const SelectForm = ({ externalFunc }: SelectFormProps) => {
                 flexDir='row'
                 width='full'
                 borderRadius='1rem'
-                border={'1px solid black'}
                 bgColor='rgba(255, 255, 255, 0.3)'
                 boxShadow='30px 30px 20px rgba(0, 0, 0, 0.3);'
             >
