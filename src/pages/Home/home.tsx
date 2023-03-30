@@ -9,6 +9,7 @@ import {
 import { useContext, useEffect, useState } from 'react';
 import { useApi } from '@/shared/hooks';
 import { AuthContext } from '@/context/AuthContext';
+import { EventCalender } from './EventCalender/eventCalender';
 
 interface FlagProps {
     original_title: string;
@@ -56,6 +57,7 @@ export const Home = () => {
                     <h2 className='txtbold'>Não foi possível exibir o feed</h2>
                 )}
             </FlexContainer>
+            <EventCalender />
             {modalOpen &&
                 !auth.user &&
                 !sessionStorage.getItem('modalOpen') && (
