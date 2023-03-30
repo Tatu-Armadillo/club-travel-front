@@ -7,7 +7,13 @@ import {
     Textarea,
     Button,
 } from '@chakra-ui/react';
-import { ChangeEvent, useState, MouseEvent } from 'react';
+import {
+    ChangeEvent,
+    useState,
+    MouseEvent,
+    KeyboardEvent,
+    useEffect,
+} from 'react';
 
 import { useApi } from '@/shared/hooks';
 import { providerInput } from '@/shared/services/providerInput';
@@ -19,6 +25,7 @@ export interface ICity {
     name: string;
 }
 export const FormDestinations = () => {
+    const [buttonDisable, setButtonDisable] = useState(true);
     const [cities, setCities] = useState<ICity[]>([]);
     const { generalSearchs, generalInserts } = useApi();
 
@@ -48,20 +55,59 @@ export const FormDestinations = () => {
         imageLink: '',
         city: '',
     });
+    useEffect(() => {
+        if (providerInput().validateInputs(Object.values(destination)))
+            setButtonDisable(false);
+    }, [destination]);
     const handleClick = async (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        console.log(Object.values(destination));
-        if (providerInput().validateInputs(Object.values(destination)))
-            try {
-                await generalInserts.insertDestination(destination);
-                alert('Dados inseridos com sucesso!');
-            } catch (error) {
-                alert('Deu ruim');
-            }
+
+        if (!providerInput().validateInputs(Object.values(destination))) {
+            alert(
+                'Precisa preenxer todos os campos para cadastrar um destino.'
+            );
+            return;
+        }
+        try {
+            await generalInserts.insertDestination(destination);
+            alert('Dados inseridos com sucesso!');
+            setDestination({
+                climate: '',
+                localCurrency: '',
+                transport: '',
+                accommodation: '',
+                sightseeing: '',
+                gastronomy: '',
+                language: '',
+                documents: '',
+                security: '',
+                costs: '',
+                health: '',
+                culture: '',
+                shopping: '',
+                events: '',
+                distances: '',
+                schedules: '',
+                internetConnection: '',
+                baggageTransport: '',
+                extraTips: '',
+                usefulInformation: '',
+                meansPayment: '',
+                contactInformation: '',
+                imageLink: '',
+                city: '',
+            });
+        } catch (error) {
+            alert(
+                'Não foi possível cadastrar o destino, verifique os dados e tente novamente.'
+            );
+            throw new Error('Cidade não enontrada no banco de dados asswhole');
+        }
     };
-    const handleSearchCities = async (query: string) => {
-        const res = await generalSearchs.getCityByName(query);
-        setCities(res);
+    const validateKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
+        if (+e.key || e.key === '0') {
+            e.preventDefault();
+        }
     };
 
     const handleChange = (
@@ -77,10 +123,16 @@ export const FormDestinations = () => {
             [e.currentTarget.name]: e.currentTarget.value,
         });
     };
+    const handleSearchCities = async (query: string) => {
+        const res = await generalSearchs.getCityByName(query);
+        setCities(res);
+    };
+
     const choiceCity = (cityName: string) => {
         setDestination({ ...destination, city: cityName });
         setCities([]);
     };
+
     return (
         <Flex
             align='start'
@@ -480,6 +532,7 @@ export const FormDestinations = () => {
                             onChange={handleChange}
                             name='city'
                             value={destination.city}
+                            onKeyDown={validateKeyPress}
                         />
                         {cities.length != 0 ? (
                             <ResponseCityList>
@@ -495,6 +548,7 @@ export const FormDestinations = () => {
                     </FormControl>
 
                     <Button
+                        isDisabled={buttonDisable}
                         onClick={handleClick}
                         type='submit'
                         className='rounded-md w-42 capitalize bg-gradient-to-t from-black to-black hover:from-orange-200 hover:to-orange-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm  hover:text-orange-600focus-visible:outline focus-visible:outline-2   focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mt-5'
