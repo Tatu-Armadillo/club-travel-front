@@ -7,9 +7,13 @@ export const useComponent = (list: JSX.Element[]) => {
         if (e.currentTarget.name === 'newsButton') setCurrentItem(1);
         if (e.currentTarget.name === 'destinationButton') setCurrentItem(2);
     };
+    const backHome = () => {
+        setCurrentItem(0);
+    };
     return {
         currentItem,
         currentComponent: list[currentItem],
         changeComponent,
+        backHome,
     };
 };
