@@ -6,4 +6,10 @@ export const LastNewsContainer = styled.div`
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
+    margin-bottom: 1rem;
+
+    @media (max-width: 720px) {
+        display: flex;
+        flex-direction: column;
+    }
 `;
