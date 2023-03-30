@@ -8,8 +8,8 @@ interface CardNewsProps {
 }
 export const CardNews = ({ url, title, description }: CardNewsProps) => {
     return (
-        <div className='flex flex-col md:grid grid-cols-2 items-center gap-11 border  rounded-lg p-5 w-full shadow-2xl bg-white hover:shadow-blue-400 '>
-            <div className='flex flex-col gap-5'>
+        <div className='flex flex-col  justify-center lg:grid grid-cols-2 items-center gap-11 border  rounded-lg p-5 w-full shadow-2xl bg-white hover:shadow-blue-400 '>
+            <div className='flex flex-col gap-5 '>
                 <h2 className='text-1xl font-bold tracking-tight text-gray-900 sm:text-2xl'>
                     {title}
                 </h2>
@@ -23,7 +23,7 @@ export const CardNews = ({ url, title, description }: CardNewsProps) => {
                     }
                 />
             </div>
-            <CardImage src={url} alt={title} className='hidden md:block' />
+            <CardImage src={url} alt={title} className='hidden md:block ' />
         </div>
     );
 };
