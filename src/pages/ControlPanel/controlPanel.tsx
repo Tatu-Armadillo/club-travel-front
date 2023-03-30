@@ -1,9 +1,10 @@
 import { AuthContext } from '@/context/AuthContext';
 import React, { useState, useContext } from 'react';
-import {SelectForm} from "@/shared/Components";
+import { SelectForm } from '@/shared/Components';
 import { useComponent } from '@/shared/hooks';
 import { FormNews } from './FormNews/formNews';
 import { FormDestinations } from './FormDestinations/formDestinations';
+import { ButtonBackHome } from '@/shared/Components/ButtonBackHome/buttonBackHome';
 
 export const ControlPanel = () => {
     const [timerLogin, setTimerLogin] = useState(true);
@@ -13,7 +14,7 @@ export const ControlPanel = () => {
 
     const componentList = [
         <SelectForm
-            funcfunc={(e) => {
+            externalFunc={(e) => {
                 changeComponent(e);
             }}
         />,
@@ -21,7 +22,8 @@ export const ControlPanel = () => {
         <FormDestinations />,
     ];
 
-    const { currentComponent, changeComponent } = useComponent(componentList);
+    const { currentComponent, currentItem, changeComponent, backHome } =
+        useComponent(componentList);
 
     const auth = useContext(AuthContext);
     return (
@@ -35,6 +37,9 @@ export const ControlPanel = () => {
                     , Bem vindo ao seu painel de controle
                 </h1>
             ) : null}
+            {currentItem == 0 ? null : (
+                <ButtonBackHome externalFunc={backHome} />
+            )}
             {currentComponent}
         </React.Fragment>
     );

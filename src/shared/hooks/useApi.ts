@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { IDestination } from '../Interface/IDestionation';
 import { IResponse } from '../Interface/IResponse';
-import { providerInput } from '@/shared/services/providerInput';
 import { ICity } from '../../pages/ControlPanel/FormDestinations/formDestinations';
 export const useApi = () => {
     const api = {
@@ -16,6 +15,7 @@ export const useApi = () => {
                 const response = await axios.get(
                     `http://localhost:8080/blog/city?name=${query}`
                 );
+
                 return response.data.data;
             },
         },
