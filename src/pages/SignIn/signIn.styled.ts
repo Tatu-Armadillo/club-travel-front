@@ -6,18 +6,14 @@ export const MainContainer = styled.div`
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    width: 28vw;
+    width: 40vw;
     height: 70vh;
     border-radius: 1rem;
-    margin: 3rem 0;
-    background-color: ${props => props.theme.colors.backgroundCardAbout};
-
-    span > p { 
-        color: ${props => props.theme.colors.paragraphCardLine};
-    }
+    margin: 1rem;
+    background-color: #f29f05;
 `;
 
 export const Image = styled.img`
-    width: 34vw;
+    width: 50vw;
     height: 70vh;
 `;
