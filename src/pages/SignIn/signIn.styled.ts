@@ -10,10 +10,10 @@ export const MainContainer = styled.div`
     height: 70vh;
     border-radius: 1rem;
     margin: 3rem 0;
-    background-color: ${props => props.theme.colors.backgroundCardAbout};
+    /* background-color: ${props => props.theme.colors.backgroundCardAbout}; */
 
     span > p { 
-        color: ${props => props.theme.colors.paragraphCardLine};
+        /* color: ${props => props.theme.colors.paragraphCardLine}; */
     }
 `;
 
