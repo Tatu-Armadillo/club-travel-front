@@ -2,6 +2,7 @@ export default {
     title: "light",
 
     colors: {
+        
         background: "#F3F3F3",
         backgroundCardAbout: "#032CA6",
         backgroundCardLine: "#201B2C",

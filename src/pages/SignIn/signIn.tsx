@@ -2,7 +2,7 @@ import { MainContainer, Image } from './signIn.styled';
 import IconWorld from '@/assets/img/computer-login-animate.svg';
 import { FaUser } from 'react-icons/fa';
 import Logo from '../../assets/img/web3travelclub4.png';
-import { Button } from '@chakra-ui/react';
+import { Button } from "@chakra-ui/react"
 import { ChangeEvent, useState, useContext } from 'react';
 import { AuthContext } from '@/context/AuthContext';
 import { useNavigate } from 'react-router-dom';
@@ -46,12 +46,11 @@ export const SignIn = () => {
         }
     };
     return (
-        <div className='flex items-center justify-center'>
+        <div className='flex items-center justify-center max-w-7xl mx-auto'>
             <Image src={IconWorld} alt='Imagem de Login' />
             <MainContainer>
-                <span className='flex gap-2'>
-                    <FaUser size={'2em'} />
-                    <p className='text-xl font-bold pt-1'>LOGIN</p>
+                <span className='flex items-center gap-2'>
+                    <FaUser size={'2em'}  /><p className='text-xl font-bold'>LOGIN</p>
                     <img src={Logo} alt='as' className='w-20 ' />
                 </span>
                 {auth?.user ? (
@@ -59,12 +58,12 @@ export const SignIn = () => {
                         Você já está logado
                     </p>
                 ) : (
-                    <form action='' className='w-full '>
-                        <div className='flex flex-col  '>
+                    <form action='' className='w-full'>
+                        <div className='flex flex-col'>
                             <div className='flex flex-col items-center'>
                                 <label
                                     htmlFor='user'
-                                    className='block text-sm font-medium leading-6  text-white'
+                                    className='block text-sm font-medium leading-6 text-white'
                                 >
                                     Usuário
                                 </label>
@@ -99,11 +98,10 @@ export const SignIn = () => {
                             </div>
                             <div className='flex flex-col items-center mt-10'>
                                 <Button
-                                    type='button'
+                                    type="button"
                                     isLoading={isLoading}
                                     onClick={handleSubmit}
-                                    className='rounded-md w-32 capitalize bg-gradient-to-t from-black to-black hover:from-orange-200 hover:to-orange-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-black focus-visible:outline focus-visible:outline-2  focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-                                >
+                                    className="rounded-md w-32 capitalize bg-gradient-to-t from-black to-black hover:from-orange-200 hover:to-orange-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-black focus-visible:outline focus-visible:outline-2  focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                                     Entrar
                                 </Button>
                             </div>
