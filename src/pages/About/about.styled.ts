@@ -12,14 +12,14 @@ export const BoxTitle = styled.div`
         font-size: 2.8rem;
         font-weight: 800;
         text-transform: uppercase;
-        /* color: ${props => props.theme.colors.title}; */
+        color: ${props => props.theme.colors.title};
     }
 
     p {
         font-weight: 400;
         font-style: italic;
-        /* color: ${props => props.theme.colors.paragraph};
-        text-shadow: 0px 0px 10px ${props => props.theme.colors.paragraphShadow}; */
+        color: ${props => props.theme.colors.paragraph};
+        text-shadow: 0px 0px 10px ${props => props.theme.colors.paragraphShadow};
     }
 `;
 

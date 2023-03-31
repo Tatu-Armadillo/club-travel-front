@@ -5,9 +5,11 @@ import Logo from '../../../assets/img/web3reallogoamarela.png';
 import { Link } from 'react-router-dom';
 import { Button } from '@/shared/Components';
 import { BsMoon, BsSun, IoMdMenu, BiMenuAltLeft } from "react-icons/all";
+import { ThemeContext } from 'styled-components';
 import { AuthContext } from '@/context/AuthContext';
 
 export const Header = () => {
+    const { title } = useContext(ThemeContext);
     const auth = useContext(AuthContext);
     const iconSet = <IoMdMenu color='white' className='block h-6 w-6' />;
     const [icon, setIcon] = useState(iconSet);
@@ -40,7 +42,7 @@ export const Header = () => {
 
     const handleTheme = () => {
         auth.setThemeuser();
-        auth.theme === "light" ? setTheme(<BsMoon />) : setTheme(<BsSun />)
+        title === "light" ? setTheme(<BsMoon />) : setTheme(<BsSun />)
     };
 
     return (
