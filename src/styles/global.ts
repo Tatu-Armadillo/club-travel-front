@@ -8,7 +8,7 @@ export default createGlobalStyle`
     }
 
     #root { 
-        background-color: ${props => props.theme.colors.background};
+        background-color: ${props => props.theme.colors.primaryBg};
     }
     
     main {
