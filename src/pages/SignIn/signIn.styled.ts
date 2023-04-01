@@ -11,7 +11,13 @@ export const MainContainer = styled.div`
     height: 70vh;
     border-radius: 1rem;
     margin: 3rem auto;
-    background-color: #f29f05;
+    background-color: ${props => props.theme.colors.secundaryBg};
+    color: ${props => props.theme.colors.primaryTxt};
+    text-transform: uppercase;
+
+    @media (max-width: 660px) { 
+        width: 85%;
+    }
 `;
 
 export const Image = styled.img`
