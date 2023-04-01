@@ -6,14 +6,19 @@ export const MainContainer = styled.div`
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    width: 40vw;
+    width: 44%;
+    min-width: auto;
     height: 70vh;
     border-radius: 1rem;
-    margin: 1rem;
+    margin: 3rem auto;
     background-color: #f29f05;
 `;
 
 export const Image = styled.img`
-    width: 50vw;
+    width: 50%;
     height: 70vh;
+
+    @media (max-width: 660px) { 
+        display: none;
+    }
 `;
