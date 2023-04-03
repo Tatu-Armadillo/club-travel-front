@@ -33,9 +33,7 @@ export const Header = () => {
     const handleClassHidden = () => {
         const addHidden = document.querySelector('#mobile-menu')?.classList.toggle('hidden');
 
-        const newIcon = (
-            <BiMenuAltLeft color='white' className='block h-6 w-6' />
-        );
+        const newIcon = <BiMenuAltLeft color='white' className='block h-6 w-6' />;
 
         addHidden === false ? setIcon(newIcon) : setIcon(iconSet);
     };

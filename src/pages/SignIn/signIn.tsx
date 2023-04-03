@@ -1,24 +1,26 @@
 import { MainContainer, Image } from './signIn.styled';
 import IconWorld from '@/assets/img/computer-login-animate.svg';
 import { FaUser } from 'react-icons/fa';
-import Logo from '../../assets/img/web3travelclub4.png';
+import LogoWhite from '../../assets/img/web3travelclub4.png';
+import LogoBlack from '../../assets/img/web3travelclub5.png';
 import { Button } from '@chakra-ui/react';
-import { ChangeEvent, useState, useContext } from 'react';
+import { ChangeEvent, useState, useContext, useEffect } from 'react';
 import { AuthContext } from '@/context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { ThemeContext } from 'styled-components';
 
 interface SignInFormProps {
     userName: string;
     password: string;
-}
+};
+
 export const SignIn = () => {
+    const { title } = useContext(ThemeContext)
     const auth = useContext(AuthContext);
     const navigate = useNavigate();
-    const [isLoading, setIsloading] = useState(false);
-    const [inputValues, setInputValues] = useState<SignInFormProps>({
-        userName: '',
-        password: '',
-    });
+    const [isLoading, setIsloading] = useState(false); 
+    const [inputValues, setInputValues] = useState<SignInFormProps>({ userName: '', password: '', });
+    const [img, setImg] = useState(LogoWhite);
 
     const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
         setInputValues({
@@ -30,7 +32,6 @@ export const SignIn = () => {
     const handleSubmit = async () => {
         const { userName, password } = inputValues;
         setIsloading(true);
-        console.log(userName, password);
 
         if (userName && password) {
             try {
@@ -45,26 +46,30 @@ export const SignIn = () => {
             }
         }
     };
+
+    useEffect(() => {
+        title === "light" ? setImg(LogoWhite) : setImg(LogoBlack);
+    })
+
     return (
-        <div className='flex items-center justify-center'>
-            <Image src={IconWorld} alt='Imagem de Login' />
+        <div className='flex items-center justify-between mx-auto max-w-7xl'>
+            <Image src={IconWorld} alt='Imagem de Login' className='' />
             <MainContainer>
-                <span className='flex gap-2'>
-                    <FaUser size={'2em'} />
-                    <p className='text-xl font-bold pt-1'>LOGIN</p>
-                    <img src={Logo} alt='as' className='w-20 ' />
+                <span className='flex gap-2 items-center'>
+                    <FaUser size={'2em'} /><p className='text-xl font-bold'>login</p>
+                    <img src={img} alt='as' className='w-20 ' />
                 </span>
                 {auth?.user ? (
                     <p className='text-xl font-bold pt-1'>
                         Você já está logado
                     </p>
                 ) : (
-                    <form action='' className='w-full '>
-                        <div className='flex flex-col  '>
+                    <form action='' className='w-full'>
+                        <div className='flex flex-col '>
                             <div className='flex flex-col items-center'>
                                 <label
                                     htmlFor='user'
-                                    className='block text-sm font-medium leading-6  text-white'
+                                    className='block text-sm font-medium leading-6'
                                 >
                                     Usuário
                                 </label>
@@ -82,7 +87,7 @@ export const SignIn = () => {
                             <div className='flex flex-col items-center mt-5'>
                                 <label
                                     htmlFor='name'
-                                    className='block text-sm font-medium leading-6 text-white'
+                                    className='block text-sm font-medium leading-6'
                                 >
                                     Senha
                                 </label>
@@ -99,11 +104,10 @@ export const SignIn = () => {
                             </div>
                             <div className='flex flex-col items-center mt-10'>
                                 <Button
-                                    type='button'
+                                    type="button"
                                     isLoading={isLoading}
                                     onClick={handleSubmit}
-                                    className='rounded-md w-32 capitalize bg-gradient-to-t from-black to-black hover:from-orange-200 hover:to-orange-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-black focus-visible:outline focus-visible:outline-2  focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-                                >
+                                    className="rounded-md w-32 capitalize bg-gradient-to-t from-black to-black hover:from-orange-200 hover:to-orange-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-black focus-visible:outline focus-visible:outline-2 hover:text-black focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                                     Entrar
                                 </Button>
                             </div>
