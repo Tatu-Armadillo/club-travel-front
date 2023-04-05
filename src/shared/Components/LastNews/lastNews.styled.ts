@@ -6,4 +6,8 @@ export const LastNewsContainer = styled.div`
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
+
+    @media (max-width: 660px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
 `;
