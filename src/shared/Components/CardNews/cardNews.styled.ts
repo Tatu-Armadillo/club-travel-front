@@ -3,10 +3,10 @@ import styled from 'styled-components';
 export const BoxMain = styled.div`
     display: flex;
     flex-direction: column-reverse;
-    margin: 0 2.5rem;   
-
+    
     &&:hover { 
         box-shadow: 5px 5px 10px #03738c;
+        border-radius: 1rem;
     }
 
     @media (min-width: 1024px) {
@@ -25,6 +25,7 @@ export const BoxTop = styled.div`
     flex-direction: column;
     margin: 0 1rem;
     padding: 0 .1rem;
+
     h2 { 
         font-weight: 700;
         letter-spacing: -0.025em;
@@ -35,7 +36,7 @@ export const BoxTop = styled.div`
 `;
 
 export const BoxMiddle = styled.div`
-    margin: 0 .5rem;
+    margin: 0 1rem;
 
     p { 
         text-align: justify;
@@ -46,10 +47,19 @@ export const BoxBottom = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 1rem 0;
+
+    @media (max-width: 660px) {
+        margin: 1rem 0;
+    }
 `;
 
 export const Img = styled.img`
     height: 300px;
-    width: 25rem;
+    width: 400px;
+    margin: 0 auto;
+    border-radius: 0 1rem 1rem 0;
+    
+    @media (max-width: 1024px) {
+        max-width: 75%;
+    }
 `;

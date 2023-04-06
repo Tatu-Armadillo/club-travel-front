@@ -8,12 +8,12 @@ interface CardNewsProps {
 }
 
 function limitTxt(data: string): string {
-    return data.length > 280 ? data.substring(0, 250) + "..." : data;
+    return data.length > 200 ? data.substring(0, 200) + "..." : data;
 };
 
 export const CardNews = ({ url, title, description }: CardNewsProps) => {
     return (
-        <section>
+        <section className='border rounded-2xl	 bg-white'>
             <BoxMain>
                 <BoxContent>
                     <BoxTop>
@@ -32,7 +32,7 @@ export const CardNews = ({ url, title, description }: CardNewsProps) => {
                     </BoxBottom>
                 </BoxContent>
 
-                <Img src={url} alt="" className='thumbnail mx-auto' />
+                <Img src={url} alt="imagem" />
             </BoxMain>
         </section>
     );
