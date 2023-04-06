@@ -13,7 +13,7 @@ function limitTxt(data: string): string {
 
 export const CardNews = ({ url, title, description }: CardNewsProps) => {
     return (
-        <section className='border rounded-2xl	 bg-white'>
+        <section className='border rounded-2xl bg-white'>
             <BoxMain>
                 <BoxContent>
                     <BoxTop>

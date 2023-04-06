@@ -48,7 +48,7 @@ export const BoxBottom = styled.div`
     justify-content: center;
     align-items: center;
 
-    @media (max-width: 660px) {
+    @media (min-width: 390px) and (max-width: 1024px) {
         margin: 1rem 0;
     }
 `;
@@ -61,5 +61,6 @@ export const Img = styled.img`
     
     @media (max-width: 1024px) {
         max-width: 75%;
+        border-radius: 0;
     }
 `;
