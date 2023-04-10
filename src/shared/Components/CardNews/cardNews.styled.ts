@@ -55,12 +55,13 @@ export const BoxBottom = styled.div`
 
 export const Img = styled.img`
     height: 300px;
-    width: 400px;
+    min-width: 200px;
+    max-width: 200px;
     margin: 0 auto;
     border-radius: 0 1rem 1rem 0;
     
     @media (max-width: 1024px) {
         max-width: 75%;
         border-radius: 0;
-    }
+    } 
 `;
