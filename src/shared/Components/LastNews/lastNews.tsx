@@ -10,7 +10,7 @@ interface LastNewsProps {
 
 export const LastNews = ({ children, title }: LastNewsProps) => {
     return (
-        <div className='p-3'>
+        <div className='pt-12 px-4 sm:px-6 lg:px-8'>
             <div className='flex gap-2'>
                 <TitleTopic title={title} />
                 <GiNewspaper size={'2em'} />

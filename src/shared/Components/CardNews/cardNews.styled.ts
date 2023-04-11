@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const BoxMain = styled.div`
     display: flex;
     flex-direction: column-reverse;
+    min-height: 35rem;
     
     &&:hover { 
         box-shadow: 5px 5px 10px #03738c;
@@ -11,6 +12,7 @@ export const BoxMain = styled.div`
 
     @media (min-width: 1024px) {
         flex-direction: row;
+        min-height: auto;
     }
 `;
 
@@ -18,6 +20,10 @@ export const BoxContent = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+
+    @media (max-width: 1024px) {
+        min-height: 17rem;
+    }
 `;
 
 export const BoxTop = styled.div`
@@ -47,10 +53,6 @@ export const BoxBottom = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-
-    @media (min-width: 390px) and (max-width: 1024px) {
-        margin: 1rem 0;
-    }
 `;
 
 export const Img = styled.img`
@@ -60,8 +62,9 @@ export const Img = styled.img`
     margin: 0 auto;
     border-radius: 0 1rem 1rem 0;
     
+    
     @media (max-width: 1024px) {
-        max-width: 75%;
-        border-radius: 0;
+        min-width: 100%;
+        border-radius: 1rem 1rem 0 0;
     } 
 `;
