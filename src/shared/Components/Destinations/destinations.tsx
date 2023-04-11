@@ -1,4 +1,5 @@
 import { SwiperProps, SwiperSlide } from 'swiper/react';
+import { BoxTitle } from "./destinations.styled";
 import { LinkWraperProps } from '../HotItem/hotItem.styled';
 import { FaMapSigns } from 'react-icons/fa';
 import { Slider, TitleTopic, HotItem } from '@/shared/Components';
@@ -13,15 +14,17 @@ export const Destinations = () => {
             clickable: true,
         },
     };
+
     const hotItemConfig: LinkWraperProps = {
         hoverState: true,
     };
+
     return (
         <div className='px-4 sm:px-6 lg:px-8'>
-            <div className='flex'>
+            <BoxTitle>
                 <TitleTopic title='destinos' />
                 <FaMapSigns size={'2em'} />
-            </div>
+            </BoxTitle>
             <Slider settings={sliderConfig} className={"mt-0"}>
                 <SwiperSlide>
                     <HotItem title='Lugar 1' config={hotItemConfig} />

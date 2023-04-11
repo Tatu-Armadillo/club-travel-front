@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { TitleTopic } from '@/shared/Components';
-import { LastNewsContainer } from './lastNews.styled';
+import { BoxTitle, LastNewsContainer } from './lastNews.styled';
 import { GiNewspaper } from 'react-icons/gi'
 ;
 interface LastNewsProps {
@@ -11,10 +11,10 @@ interface LastNewsProps {
 export const LastNews = ({ children, title }: LastNewsProps) => {
     return (
         <div className='pt-12 px-4 sm:px-6 lg:px-8'>
-            <div className='flex'>
+            <BoxTitle>
                 <TitleTopic title={title} />
                 <GiNewspaper size={'2em'} />
-            </div>
+            </BoxTitle>
             <LastNewsContainer>{children}</LastNewsContainer>
         </div>
     );
