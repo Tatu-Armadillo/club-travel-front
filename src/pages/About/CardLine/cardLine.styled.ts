@@ -34,13 +34,13 @@ export const BoxText = styled.div`
     color: ${props => props.theme.colors.tertiaryTxt};
 `;
 
-export const InfoImg = styled.img`
-    max-width: 10rem;
-    height: 10rem;
-`;
-
 export const BoxImg = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+`;
+
+export const InfoImg = styled.img`
+    max-width: 10rem;
+    height: 10rem;
 `;

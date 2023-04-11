@@ -11,7 +11,9 @@ import { ThemeProvider } from 'styled-components';
 export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     const api = useApi();
     const [user, setUser] = useState<IUser | null>(null);
-    const [theme, setTheme] = useState(light);
+
+    const sessionTheme = JSON.parse(sessionStorage.getItem("Theme") || JSON.stringify(light));
+    const [theme, setTheme] = useState(sessionTheme);
 
     useEffect(() => {
         const hasToken = async () => {
@@ -44,7 +46,9 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     };
 
     const setThemeuser = () => {
-        setTheme(theme.title === "light" ? dark : light);
+        const themeToggle = sessionTheme.title === "light" ? dark : light;
+        setTheme(themeToggle);
+        sessionStorage.setItem("Theme", JSON.stringify(themeToggle));
     };
 
     return (

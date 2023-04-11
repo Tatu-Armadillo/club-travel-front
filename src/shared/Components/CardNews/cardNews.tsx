@@ -13,7 +13,7 @@ function limitTxt(data: string): string {
 
 export const CardNews = ({ url, title, description }: CardNewsProps) => {
     return (
-        <section className='border rounded-2xl bg-white'>
+        <section className='rounded-2xl bg-white'>
             <BoxMain>
                 <BoxContent>
                     <BoxTop>
@@ -31,7 +31,7 @@ export const CardNews = ({ url, title, description }: CardNewsProps) => {
                             classButton={'rounded-md capitalize bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2  focus-visible:outline-offset-2 focus-visible:outline-indigo-600 '} />
                     </BoxBottom>
                 </BoxContent>
-
+                
                 <Img src={url} alt="imagem" />
             </BoxMain>
         </section>
