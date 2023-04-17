@@ -1,4 +1,3 @@
-import { TitleTopic } from '@/shared/Components';
 import { Flex } from '@chakra-ui/react';
 import { BsCalendar3 } from 'react-icons/bs';
 
