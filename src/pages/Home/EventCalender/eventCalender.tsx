@@ -10,7 +10,7 @@ export const EventCalender = () => {
             wrap='wrap'
             borderRadius='1rem'
             minHeight='400px'
-            margin='auto'
+            margin='15px auto'
             bgColor={'#03258C'}
             padding={'15px'}
             direction={'column'}
