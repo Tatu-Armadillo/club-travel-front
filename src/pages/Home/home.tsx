@@ -1,8 +1,9 @@
 import { FlexContainer } from './home.styled';
-import { CardNews, Destinations, LastNews, Modal, } from '@/shared/Components';
+import { CardNews, Destinations, LastNews, Modal } from '@/shared/Components';
 import { useContext, useEffect, useState } from 'react';
 import { useApi } from '@/shared/hooks';
 import { AuthContext } from '@/context/AuthContext';
+import { EventCalender } from './EventCalender/eventCalender';
 
 interface FlagProps {
     original_title: string;
@@ -21,7 +22,9 @@ export const Home = () => {
             let json = await generalSearchs.getAll();
             setFlag(json.results);
         } catch (error) {
-            alert('não foi possível carregar o feed, tente novamente mais tarde');
+            alert(
+                'não foi possível carregar o feed, tente novamente mais tarde'
+            );
         }
     };
     useEffect(() => {
@@ -46,6 +49,7 @@ export const Home = () => {
             ) : (
                 <h2 className='txtbold '>Não foi possível exibir o feed</h2>
             )}
+            <EventCalender />
             {modalOpen &&
                 !auth.user &&
                 !sessionStorage.getItem('modalOpen') && (
