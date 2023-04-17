@@ -1,7 +1,8 @@
 import { ReactNode } from 'react';
 import { TitleTopic } from '@/shared/Components';
-import { LastNewsContainer } from './lastNews.styled';
-import { GiNewspaper } from 'react-icons/gi';
+import { BoxTitle, LastNewsContainer } from './lastNews.styled';
+import { GiNewspaper } from 'react-icons/gi'
+;
 interface LastNewsProps {
     children: ReactNode[];
     title: string;
@@ -9,11 +10,11 @@ interface LastNewsProps {
 
 export const LastNews = ({ children, title }: LastNewsProps) => {
     return (
-        <div className='p-3'>
-            <div className='flex gap-2'>
+        <div className='pt-12 px-4 sm:px-6 lg:px-8'>
+            <BoxTitle>
                 <TitleTopic title={title} />
                 <GiNewspaper size={'2em'} />
-            </div>
+            </BoxTitle>
             <LastNewsContainer>{children}</LastNewsContainer>
         </div>
     );

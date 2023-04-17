@@ -2,14 +2,13 @@ export default {
     title: "light",
 
     colors: {
-        background: "#F3F3F3",
-        backgroundCardAbout: "#032CA6",
-        backgroundCardLine: "#201B2C",
-        boxShadowCardAbout: "#000000",
-        title: "#000000",
-        paragraph: "##FFFFFF",
-        paragraphShadow: "#0000004d",
-        paragraphCardAbout: "#FFFFFF",
-        paragraphCardLine: "#FFFFFF"
+        primaryBg: "#F3F3F3",
+        secundaryBg: "#032CA6",
+        tertiaryBg: "#201B2C",
+        primaryTxt: "#FFFFFF",
+        secundaryTxt: "#000000",
+        tertiaryTxt: "#FFFFFF",
+        primaryShadow: "#000000",
+        secundaryShadow: "#0000004d",
     }
 }

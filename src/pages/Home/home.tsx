@@ -1,11 +1,5 @@
-import { GridContainer, FlexContainer } from './home.styled';
-import {
-    CardNews,
-    Destinations,
-    Highlights,
-    LastNews,
-    Modal,
-} from '@/shared/Components';
+import { FlexContainer } from './home.styled';
+import { CardNews, Destinations, LastNews, Modal, } from '@/shared/Components';
 import { useContext, useEffect, useState } from 'react';
 import { useApi } from '@/shared/hooks';
 import { AuthContext } from '@/context/AuthContext';
@@ -28,9 +22,7 @@ export const Home = () => {
             let json = await generalSearchs.getAll();
             setFlag(json.results);
         } catch (error) {
-            alert(
-                'não foi possível carregar o feed, tente novamente mais tarde'
-            );
+            alert('não foi possível carregar o feed, tente novamente mais tarde');
         }
     };
     useEffect(() => {
@@ -39,25 +31,22 @@ export const Home = () => {
 
     return (
         <FlexContainer>
-            <FlexContainer>
-                <Destinations />
-                {flag.length > 2 ? (
-                    <LastNews
-                        title={'últimas noticias'}
-                        children={flag.map((item, key) => (
-                            <CardNews
-                                key={key}
-                                title={item.original_title}
-                                url={ApiImageLink + item.poster_path}
-                                description={item.overview}
-                            />
-                        ))}
-                    />
-                ) : (
-                    <h2 className='txtbold'>Não foi possível exibir o feed</h2>
-                )}
-            </FlexContainer>
-            <EventCalender />
+            <Destinations />
+            {flag.length > 2 ? (
+                <LastNews
+                    title={'últimas noticias'}
+                    children={flag.map((item, key) => (
+                        <CardNews
+                            key={key}
+                            title={item.original_title}
+                            url={ApiImageLink + item.poster_path}
+                            description={item.overview}
+                        />
+                    ))}
+                />
+            ) : (
+                <h2 className='txtbold '>Não foi possível exibir o feed</h2>
+            )}
             {modalOpen &&
                 !auth.user &&
                 !sessionStorage.getItem('modalOpen') && (

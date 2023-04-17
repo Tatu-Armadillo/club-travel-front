@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const BoxInfo = styled.section`
     display: flex;
     justify-content: space-between;
-    background-color: ${props => props.theme.colors.backgroundCardLine};
+    background-color: ${props => props.theme.colors.tertiaryBg};
     width: 95%; 
     padding: 1.5rem;
     border-radius: .8rem 0;
@@ -31,16 +31,16 @@ export const BoxText = styled.div`
     max-width: 60rem;
     text-align: justify;
     padding: 20px;
-    color: ${props => props.theme.colors.paragraphCardLine};
-`;
-
-export const InfoImg = styled.img`
-    max-width: 10rem;
-    height: 10rem;
+    color: ${props => props.theme.colors.tertiaryTxt};
 `;
 
 export const BoxImg = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+`;
+
+export const InfoImg = styled.img`
+    max-width: 10rem;
+    height: 10rem;
 `;

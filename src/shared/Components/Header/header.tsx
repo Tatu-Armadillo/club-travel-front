@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Navbar, BoxImages, BoxLogo } from './header.styled';
 import LogoName from '../../../assets/img/web3travelclub4.png';
 import Logo from '../../../assets/img/web3reallogoamarela.png';
@@ -13,7 +13,6 @@ export const Header = () => {
     const auth = useContext(AuthContext);
     const iconSet = <IoMdMenu color='white' className='block h-6 w-6' />;
     const [icon, setIcon] = useState(iconSet);
-    const [theme, setTheme] = useState<JSX.Element>(<BsSun />);
 
     type Props = {
         name: string;
@@ -33,16 +32,13 @@ export const Header = () => {
     const handleClassHidden = () => {
         const addHidden = document.querySelector('#mobile-menu')?.classList.toggle('hidden');
 
-        const newIcon = (
-            <BiMenuAltLeft color='white' className='block h-6 w-6' />
-        );
+        const newIcon = <BiMenuAltLeft color='white' className='block h-6 w-6' />;
 
         addHidden === false ? setIcon(newIcon) : setIcon(iconSet);
     };
 
     const handleTheme = () => {
         auth.setThemeuser();
-        title === "light" ? setTheme(<BsMoon />) : setTheme(<BsSun />)
     };
 
     return (
@@ -111,7 +107,7 @@ export const Header = () => {
                                     </Link>
                                 )}
                                 <span onClick={handleTheme} className="flex items-center text-gray-300 hover:text-white hover:bg-blue-900 rounded-md px-3 py-2 hover:cursor-pointer">
-                                    {theme}
+                                    {title === "light" ? <BsSun/> : <BsMoon />}
                                 </span>
                             </div>
                         </div>
