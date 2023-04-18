@@ -5,7 +5,7 @@ import { useApi } from '@/shared/hooks';
 import { AuthContext } from '@/context/AuthContext';
 import { EventCalender } from './EventCalender/eventCalender';
 
-interface FlagProps {
+interface CardProps {
     original_title: string;
     poster_path: string;
     overview: string;
@@ -15,12 +15,15 @@ export const Home = () => {
     const auth = useContext(AuthContext);
     const { generalSearchs } = useApi();
     const ApiImageLink = 'https://image.tmdb.org/t/p/w500/';
-    const [flag, setFlag] = useState<FlagProps[]>([]);
+    const [card, setCard] = useState<CardProps[]>([]);
     const [modalOpen, setModalOpen] = useState(true);
     const loadInformation = async () => {
         try {
             let json = await generalSearchs.getAll();
-            setFlag(json.results);
+            const limitedCard: CardProps[] = json.results.filter(
+                (item: any, index: number) => index <= 5
+            );
+            setCard(limitedCard);
         } catch (error) {
             alert(
                 'não foi possível carregar o feed, tente novamente mais tarde'
@@ -34,10 +37,10 @@ export const Home = () => {
     return (
         <FlexContainer>
             <Destinations />
-            {flag.length > 2 ? (
+            {card.length > 2 ? (
                 <LastNews
                     title={'últimas noticias'}
-                    children={flag.map((item, key) => (
+                    children={card.map((item, key) => (
                         <CardNews
                             key={key}
                             title={item.original_title}

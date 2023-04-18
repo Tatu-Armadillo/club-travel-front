@@ -1,6 +1,14 @@
 import { Routes, Route } from 'react-router-dom';
-import { Home, About, Infographics, SignIn, ControlPanel, NotFound } from '@/pages';
+import {
+    Home,
+    About,
+    Infographics,
+    SignIn,
+    ControlPanel,
+    NotFound,
+} from '@/pages';
 import { RequireAuth } from '@/context/RequireAuth';
+import { Notice } from '@/pages/Notice/notice';
 
 export const Router = () => {
     return (
@@ -25,6 +33,7 @@ export const Router = () => {
                 }
             />
             <Route path='*' element={<NotFound />} />
+            <Route path='/notice' element={<Notice />} />
         </Routes>
     );
 };
