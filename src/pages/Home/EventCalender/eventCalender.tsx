@@ -4,7 +4,7 @@ import { BsCalendar3 } from 'react-icons/bs';
 export const EventCalender = () => {
     return (
         <Flex
-            width={'90vw'}
+            width={'60vw'}
             height={'70vh'}
             backgroundColor={'#03258C'}
             borderRadius={'1rem'}
