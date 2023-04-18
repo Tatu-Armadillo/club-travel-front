@@ -1,4 +1,4 @@
-import { IUser } from '@/shared/Interface/IUser';
+import { IAdmin } from '@/shared/Interface/IAdmin';
 import { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
 import { useApi } from '@/shared/hooks';
@@ -10,7 +10,7 @@ import { ThemeProvider } from 'styled-components';
 
 export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     const api = useApi();
-    const [user, setUser] = useState<IUser | null>(null);
+    const [user, setUser] = useState<IAdmin | null>(null);
 
     const sessionTheme = JSON.parse(sessionStorage.getItem("Theme") || JSON.stringify(light));
     const [theme, setTheme] = useState(sessionTheme);
