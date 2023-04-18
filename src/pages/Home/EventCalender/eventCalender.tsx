@@ -1,12 +1,16 @@
-import { Flex } from '@chakra-ui/react';
+import { AuthContext } from '@/context/AuthContext';
+import { Flex, useConst } from '@chakra-ui/react';
+import { useContext } from 'react';
 import { BsCalendar3 } from 'react-icons/bs';
+import { ThemeContext } from 'styled-components';
 
 export const EventCalender = () => {
+    const { title } = useContext(ThemeContext);
     return (
         <Flex
             width={'60vw'}
             height={'70vh'}
-            backgroundColor={'#03258C'}
+            backgroundColor={title === 'light' ? '#03258C' : '#F2B705'}
             borderRadius={'1rem'}
             margin={'15px auto'}
             padding={'15px'}
@@ -21,13 +25,21 @@ export const EventCalender = () => {
                 <BsCalendar3 size={'2rem'} />
             </Flex>
             <Flex wrap={'wrap'}>
-                <div className='bg-white/5 hover:bg-white/10 transition-colors cursor-pointer w-48  p-3 rounded-md flex flex-col gap-1  items-start'>
+                <div
+                    className={` text-black transition-colors cursor-pointer w-52  p-5 rounded-md flex flex-col gap-1  items-start ${
+                        title === 'light' ? 'bg-orange-400' : 'bg-blue-400'
+                    } ${
+                        title === 'light'
+                            ? 'hover:bg-orange-600'
+                            : 'hover:bg-blue-600'
+                    }`}
+                >
                     <div>Imagem do evento</div>
                     <strong className='font-semibold'>Título do Evento</strong>
-                    <p className='text-sm font-semibold text-zinc-400'>
+                    <p className='text-sm font-semibold text-zinc-800'>
                         Detalhes do evento
                     </p>
-                    <p className='text-sm font-semibold text-zinc-400'>
+                    <p className='text-sm font-semibold text-zinc-800'>
                         Data do Evento
                     </p>
                 </div>
