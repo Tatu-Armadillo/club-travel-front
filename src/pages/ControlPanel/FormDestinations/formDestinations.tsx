@@ -1,22 +1,9 @@
 import { IDestination } from '@/shared/Interface/IDestionation';
-import {
-    FormControl,
-    FormLabel,
-    Input,
-    Flex,
-    Textarea,
-    Button,
-} from '@chakra-ui/react';
-import {
-    ChangeEvent,
-    useState,
-    MouseEvent,
-    KeyboardEvent,
-    useEffect,
-} from 'react';
+import { FormControl, FormLabel, Input, Flex, Textarea, Button, } from '@chakra-ui/react';
+import { ChangeEvent, useState, MouseEvent, KeyboardEvent, useEffect, } from 'react';
 
 import { useApi } from '@/shared/hooks';
-import { providerInput } from '@/shared/services/providerInput';
+import { providerInput } from '@/shared/utils/validInput';
 import { ResponseCityList } from '@/pages/ControlPanel/ResponseCityList/responseCityList';
 import { ResponseCityItem } from '../ResponseCityItem/responseCityItem';
 

@@ -18,7 +18,7 @@ export const SignIn = () => {
     const { title } = useContext(ThemeContext)
     const auth = useContext(AuthContext);
     const navigate = useNavigate();
-    const [isLoading, setIsloading] = useState(false); 
+    const [isLoading, setIsloading] = useState(false);
     const [inputValues, setInputValues] = useState<SignInFormProps>({ userName: '', password: '', });
     const [img, setImg] = useState(LogoWhite);
 
