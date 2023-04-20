@@ -18,7 +18,7 @@ export const SignIn = () => {
     const [isLoading, setIsloading] = useState(false);
     const [img, setImg] = useState(LogoWhite);
 
-    const { register, handleSubmit } = useForm<IUser>();
+    const { register, handleSubmit, formState: { errors } } = useForm<IUser>();
 
     const onSubmit = async (data: IUser) => {
         const { userName, password } = data;
@@ -69,6 +69,7 @@ export const SignIn = () => {
                                     className='p-2 block w-4/6 rounded-md border-none py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
                                     {...register("userName", { required: true })}
                                 />
+                                {errors.userName && (<span className='capitalize text-start text-sm text-red-900'>campo obrigatório!</span>)}
                             </div>
                             <div className='flex flex-col items-center mt-5'>
                                 <label htmlFor='name' className='block text-sm font-medium leading-6'>
@@ -82,6 +83,7 @@ export const SignIn = () => {
                                     className='p-2 block w-4/6 rounded-md border-none py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
                                     {...register("password", { required: true })}
                                 />
+                                {errors.password && (<span className='capitalize text-start text-sm text-red-900'>campo obrigatório!</span>)}
                             </div>
                             <div className='flex flex-col items-center mt-10'>
                                 <Button
