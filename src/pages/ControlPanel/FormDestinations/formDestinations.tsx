@@ -6,11 +6,13 @@ import { useForm } from 'react-hook-form';
 import { useApi } from '@/shared/hooks';
 import { ResponseCityList } from '@/pages/ControlPanel/ResponseCityList/responseCityList';
 import { ResponseCityItem } from '../ResponseCityItem/responseCityItem';
+import { CityService } from '@/shared/services/city/CityService';
+import { DestinationsService } from '@/shared/services/destinations/DestinationsService';
 
 export interface ICity {
     idCity: number;
     name: string;
-}
+};
 export const FormDestinations = () => {
     // const [buttonDisable, setButtonDisable] = useState(true);
     const [cities, setCities] = useState<ICity[]>([]);
@@ -46,7 +48,7 @@ export const FormDestinations = () => {
 
     const handleClick = async (data: IDestination) => {
         try {
-            await generalInserts.insertDestination(data);
+            await DestinationsService.postDestinations(data);
             alert('Dados inseridos com sucesso!');
         } catch (error) {
             alert('Não foi possível cadastrar o destino, verifique os dados e tente novamente.');
@@ -67,8 +69,9 @@ export const FormDestinations = () => {
             [e.currentTarget.name]: e.currentTarget.value,
         });
     };
+
     const handleSearchCities = async (query: string) => {
-        const res = await generalSearchs.getCityByName(query);
+        const res = await CityService.getCityByName(query);
         setCities(res);
     };
 
@@ -441,9 +444,10 @@ export const FormDestinations = () => {
                             padding={2}
                             placeholder='escreva 3 letras'
                             type='text'
-                            onChange={handleChange}
-                            name='city'
-                            value={destination.city}
+                            {...register("city")}
+                            // onChange={handleChange}
+                            // name='city'
+                            // value={destination.city}
                             onKeyDown={validateKeyPress}
                         />
                         {cities.length != 0 ? (
