@@ -1,8 +1,7 @@
 import axios from 'axios';
-import { IDestination } from '../Interface/IDestionation';
 import { IResponse } from '../Interface/IResponse';
-import { ICity } from '../../pages/ControlPanel/FormDestinations/formDestinations';
 import { INews } from '../Interface/INews';
+import { IContact } from '../Interface/IContact';
 export const useApi = () => {
     const api = {
         generalSearchs: {
@@ -12,13 +11,6 @@ export const useApi = () => {
                 );
                 return response.data;
             },
-            getCityByName: async (query: string): Promise<ICity[]> => {
-                const response = await axios.get(
-                    `http://localhost:8080/blog/city?name=${query}`
-                );
-
-                return response.data.data;
-            },
             getNoticeByTitle: async (query: string): Promise<INews> => {
                 const response = await axios.get(
                     `http://localhost:8080/blog/news?=${query}`
@@ -27,23 +19,10 @@ export const useApi = () => {
             },
         },
         generalInserts: {
-            insertContact: async (
-                name: string,
-                phone: string,
-                email: string
-            ): Promise<IResponse> => {
+            insertContact: async (data: IContact): Promise<IResponse> => {
                 const response = await axios.post(
                     'http://localhost:8080/blog/contact',
-                    { name, phone, email }
-                );
-                return response.data;
-            },
-            insertDestination: async (
-                destination: IDestination
-            ): Promise<IResponse> => {
-                const response = await axios.post(
-                    'http://localhost:8080/blog/destinations',
-                    destination
+                    data
                 );
                 return response.data;
             },
