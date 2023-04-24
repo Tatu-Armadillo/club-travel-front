@@ -1,7 +1,5 @@
 import axios from 'axios';
-import { IResponse } from '../Interface/IResponse';
 import { INews } from '../Interface/INews';
-import { IContact } from '../Interface/IContact';
 export const useApi = () => {
     const api = {
         generalSearchs: {
@@ -14,15 +12,6 @@ export const useApi = () => {
             getNoticeByTitle: async (query: string): Promise<INews> => {
                 const response = await axios.get(
                     `http://localhost:8080/blog/news?=${query}`
-                );
-                return response.data;
-            },
-        },
-        generalInserts: {
-            insertContact: async (data: IContact): Promise<IResponse> => {
-                const response = await axios.post(
-                    'http://localhost:8080/blog/contact',
-                    data
                 );
                 return response.data;
             },

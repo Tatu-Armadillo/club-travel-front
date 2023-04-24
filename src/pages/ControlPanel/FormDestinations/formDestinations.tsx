@@ -6,20 +6,22 @@ import { useForm } from 'react-hook-form';
 import { useApi } from '@/shared/hooks';
 import { ResponseCityList } from '@/pages/ControlPanel/ResponseCityList/responseCityList';
 import { ResponseCityItem } from '../ResponseCityItem/responseCityItem';
-import { CityService } from '@/shared/services/city/CityService';
-import { DestinationsService } from '@/shared/services/destinations/DestinationsService';
+import { DestinationsService, CityService } from '@/shared/services';
 
 export interface ICity {
     idCity: number;
     name: string;
 };
+
 export const FormDestinations = () => {
+    console.log(DestinationsService.getDestinationsId(2).then(console.log));
+    
     // const [buttonDisable, setButtonDisable] = useState(true);
     const [cities, setCities] = useState<ICity[]>([]);
     const { generalSearchs, generalInserts } = useApi();
     const { register, handleSubmit, formState: { errors } } = useForm<IDestination>();
 
-    const [destination, setDestination] = useState<IDestination>({
+    const [destination, setDestination] = useState({
         climate: '',
         localCurrency: '',
         transport: '',
