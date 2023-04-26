@@ -4,13 +4,15 @@ import { useApi } from '@/shared/hooks';
 import { useEffect, useState } from 'react';
 import { INews } from '@/shared/Interface/INews';
 import { SubNews } from './SubNews/subNews';
+import { NewsService } from "@/shared/services"
+
 export const Notice = () => {
     const [actualNews, setActualNews] = useState<INews>();
     const params = useParams();
     const { generalSearchs } = useApi();
     const loadInfomation = async () => {
-        const json = await generalSearchs.getNoticeByTitle(params.slug!);
-        setActualNews(json);
+        // const json = await NewsService.getNewsId(params.slug!);
+        // setActualNews(json); ajustar pois o service recebe como parametro um "number" para a busca de noticia
     };
     useEffect(() => {
         loadInfomation();

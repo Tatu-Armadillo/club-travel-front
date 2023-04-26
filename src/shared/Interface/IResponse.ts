@@ -1,9 +1,9 @@
 import { IResponsePagination } from './IResponsePagination';
-import { IUser } from './IUser';
+import { IAdmin } from './IAdmin';
 
 export interface IResponse {
     message: string;
     success: boolean;
-    data: IUser;
+    data: IAdmin;
     page?: IResponsePagination;
 }
