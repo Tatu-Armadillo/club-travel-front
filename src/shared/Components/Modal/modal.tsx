@@ -2,11 +2,11 @@ import { ChangeEvent, useState } from 'react';
 import { useApi } from '@/shared/hooks';
 import { Button } from '@/shared/Components';
 import { loginIsValid } from '@/shared/services/loginIsValid';
+import { ContactService } from '@/shared/services';
 
 interface ModalProps {
     externFunc: () => void;
 }
-
 interface ModalFormProps {
     name: string;
     phone: string;
@@ -21,13 +21,11 @@ export const Modal = ({ externFunc }: ModalProps) => {
         email: '',
     });
     const handleClick = async () => {
-        const { name, phone, email } = inputValues;
-        if (loginIsValid(name, phone, email)) {
+        const data = inputValues;
+        if (loginIsValid(name, phone, email)) { //verificar
             try {
-                const action = await api.generalInserts.insertContact(
-                    name,
-                    phone,
-                    email
+                const action = await ContactService.postContact(
+                    data
                 );
                 alert('Parabens seu cadastro funfou newba');
                 externFunc();

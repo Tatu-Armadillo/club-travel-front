@@ -1,4 +1,4 @@
-import { IUser } from '@/shared/Interface/IUser';
+import { IAdmin } from '@/shared/Interface/IAdmin';
 import { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
 import { useApi } from '@/shared/hooks';
@@ -6,11 +6,11 @@ import { setToken } from '@/shared/services/setToken';
 import light from '@/styles/themes/light';
 import dark from '@/styles/themes/dark';
 import { ThemeProvider } from 'styled-components';
-
+import { AuthService } from "@/shared/services"
 
 export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     const api = useApi();
-    const [user, setUser] = useState<IUser | null>(null);
+    const [user, setUser] = useState<IAdmin | null>(null);
 
     const sessionTheme = JSON.parse(sessionStorage.getItem("Theme") || JSON.stringify(light));
     const [theme, setTheme] = useState(sessionTheme);
@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
 
     const signIn = async (username: string, password: string) => {
         const response = await api.loginConnections.signIn(username, password);
-        console.log(response);
+
         if (response.data.username && response.data.token) {
             setUser(response.data);
             setToken(response.data.token);
@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     };
 
     const signOut = async () => {
-        await api.loginConnections.signOut();
+        await AuthService.signOut();
         setToken('');
         setUser(null);
     };
