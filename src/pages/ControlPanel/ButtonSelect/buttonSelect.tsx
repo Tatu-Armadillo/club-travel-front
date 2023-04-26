@@ -1,5 +1,5 @@
 import { Button } from '@chakra-ui/react';
-import { BsFillArrowRightSquareFill } from 'react-icons/bs';
+import { BiArrowFromLeft } from 'react-icons/bi';
 import { MouseEvent } from 'react';
 export type ButtonSelectProps = {
     name: string;
@@ -13,7 +13,7 @@ export const ButtonSelect = ({
 }: ButtonSelectProps) => {
     return (
         <Button
-            className='text-2xl w-2/3 font-semibold flex items-center gap-1 text-white'
+            width='20rem'
             height='10rem'
             padding='1rem'
             transition='.5s all ease'
@@ -22,12 +22,11 @@ export const ButtonSelect = ({
             _hover={{
                 backgroundColor: 'orange',
                 borderRadius: '1rem',
-                gap: '1rem',
             }}
             onClick={externalFunc}
         >
             {text}
-            <BsFillArrowRightSquareFill color='#03258C' size={'2rem'} />
+            <BiArrowFromLeft color='white' />
         </Button>
     );
 };

@@ -2,7 +2,6 @@ import axios from 'axios';
 import { IDestination } from '../Interface/IDestionation';
 import { IResponse } from '../Interface/IResponse';
 import { ICity } from '../../pages/ControlPanel/FormDestinations/formDestinations';
-import { INews } from '../Interface/INews';
 export const useApi = () => {
     const api = {
         generalSearchs: {
@@ -18,12 +17,6 @@ export const useApi = () => {
                 );
 
                 return response.data.data;
-            },
-            getNoticeByTitle: async (query: string): Promise<INews> => {
-                const response = await axios.get(
-                    `http://localhost:8080/blog/news?=${query}`
-                );
-                return response.data;
             },
         },
         generalInserts: {

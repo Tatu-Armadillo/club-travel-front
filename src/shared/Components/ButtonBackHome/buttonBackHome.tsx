@@ -1,4 +1,4 @@
-import { IoLogoGameControllerB } from 'react-icons/io';
+import { FcHome } from 'react-icons/fc';
 import { StyledButtonBackHome } from './styledButtonBackHome.styled';
 export type ButtonBackHomeProps = {
     externalFunc: () => void;
@@ -6,8 +6,7 @@ export type ButtonBackHomeProps = {
 export const ButtonBackHome = ({ externalFunc }: ButtonBackHomeProps) => {
     return (
         <StyledButtonBackHome type='button' onClick={externalFunc}>
-            Voltar
-            <IoLogoGameControllerB size={'2rem'} />
+            <FcHome size={'2rem'} />
         </StyledButtonBackHome>
     );
 };

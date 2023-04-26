@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 export const StyledButtonBackHome = styled.button`
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    font-weight: 800;
     background: none;
     border-radius: 50%;
     padding: 0.5rem;
