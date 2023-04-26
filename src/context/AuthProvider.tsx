@@ -6,7 +6,7 @@ import { setToken } from '@/shared/services/setToken';
 import light from '@/styles/themes/light';
 import dark from '@/styles/themes/dark';
 import { ThemeProvider } from 'styled-components';
-
+import { AuthService } from "@/shared/services"
 
 export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     const api = useApi();
@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     };
 
     const signOut = async () => {
-        await api.loginConnections.signOut();
+        await AuthService.signOut();
         setToken('');
         setUser(null);
     };
