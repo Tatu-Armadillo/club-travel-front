@@ -18,7 +18,7 @@ export const FormDestinations = () => {
     
     // const [buttonDisable, setButtonDisable] = useState(true);
     const [cities, setCities] = useState<ICity[]>([]);
-    const { generalSearchs, generalInserts } = useApi();
+    // const { generalSearchs, generalInserts } = useApi();
     const { register, handleSubmit, formState: { errors } } = useForm<IDestination>();
 
     const [destination, setDestination] = useState({
@@ -65,17 +65,17 @@ export const FormDestinations = () => {
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         if (e.currentTarget.name.includes('city') && e.currentTarget.value.length > 3)
-            handleSearchCities(e.currentTarget.value);
+            // handleSearchCities(e.currentTarget.value);
         setDestination({
             ...destination,
             [e.currentTarget.name]: e.currentTarget.value,
         });
     };
 
-    const handleSearchCities = async (query: string) => {
-        const res = await CityService.getCityByName(query);
-        setCities(res);
-    };
+    // const handleSearchCities = async (query: string) => {
+    //     const res = await CityService.getCityByName(query);
+    //     setCities(res);
+    // };
 
     const choiceCity = (cityName: string) => {
         setDestination({ ...destination, city: cityName });
@@ -83,6 +83,8 @@ export const FormDestinations = () => {
     };
 
     return (
+        <>
+        </>
         // <Flex align='start' justify='start' direction='column' minHeight='80vh' width='full'>
         //     <form autoComplete='off' className=' lg:grid grid-cols-6 place-content-center bg-blue-800 gap-16 p-5 rounded-md m-auto'>
         //         <Flex direction='column' gap='.5rem'>
