@@ -1,7 +1,7 @@
 import { IDestination } from '@/shared/Interface/IDestionation';
 import { FormControl, FormLabel, Input, Flex, Textarea, Button, } from '@chakra-ui/react';
 import { ChangeEvent, useState, KeyboardEvent, } from 'react';
-// import { useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 import { useApi } from '@/shared/hooks';
 import { ResponseCityList } from '@/pages/ControlPanel/ResponseCityList/responseCityList';
@@ -18,8 +18,8 @@ export const FormDestinations = () => {
     
     // const [buttonDisable, setButtonDisable] = useState(true);
     const [cities, setCities] = useState<ICity[]>([]);
-    // const { generalSearchs, generalInserts } = useApi();
-    // const { register, handleSubmit, formState: { errors } } = useForm<IDestination>();
+    const { generalSearchs, generalInserts } = useApi();
+    const { register, handleSubmit, formState: { errors } } = useForm<IDestination>();
 
     const [destination, setDestination] = useState({
         climate: '',
@@ -74,7 +74,7 @@ export const FormDestinations = () => {
 
     const handleSearchCities = async (query: string) => {
         const res = await CityService.getCityByName(query);
-        // setCities(res);
+        setCities(res);
     };
 
     const choiceCity = (cityName: string) => {
@@ -83,7 +83,6 @@ export const FormDestinations = () => {
     };
 
     return (
-        <div></div>
         // <Flex align='start' justify='start' direction='column' minHeight='80vh' width='full'>
         //     <form autoComplete='off' className=' lg:grid grid-cols-6 place-content-center bg-blue-800 gap-16 p-5 rounded-md m-auto'>
         //         <Flex direction='column' gap='.5rem'>
