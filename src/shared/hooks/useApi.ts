@@ -1,6 +1,10 @@
 import axios from 'axios';
 import { INews } from '../Interface/INews';
 export const useApi = () => {
+
+    // const http = "http://localhost:8080/blog/";
+    const http = "https://joaoygorr.github.io/club-travel-front/blog";
+
     const api = {
         generalSearchs: {
             getAll: async () => {
@@ -11,7 +15,7 @@ export const useApi = () => {
             },
             getNoticeByTitle: async (query: string): Promise<INews> => {
                 const response = await axios.get(
-                    `http://localhost:8080/blog/news?=${query}`
+                    `${http}/news?=${query}`
                 );
                 return response.data;
             },
@@ -20,7 +24,7 @@ export const useApi = () => {
             signIn: async (username: string, password: string) => {
                 try {
                     const res = await axios.post(
-                        'http://localhost:8080/blog/auth/signin',
+                        `${http}/auth/signin`,
                         { username, password }
                     );
                     return res.data;
