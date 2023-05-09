@@ -1,7 +1,10 @@
+export interface INewsWithSubnews {
+    newsDto: INews
+    subNews?: INews[]
+};
+
 export interface INews {
-    id?: number;
-    dateTime: string;
-    title: string;
-    text: string;
-    imageLink: string;
+    title: string,
+    text: string,
+    imageLink: string
 }
