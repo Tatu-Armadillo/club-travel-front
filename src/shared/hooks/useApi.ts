@@ -20,7 +20,7 @@ export const useApi = () => {
             signIn: async (username: string, password: string) => {
                 try {
                     const res = await axios.post(
-                        'https://illustrious-cakes-production.up.railway.app/blog/auth/signin',
+                        'http://localhost:8080/blog/auth/signin',
                         { username, password }
                     );
                     return res.data;
