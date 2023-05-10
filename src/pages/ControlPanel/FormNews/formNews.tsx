@@ -19,15 +19,18 @@ export const FormNews = () => {
         <div>
             <label>
                 título
-                <input type="text" {...register("newsDto.title")} />
+                <input type="text" {...register("newsDto.title", { required: true })} />
+                {errors.newsDto?.title && (<span className="capitalize">campo obrigatório!</span>)}
             </label>
             <label>
                 texto
-                <input type="text" {...register("newsDto.text")} />
+                <input type="text" {...register("newsDto.text", { required: true })} />
+                {errors.newsDto?.text && (<span className="capitalize">campo obrigatório!</span>)}
             </label>
             <label>
                 imagem
-                <input type="text" {...register("newsDto.imageLink")} />
+                <input type="text" {...register("newsDto.imageLink", { required: true })} />
+                {errors.newsDto?.imageLink && (<span className="capitalize">campo obrigatório!</span>)}
             </label>
             <Button typeButton={"submit"} text={"enviar"} classButton="text-white capitalize" funcClick={handleSubmit(handlePost)} />
         </div>
