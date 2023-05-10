@@ -31,8 +31,7 @@ export const Modal = ({ externFunc }: ModalProps) => {
                 externFunc();
             } catch (error) {
                 console.log(error);
-            // }
-        }
+            }
     };
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setInputValue({
