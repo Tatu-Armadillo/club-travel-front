@@ -1,10 +1,35 @@
 ### 🚧 PROJETO EM ANDAMENTO 🚧
 
-<br/>
-
 # Travel Web Club
 
 Info do projeto
+
+## ✔️ Tecnologias utilizadas
+The following tools were used in the construction of the project:
+#### **Website**  ([React](https://reactjs.org/)  +  [TypeScript](https://www.typescriptlang.org/) + [Vite](https://vitejs.dev/))
+
+-   **[React Router Dom](https://reactrouter.com/en/main)**
+-   **[React Icons](https://react-icons.github.io/react-icons/)**
+-   **[Axios](https://axios-http.com/ptbr/docs/intro)**
+-   **[Tailwindui](https://tailwindui.com/documentation)**
+-   **[Styled-Components](https://styled-components.com/docs)**
+-   **[React-Hook-Form](https://react-hook-form.com/)**
+
+## 🛠️ Abrir e rodar o projeto
+
+#### Running the web application (Frontend)
+
+```bash
+
+# Install the dependencies
+$ npm install or yarn 
+
+# Run the application in development mode
+$ npm run dev or yarn dev
+
+# The application will open on the port: 5173 - go to http://localhost:5173/club-travel-front
+
+```
 
 ## Contributors
 
@@ -43,24 +68,3 @@ Info do projeto
     
   </tr>
 </table>
-
-## ✔️ Tecnologias utilizadas
-
-## 🛠️ Abrir e rodar o projeto
-
-#### Running the web application (Frontend)
-
-# Clone this repository
-$ git clone git@github.com: tgmarinho / README-ecoleta.git
-
-# Install the dependencies
-$ npm install or yarn
-
-# Run the application in development mode
-$ npm run dev or yarn dev
-
-# The application will open on the port: 5173 - go to http://localhost:5173/club-travel-front
-
-```
-
-Para abrir e rodar o projeto, basta abrir o aquivo `index.html` no navegador.
