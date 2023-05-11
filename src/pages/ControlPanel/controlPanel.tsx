@@ -22,8 +22,7 @@ export const ControlPanel = () => {
         <FormDestinations />,
     ];
 
-    const { currentComponent, currentItem, changeComponent, backHome } =
-        useComponent(componentList);
+    const { currentComponent, currentItem, changeComponent, backHome } = useComponent(componentList);
 
     const auth = useContext(AuthContext);
     return (
