@@ -42,7 +42,9 @@ $ npm run dev or yarn dev
             <sub><b>Marcos Vinícius</b></sub>
         </a>
         <br/>
+      <a href="https://github.com/mCszao" />
         @mCszao
+      </a>
         <br/>Front-End
     </td>
     <td align="center">
@@ -52,7 +54,9 @@ $ npm run dev or yarn dev
             <sub><b>João Ygor</b></sub>
         </a>
         <br/>
+      <a href="https://github.com/joaoygorr" />
         @joaoygorr
+      </a>
         <br/>Front-End
     </td>
     <td align="center">
@@ -62,9 +66,10 @@ $ npm run dev or yarn dev
             <sub><b>Felipe Alves</b></sub>
         </a>
         <br/>
+      <a href="https://github.com/Tatu-Armadillo" />
         @Tatu-Armadillo
+      </a>
         <br/>Back-End
     </td>
-    
   </tr>
 </table>
