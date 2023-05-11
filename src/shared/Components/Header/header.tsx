@@ -20,7 +20,7 @@ export const Header = () => {
     };
 
     const arrItems: Props[] = [
-        { name: 'início', link: '/club-travel-front/' },
+        { name: 'início', link: '/club-travel-front' },
         { name: 'infográficos', link: '/club-travel-front/infographics' },
         { name: 'login', link: '/club-travel-front/signIn' },
         { name: 'sobre nós', link: '/club-travel-front/about' },
