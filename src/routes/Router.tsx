@@ -13,19 +13,19 @@ import { Notice } from '@/pages/Notice/notice';
 export const Router = () => {
     return (
         <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/about' element={<About />} />
+            <Route path='/club-travel-front' element={<Home />} />
+            <Route path='/club-travel-front/about' element={<About />} />
             <Route
-                path='/infographics'
+                path='/club-travel-front/infographics'
                 element={
                     <RequireAuth>
                         <Infographics />
                     </RequireAuth>
                 }
             />
-            <Route path='/signIn' element={<SignIn />} />
+            <Route path='/club-travel-front/signIn' element={<SignIn />} />
             <Route
-                path='/controlPanel'
+                path='/club-travel-front/controlPanel'
                 element={
                     <RequireAuth>
                         <ControlPanel />
@@ -33,7 +33,7 @@ export const Router = () => {
                 }
             />
             <Route path='*' element={<NotFound />} />
-            <Route path='/notice' element={<Notice />} />
+            <Route path='/club-travel-front/notice' element={<Notice />} />
         </Routes>
     );
 };
