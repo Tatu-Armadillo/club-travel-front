@@ -29,22 +29,22 @@ export const FormNews = () => {
 
                     <BoxInput>
                         <label>
-                            texto
-                        </label>
-                        <input type="text" {...register("newsDto.text", { required: true })} />
-                        {errors.newsDto?.text && (<span className="capitalize">campo obrigatório!</span>)}
-                    </BoxInput>
-
-                    <BoxInput>
-                        <label>
                             imagem
                         </label>
                         <input type="text" {...register("newsDto.imageLink", { required: true })} />
                         {errors.newsDto?.imageLink && (<span className="capitalize">campo obrigatório!</span>)}
                     </BoxInput>
+
+                    <BoxInput>
+                        <label>
+                            texto
+                        </label>
+                        <textarea cols={30} rows={5} {...register("newsDto.text", { required: true })}></textarea>
+                        {errors.newsDto?.text && (<span className="capitalize">campo obrigatório!</span>)}
+                    </BoxInput>
                 </BoxForms >
 
-                <div className="flex lg:justify-end sm:justify-center justify-center">
+                <div className="flex lg:justify-center sm:justify-center justify-center">
                     <BoxButtons>
                         <Button typeButton={"submit"} text={"enviar"} classButton="text-white bg-green-800 p-2 rounded-md hover:bg-green-900" funcClick={handleSubmit(handlePost)} />
 

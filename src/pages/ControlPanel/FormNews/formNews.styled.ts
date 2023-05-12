@@ -9,7 +9,7 @@ export const BoxContainer = styled.div`
 
 export const BoxMiddle = styled.div`
     max-width: 80rem;
-    width: 64%;
+    width: 30%;
     margin: 0 3rem;
     background-color: rgba(170, 170, 170, 0.17);
     border-radius: .375rem;
@@ -18,9 +18,10 @@ export const BoxMiddle = styled.div`
 
 export const BoxForms = styled.div`
     margin: 1rem 0rem;
-    display: flex;
-    justify-content: space-around;
     gap: 1rem;
+    display: grid;
+    grid-template-rows: 3;
+    justify-content: center;
 
     @media (max-width: 790px) {
         flex-direction: column;
@@ -30,7 +31,7 @@ export const BoxForms = styled.div`
 `;
 
 export const BoxInput = styled.div`
-    width: 26%;
+    width: 100%;
     @media (max-width: 790px) { 
         width: 80%;
     }
@@ -59,6 +60,14 @@ export const BoxInput = styled.div`
         border-color: rgb(75, 85, 99);
     }
 
+    textarea { 
+        resize: none;
+        display: block;
+        border-radius: .375rem;
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
     span { 
         color: ${props => props.theme.colors.secundaryTxt};
     }
@@ -66,25 +75,16 @@ export const BoxInput = styled.div`
 
 export const BoxButtons = styled.div`
     display: flex;
-    justify-content: space-between;
-    margin: 1rem 2rem;
-    width: 20.3rem;
-
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    
     button { 
-        width: 9rem;
+        width: 15rem;
+        margin: .5rem 0;
         font-size: .9rem;
         font-weight: 500;
         line-height: 1.5rem;
         text-transform: uppercase;
     }
-
-    @media (max-width: 790px) {
-        flex-direction: column;
-        align-items: center;
-
-        button { 
-            margin-top: 1rem;
-            width: 100%;
-        }
-    };
 `;
