@@ -59,17 +59,5 @@ $ npm run dev or yarn dev
       </a>
         <br/>Front-End
     </td>
-    <td align="center">
-        <a href="https://www.linkedin.com/in/felipe-alves-de-oliveira-4607b8211/">
-            <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/69278300?v=4" width="100px;"/>
-            <br/>
-            <sub><b>Felipe Alves</b></sub>
-        </a>
-        <br/>
-      <a href="https://github.com/Tatu-Armadillo" />
-        @Tatu-Armadillo
-      </a>
-        <br/>Back-End
-    </td>
   </tr>
 </table>
