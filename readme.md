@@ -17,7 +17,7 @@ The following tools were used in the construction of the project:
 
 ## 🛠️ Abrir e rodar o projeto
 
-#### Running the web application (Frontend)
+#### 🧭 Running the web application (Frontend)
 
 ```bash
 
@@ -30,6 +30,8 @@ $ npm run dev or yarn dev
 # The application will open on the port: 5173 - go to http://localhost:5173/club-travel-front
 
 ```
+#### 🎲 Backend (servidor)
+> **[Back-End](https://github.com/Tatu-Armadillo/blog)**
 
 ## Contributors
 
