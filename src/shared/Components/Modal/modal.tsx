@@ -22,7 +22,7 @@ export const Modal = ({ externFunc }: ModalProps) => {
     });
     const handleClick = async () => {
         const data = inputValues;
-        if (loginIsValid(name, phone, email)) { //verificar
+        // if (loginIsValid(name, phone, email)) { //verificar
             try {
                 const action = await ContactService.postContact(
                     data
@@ -32,7 +32,6 @@ export const Modal = ({ externFunc }: ModalProps) => {
             } catch (error) {
                 console.log(error);
             }
-        }
     };
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setInputValue({

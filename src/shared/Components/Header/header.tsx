@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { Navbar, BoxImages, BoxLogo } from './header.styled';
 import LogoName from '../../../assets/img/web3travelclub4.png';
 import Logo from '../../../assets/img/web3reallogoamarela.png';
@@ -20,13 +20,13 @@ export const Header = () => {
     };
 
     const arrItems: Props[] = [
-        { name: 'início', link: '/' },
-        { name: 'infográficos', link: '/infographics' },
-        { name: 'login', link: '/signIn' },
-        { name: 'sobre nós', link: '/about' },
+        { name: 'início', link: '/club-travel-front' },
+        { name: 'infográficos', link: '/club-travel-front/infographics' },
+        { name: 'login', link: '/club-travel-front/signIn' },
+        { name: 'sobre nós', link: '/club-travel-front/about' },
     ];
     if (auth.user) {
-        arrItems.push({ name: 'painel de controle', link: '/controlPanel' });
+        arrItems.push({ name: 'painel de controle', link: '/club-travel-front/controlPanel' });
     };
 
     const handleClassHidden = () => {
@@ -55,7 +55,7 @@ export const Header = () => {
                             />
                         </div>
                         <BoxImages>
-                            <Link to='/'>
+                            <Link to='/club-travel-front'>
                                 <BoxLogo
                                     className='hidden lg:block'
                                     src={Logo}
@@ -70,7 +70,7 @@ export const Header = () => {
                         </BoxImages>
                         <div className='flex flex-1 items-center justify-center sm:items-stretch sm:justify-start'>
                             <BoxImages>
-                                <Link to='/'>
+                                <Link to='/club-travel-front'>
                                     <BoxLogo
                                         className='lg:hidden sm:block hidden'
                                         src={Logo}
@@ -100,7 +100,7 @@ export const Header = () => {
                                 })}
                                 {auth.user && (
                                     <Link
-                                        to={'/'}
+                                        to={'/club-travel-front'}
                                         className='capitalize text-gray-300 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-base font-medium'
                                         onClick={() => auth.signOut()} >
                                         Sair
