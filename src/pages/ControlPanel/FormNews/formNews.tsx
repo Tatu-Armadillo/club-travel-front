@@ -18,6 +18,8 @@ export const FormNews = () => {
     return (
         <BoxContainer>
             <BoxMiddle>
+                <h3>Cadastro de Notícia</h3>
+                <span></span>
                 <BoxForms>
                     <BoxInput>
                         <label>
@@ -47,8 +49,6 @@ export const FormNews = () => {
                 <div className="flex lg:justify-center sm:justify-center justify-center">
                     <BoxButtons>
                         <Button typeButton={"submit"} text={"enviar"} classButton="text-white bg-green-800 p-2 rounded-md hover:bg-green-900" funcClick={handleSubmit(handlePost)} />
-
-                        <Button classButton="text-white p-2 bg-red-700 rounded-md hover:bg-red-800" typeButton="button" text={"cancelar"} />
                     </BoxButtons>
                 </div>
             </BoxMiddle>
