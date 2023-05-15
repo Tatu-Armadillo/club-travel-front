@@ -21,7 +21,7 @@ export const BoxMiddle = styled.div`
         margin-bottom: .8rem;
     }
 
-    span { 
+    && > span { 
         display: block;
         border: 1px solid #F2B705;
         border-radius: 5rem;
@@ -74,7 +74,7 @@ export const BoxInput = styled.div`
     }
 
     span { 
-        color: ${props => props.theme.colors.secundaryTxt};
+        color: #da5d5d;
     }
 `;
 

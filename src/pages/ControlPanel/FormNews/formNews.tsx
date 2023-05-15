@@ -3,20 +3,34 @@ import { Button } from "@/shared/Components";
 import { INewsWithSubnews, INews } from "@/shared/Interface/INews";
 import { NewsService } from "@/shared/services";
 import { BoxContainer, BoxForms, BoxMiddle, BoxButtons, BoxInput } from "./formNews.styled";
+import { toast, ToastContainer } from 'react-toastify';
 
 export const FormNews = () => {
     const { register, formState: { errors }, handleSubmit } = useForm<INewsWithSubnews>();
 
     const handlePost = (data: INewsWithSubnews) => {
         const subNewsArr: INews[] = [];
-        subNewsArr.push(data.newsDto)
+        subNewsArr.push(data.newsDto);
         data.subNews = subNewsArr;
-
-        NewsService.postNews(data);
+        NewsService.postNews(data).then(() => {
+            toast.success('Cadastrado com Sucesso!', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+        }, (err) => {
+            console.log("🚀 ~ file: formNews.tsx:17 ~ NewsService.postNews ~ err:", err)
+        });
     };
 
     return (
         <BoxContainer>
+            <ToastContainer />
             <BoxMiddle>
                 <h3>Cadastro de Notícia</h3>
                 <span></span>
