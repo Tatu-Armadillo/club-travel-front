@@ -3,17 +3,30 @@ import { Button } from "@/shared/Components";
 import { INewsWithSubnews, INews } from "@/shared/Interface/INews";
 import { NewsService } from "@/shared/services";
 import { BoxContainer, BoxForms, BoxMiddle, BoxButtons, BoxInput } from "./formNews.styled";
+import { toast } from 'react-toastify';
+import { SubnewsModal } from "./SubnewsModal/subnewsModal";
 
 export const FormNews = () => {
     const { register, formState: { errors }, handleSubmit } = useForm<INewsWithSubnews>();
 
     const handlePost = (data: INewsWithSubnews) => {
         const subNewsArr: INews[] = [];
-        subNewsArr.push(data.newsDto)
+        subNewsArr.push(data.newsDto);
         data.subNews = subNewsArr;
-
-        NewsService.postNews(data);
+        NewsService.postNews(data).then(() => {
+            // toast.success('Cadastrado com Sucesso!', {
+            //     position: "top-right",
+            //     autoClose: 1000,
+            //     hideProgressBar: false,
+            //     closeOnClick: true,
+            //     pauseOnHover: false,
+            //     draggable: true,
+            //     progress: undefined,
+            //     theme: "dark",
+            // });
+        })
     };
+
 
     return (
         <BoxContainer>
@@ -33,7 +46,7 @@ export const FormNews = () => {
                         <label>
                             imagem
                         </label>
-                        <input type="text" {...register("newsDto.imageLink", { required: true })} />
+                        <input type="text" {...register("newsDto.imageLink")} />
                         {errors.newsDto?.imageLink && (<span className="capitalize">campo obrigatório!</span>)}
                     </BoxInput>
 
@@ -52,6 +65,7 @@ export const FormNews = () => {
                     </BoxButtons>
                 </div>
             </BoxMiddle>
+            <SubnewsModal />
         </BoxContainer>
     )
 };
