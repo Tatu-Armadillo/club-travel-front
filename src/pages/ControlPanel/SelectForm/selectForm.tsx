@@ -41,12 +41,6 @@ export const SelectForm = ({ externalFunc }: SelectFormProps) => {
                     text='Formulário de Destinos'
                     externalFunc={handleClick}
                 />
-
-                <ButtonSelect
-                    name='newsButton'
-                    text='Formulário de Eventos'
-                    externalFunc={handleClick}
-                />
             </Box>
         </Flex>
     );
