@@ -1,7 +1,17 @@
-export const SubnewsModal = () => {
-    return (
-        <div className="relative z-10 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true" id="modal">
+import { Button } from "@/shared/Components";
 
+export const SubnewsModal = () => {
+    const handleHiddenModal = () => {
+        const modalHidden = document.querySelector("#modal");
+        modalHidden?.classList.add("hidden");
+    };
+
+    const handleSubnews = () => {
+        return
+    };
+
+    return (
+        <div className="relative z-10 hidden" aria-labelledby="modal-title" role="" aria-modal="true" id="modal">
             <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
             <div className="fixed inset-0 z-10 overflow-y-auto">
@@ -23,8 +33,9 @@ export const SubnewsModal = () => {
                             </div>
                         </div>
                         <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                            <button type="button" className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">Deactivate</button>
-                            <button type="button" className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
+                            <Button typeButton={"submit"} text={"cadastrar"} classButton={"inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"} funcClick={() => handleSubnews()}/>
+
+                            <Button typeButton={"button"} funcClick={() => handleHiddenModal()} text={"cancelar"} classButton={"mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto capitalize"} />
                         </div>
                     </div>
                 </div>

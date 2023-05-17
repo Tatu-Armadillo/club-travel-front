@@ -8,3 +8,14 @@ export interface INews {
     text: string,
     imageLink: string
 }
+
+// {
+//     newsDto: {
+//         title: string, 
+//         text: string, 
+//         img: string, 
+//     }, 
+//     subNews [
+        
+//     ]
+// }

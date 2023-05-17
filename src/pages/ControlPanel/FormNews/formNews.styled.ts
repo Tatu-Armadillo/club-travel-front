@@ -81,7 +81,8 @@ export const BoxInput = styled.div`
 export const BoxButtons = styled.div`
     display: flex;
     flex-direction: column;
-
+    gap: 1rem;
+    
     button { 
         width: 15rem;
         font-size: .9rem;

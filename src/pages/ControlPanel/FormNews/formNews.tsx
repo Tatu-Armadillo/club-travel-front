@@ -27,6 +27,10 @@ export const FormNews = () => {
         })
     };
 
+    const handleShowModal = () => {
+        const modal = document.querySelector("#modal"); 
+        modal?.classList.remove("hidden");
+    };
 
     return (
         <BoxContainer>
@@ -62,6 +66,8 @@ export const FormNews = () => {
                 <div className="flex lg:justify-center sm:justify-center justify-center">
                     <BoxButtons>
                         <Button typeButton={"submit"} text={"enviar"} classButton="text-white bg-green-800 p-2 rounded-md hover:bg-green-900" funcClick={handleSubmit(handlePost)} />
+
+                        <Button typeButton={"submit"} text={"enviar"} classButton="text-white bg-blue-800 p-2 rounded-md hover:bg-blue-900" funcClick={() => handleShowModal()} />
                     </BoxButtons>
                 </div>
             </BoxMiddle>
