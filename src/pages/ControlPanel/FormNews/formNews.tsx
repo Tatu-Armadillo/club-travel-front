@@ -1,13 +1,23 @@
-import { useForm } from "react-hook-form";
-import { Button } from "@/shared/Components";
-import { INewsWithSubnews, INews } from "@/shared/Interface/INews";
-import { NewsService } from "@/shared/services";
-import { BoxContainer, BoxForms, BoxMiddle, BoxButtons, BoxInput } from "./formNews.styled";
-import { toast } from 'react-toastify';
-import { SubnewsModal } from "./SubnewsModal/subnewsModal";
+import { useForm } from 'react-hook-form';
+import { Button } from '@/shared/Components';
+import { INewsWithSubnews, INews } from '@/shared/Interface/INews';
+import { NewsService } from '@/shared/services';
+import {
+    BoxContainer,
+    BoxForms,
+    BoxMiddle,
+    BoxButtons,
+    BoxInput,
+} from './formNews.styled';
+import { useComponent } from '@/shared/hooks';
+import { SubnewsModal } from './SubnewsModal/subnewsModal';
 
 export const FormNews = () => {
-    const { register, formState: { errors }, handleSubmit } = useForm<INewsWithSubnews>();
+    const {
+        register,
+        formState: { errors },
+        handleSubmit,
+    } = useForm<INewsWithSubnews>();
 
     const handlePost = (data: INewsWithSubnews) => {
         const subNewsArr: INews[] = [];
@@ -24,7 +34,7 @@ export const FormNews = () => {
             //     progress: undefined,
             //     theme: "dark",
             // });
-        })
+        });
     };
 
     const handleShowModal = () => {
@@ -60,10 +70,7 @@ export const FormNews = () => {
                         </label>
                         <textarea cols={30} rows={5} {...register("newsRecord.text", { required: true })}></textarea>
                         {errors.newsRecord?.text && (<span className="capitalize">campo obrigatório!</span>)}
-                    </BoxInput>
-                </BoxForms >
-
-                <div className="flex lg:justify-center sm:justify-center justify-center">
+                <div className='flex lg:justify-end sm:justify-center justify-center'>
                     <BoxButtons>
                         <Button typeButton={"submit"} text={"enviar"} classButton="text-white bg-green-800 p-2 rounded-md hover:bg-green-900" funcClick={handleSubmit(handlePost)} />
 
@@ -73,5 +80,5 @@ export const FormNews = () => {
             </BoxMiddle>
             <SubnewsModal />
         </BoxContainer>
-    )
+    );
 };

@@ -1,12 +1,7 @@
+import { IReference } from './IReference';
 export interface IDestination {
-    idDestinations?: number,
-    title: string,
-    nameCity: string,
-    references: [
-        {
-            keyReference: string,
-            valor: string,
-            imageLink: string
-        }
-    ]
+    idDestinations?: number;
+    title: string;
+    nameCity: string;
+    references: Array<IReference>;
 }
