@@ -10,6 +10,7 @@ import {
     BoxInput,
 } from './formNews.styled';
 import { useComponent } from '@/shared/hooks';
+import { SubnewsModal } from './SubnewsModal/subnewsModal';
 
 export const FormNews = () => {
     const {
@@ -22,13 +23,25 @@ export const FormNews = () => {
         const subNewsArr: INews[] = [];
         subNewsArr.push(data.newsDto);
         data.subNews = subNewsArr;
-
-        NewsService.postNews(data);
+        NewsService.postNews(data).then(() => {
+            // toast.success('Cadastrado com Sucesso!', {
+            //     position: "top-right",
+            //     autoClose: 1000,
+            //     hideProgressBar: false,
+            //     closeOnClick: true,
+            //     pauseOnHover: false,
+            //     draggable: true,
+            //     progress: undefined,
+            //     theme: "dark",
+            // });
+        });
     };
 
     return (
         <BoxContainer>
             <BoxMiddle>
+                <h3>Cadastro de Notícia</h3>
+                <span></span>
                 <BoxForms>
                     <BoxInput>
                         <label>título</label>
@@ -89,6 +102,7 @@ export const FormNews = () => {
                     </BoxButtons>
                 </div>
             </BoxMiddle>
+            <SubnewsModal />
         </BoxContainer>
     );
 };
