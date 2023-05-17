@@ -38,7 +38,7 @@ export const FormNews = () => {
     };
 
     const handleShowModal = () => {
-        const modal = document.querySelector("#modal"); 
+        const modal = document.querySelector("#modal");
         modal?.classList.remove("hidden");
     };
 
@@ -70,6 +70,9 @@ export const FormNews = () => {
                         </label>
                         <textarea cols={30} rows={5} {...register("newsRecord.text", { required: true })}></textarea>
                         {errors.newsRecord?.text && (<span className="capitalize">campo obrigatório!</span>)}
+                    </BoxInput>
+                </BoxForms>
+                
                 <div className='flex lg:justify-end sm:justify-center justify-center'>
                     <BoxButtons>
                         <Button typeButton={"submit"} text={"enviar"} classButton="text-white bg-green-800 p-2 rounded-md hover:bg-green-900" funcClick={handleSubmit(handlePost)} />
