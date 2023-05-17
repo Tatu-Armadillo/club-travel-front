@@ -1,5 +1,5 @@
 export interface INewsWithSubnews {
-    newsDto: INews
+    newsRecord: INews
     subNews?: INews[]
 };
 
@@ -8,14 +8,3 @@ export interface INews {
     text: string,
     imageLink: string
 }
-
-// {
-//     newsDto: {
-//         title: string, 
-//         text: string, 
-//         img: string, 
-//     }, 
-//     subNews [
-        
-//     ]
-// }

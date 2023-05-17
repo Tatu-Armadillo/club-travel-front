@@ -11,7 +11,7 @@ export const FormNews = () => {
 
     const handlePost = (data: INewsWithSubnews) => {
         const subNewsArr: INews[] = [];
-        subNewsArr.push(data.newsDto);
+        subNewsArr.push(data.newsRecord);
         data.subNews = subNewsArr;
         NewsService.postNews(data).then(() => {
             // toast.success('Cadastrado com Sucesso!', {
@@ -42,24 +42,24 @@ export const FormNews = () => {
                         <label>
                             título
                         </label>
-                        <input type="text" {...register("newsDto.title", { required: true })} />
-                        {errors.newsDto?.title && (<span className="capitalize">campo obrigatório!</span>)}
+                        <input type="text" {...register("newsRecord.title", { required: true })} />
+                        {errors.newsRecord?.title && (<span className="capitalize">campo obrigatório!</span>)}
                     </BoxInput>
 
                     <BoxInput>
                         <label>
                             imagem
                         </label>
-                        <input type="text" {...register("newsDto.imageLink")} />
-                        {errors.newsDto?.imageLink && (<span className="capitalize">campo obrigatório!</span>)}
+                        <input type="text" {...register("newsRecord.imageLink")} />
+                        {errors.newsRecord?.imageLink && (<span className="capitalize">campo obrigatório!</span>)}
                     </BoxInput>
 
                     <BoxInput>
                         <label>
                             texto
                         </label>
-                        <textarea cols={30} rows={5} {...register("newsDto.text", { required: true })}></textarea>
-                        {errors.newsDto?.text && (<span className="capitalize">campo obrigatório!</span>)}
+                        <textarea cols={30} rows={5} {...register("newsRecord.text", { required: true })}></textarea>
+                        {errors.newsRecord?.text && (<span className="capitalize">campo obrigatório!</span>)}
                     </BoxInput>
                 </BoxForms >
 
