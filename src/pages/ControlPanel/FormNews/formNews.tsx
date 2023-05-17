@@ -9,7 +9,6 @@ import {
     BoxButtons,
     BoxInput,
 } from './formNews.styled';
-import { useComponent } from '@/shared/hooks';
 import { SubnewsModal } from './SubnewsModal/subnewsModal';
 
 export const FormNews = () => {
@@ -23,22 +22,11 @@ export const FormNews = () => {
         const subNewsArr: INews[] = [];
         subNewsArr.push(data.newsRecord);
         data.subNews = subNewsArr;
-        NewsService.postNews(data).then(() => {
-            // toast.success('Cadastrado com Sucesso!', {
-            //     position: "top-right",
-            //     autoClose: 1000,
-            //     hideProgressBar: false,
-            //     closeOnClick: true,
-            //     pauseOnHover: false,
-            //     draggable: true,
-            //     progress: undefined,
-            //     theme: "dark",
-            // });
-        });
+        NewsService.postNews(data);
     };
 
     const handleShowModal = () => {
-        const modal = document.querySelector("#modal"); 
+        const modal = document.querySelector("#modal");
         modal?.classList.remove("hidden");
     };
 
