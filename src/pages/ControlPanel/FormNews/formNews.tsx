@@ -9,7 +9,6 @@ import {
     BoxButtons,
     BoxInput,
 } from './formNews.styled';
-import { useComponent } from '@/shared/hooks';
 import { SubnewsModal } from './SubnewsModal/subnewsModal';
 
 export const FormNews = () => {
@@ -23,18 +22,7 @@ export const FormNews = () => {
         const subNewsArr: INews[] = [];
         subNewsArr.push(data.newsRecord);
         data.subNews = subNewsArr;
-        NewsService.postNews(data).then(() => {
-            // toast.success('Cadastrado com Sucesso!', {
-            //     position: "top-right",
-            //     autoClose: 1000,
-            //     hideProgressBar: false,
-            //     closeOnClick: true,
-            //     pauseOnHover: false,
-            //     draggable: true,
-            //     progress: undefined,
-            //     theme: "dark",
-            // });
-        });
+        NewsService.postNews(data);
     };
 
     const handleShowModal = () => {
@@ -72,7 +60,7 @@ export const FormNews = () => {
                         {errors.newsRecord?.text && (<span className="capitalize">campo obrigatório!</span>)}
                     </BoxInput>
                 </BoxForms>
-                
+
                 <div className='flex lg:justify-end sm:justify-center justify-center'>
                     <BoxButtons>
                         <Button typeButton={"submit"} text={"enviar"} classButton="text-white bg-green-800 p-2 rounded-md hover:bg-green-900" funcClick={handleSubmit(handlePost)} />
