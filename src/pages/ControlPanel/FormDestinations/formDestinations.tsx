@@ -1,481 +1,169 @@
 import { IDestination } from '@/shared/Interface/IDestionation';
-import { FormControl, FormLabel, Input, Flex, Textarea, Button, } from '@chakra-ui/react';
-import { ChangeEvent, useState, KeyboardEvent, } from 'react';
-import { useForm } from 'react-hook-form';
+import { IReference } from '@/shared/Interface/IReference';
+import { CityService, DestinationsService } from '@/shared/services';
+import { ICity } from '@/shared/services/city/CityService';
 
-import { useApi } from '@/shared/hooks';
-import { ResponseCityList } from '@/pages/ControlPanel/ResponseCityList/responseCityList';
-import { ResponseCityItem } from '../ResponseCityItem/responseCityItem';
-import { DestinationsService, CityService } from '@/shared/services';
-
-export interface ICity {
-    idCity: number;
-    name: string;
-};
+import React from 'react';
+import { useForm, useFieldArray } from 'react-hook-form';
+import { BoxReferenceField } from './BoxReferenceField/boxReferenceField';
+import { ResponseCityItem } from './ResponseCityItem/responseCityItem';
+import { ResponseCityList } from './ResponseCityList/responseCityList';
 
 export const FormDestinations = () => {
-    console.log(DestinationsService.getDestinationsId(2).then(console.log));
-    
-    // const [buttonDisable, setButtonDisable] = useState(true);
-    const [cities, setCities] = useState<ICity[]>([]);
-    // const { generalSearchs, generalInserts } = useApi();
-    const { register, handleSubmit, formState: { errors } } = useForm<IDestination>();
-
-    const [destination, setDestination] = useState({
-        climate: '',
-        localCurrency: '',
-        transport: '',
-        accommodation: '',
-        sightseeing: '',
-        gastronomy: '',
-        language: '',
-        documents: '',
-        security: '',
-        costs: '',
-        health: '',
-        culture: '',
-        shopping: '',
-        events: '',
-        distances: '',
-        schedules: '',
-        internetConnection: '',
-        baggageTransport: '',
-        extraTips: '',
-        usefulInformation: '',
-        meansPayment: '',
-        contactInformation: '',
-        imageLink: '',
-        city: '',
+    const [listOpen, setListOpen] = React.useState(false);
+    const {
+        register,
+        handleSubmit,
+        watch,
+        setValue,
+        control,
+        formState: { errors },
+    } = useForm<IDestination>();
+    const { fields, append, remove } = useFieldArray({
+        control,
+        name: 'references',
     });
 
-    const handleClick = async (data: IDestination) => {
+    const [citiesList, setCitiesList] = React.useState<ICity[]>([]);
+    const handleSearchCities = async (query: string) => {
+        const response = await CityService.getCityByName(query);
+        setCitiesList(response.data);
+    };
+
+    const createNewDestination = (data: IDestination) => {
+        console.log(data);
+        const { references, nameCity } = data;
+        if (!nameCity) {
+            alert('Você precisa escolher uma cidade');
+            return;
+        }
+        if (!references || references.length === 0) {
+            alert('É obrigatório que o destino tenha no mínimo 1 referência.');
+            return;
+        }
         try {
-            await DestinationsService.postDestinations(data);
-            alert('Dados inseridos com sucesso!');
+            DestinationsService.postDestinations(data);
         } catch (error) {
-            alert('Não foi possível cadastrar o destino, verifique os dados e tente novamente.');
-            throw new Error('Cidade não enontrada no banco de dados asswhole');
+            alert('Não foi possível concluir a operação');
+            console.error(error);
         }
     };
-    const validateKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
-        if (+e.key || e.key === '0') {
-            e.preventDefault();
-        }
-    };
-
-    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        if (e.currentTarget.name.includes('city') && e.currentTarget.value.length > 3)
-            // handleSearchCities(e.currentTarget.value);
-        setDestination({
-            ...destination,
-            [e.currentTarget.name]: e.currentTarget.value,
+    React.useEffect(() => {
+        const updateList = watch((data) => {
+            if (!data.nameCity || data.nameCity?.length < 3) {
+                return;
+            }
+            handleSearchCities(data.nameCity!);
         });
-    };
-
-    // const handleSearchCities = async (query: string) => {
-    //     const res = await CityService.getCityByName(query);
-    //     setCities(res);
-    // };
-
-    const choiceCity = (cityName: string) => {
-        setDestination({ ...destination, city: cityName });
-        setCities([]);
-    };
+    }, [watch]);
 
     return (
-        <>
-        </>
-        // <Flex align='start' justify='start' direction='column' minHeight='80vh' width='full'>
-        //     <form autoComplete='off' className=' lg:grid grid-cols-6 place-content-center bg-blue-800 gap-16 p-5 rounded-md m-auto'>
-        //         <Flex direction='column' gap='.5rem'>
-        //             <FormControl >
-        //                 <FormLabel fontWeight='bold' color='white'>
-        //                     Clima
-        //                 </FormLabel>
-        //                 <Textarea
-        //                     borderRadius={5}
-        //                     padding={2}
-        //                     placeholder='Fale sobre o clima'
-        //                     resize='vertical'
-        //                     size='md'
-        //                     {...register("climate", { required: true })}
-        //                 />
-        //                 {errors.climate && (<span className='capitalize'>campo obrigatório!</span>)}
-        //             </FormControl>
+        <div className='w-full flex mt-5 justify-center'>
+            <form
+                onSubmit={handleSubmit(createNewDestination)}
+                className='bg-gray-300 flex flex-col p-2 rounded-md w-1/2 gap-2 border-2 border-black m-2'
+            >
+                <div className='flex flex-col justify-center w-full items-center'>
+                    <label className='text-2xs font-bold ' htmlFor='title'>
+                        Cidade
+                    </label>
 
-        //             <FormControl isRequired>
-        //                 <FormLabel fontWeight='bold' color='white'>
-        //                     Moeda Local
-        //                 </FormLabel>
-        //                 <Textarea
-        //                     borderRadius={5}
-        //                     padding={2}
-        //                     placeholder='Qual a moeda local?'
-        //                     resize='vertical'
-        //                     size='md'
-        //                     {...register("localCurrency", { required: true })}
-        //                 />
-        //                 {errors.localCurrency && (<span className='capitalize'>campo obrigatório!</span>)}
-        //             </FormControl>
-
-        //             <FormControl isRequired>
-        //                 <FormLabel fontWeight='bold' color='white'>
-        //                     Transporte
-        //                 </FormLabel>
-        //                 <Textarea
-        //                     borderRadius={5}
-        //                     padding={2}
-        //                     placeholder='Como é o transporte?'
-        //                     resize='vertical'
-        //                     size='md'
-        //                     {...register("transport", { required: true })}
-        //                 />
-        //                 {errors.transport && (<span className='capitalize'>campo obrigatório!</span>)}
-        //             </FormControl>
-
-        //             <FormControl isRequired>
-        //                 <FormLabel fontWeight='bold' color='white'>
-        //                     Alojamento
-        //                 </FormLabel>
-        //                 <Textarea
-        //                     borderRadius={5}
-        //                     padding={2}
-        //                     placeholder='Fale sobre os alojamentos'
-        //                     resize='vertical'
-        //                     size='md'
-        //                     {...register("accommodation", { required: true })}
-        //                 />
-        //                 {errors.accommodation && (<span className='capitalize'>campo obrigatório!</span>)}
-        //             </FormControl>
-        //         </Flex>
-
-        //         <Flex direction='column' gap='.5rem'>
-        //             <FormControl isRequired>
-        //                 <FormLabel fontWeight='bold' color='white'>
-        //                     Passeio Turístico
-        //                 </FormLabel>
-        //                 <Textarea
-        //                     borderRadius={5}
-        //                     padding={2}
-        //                     placeholder='Fale sobre os passeios'
-        //                     resize='vertical'
-        //                     size='md'
-        //                     {...register("sightseeing", { required: true })}
-        //                 />
-        //                 {errors.sightseeing && (<span className='capitalize'>campo obrigatório!</span>)}
-        //             </FormControl>
-
-        //             <FormControl isRequired>
-        //                 <FormLabel fontWeight='bold' color='white'>
-        //                     Gastronômia
-        //                 </FormLabel>
-        //                 <Textarea
-        //                     borderRadius={5}
-        //                     padding={2}
-        //                     placeholder='Fale sobre a gastronômia'
-        //                     resize='vertical'
-        //                     size='md'
-        //                     {...register("gastronomy", { required: true })}
-        //                 />
-        //                 {errors.gastronomy && (<span className='capitalize'>campo obrigatório!</span>)}
-        //             </FormControl>
-
-        //             <FormControl isRequired>
-        //                 <FormLabel fontWeight='bold' color='white'>
-        //                     Idioma
-        //                 </FormLabel>
-        //                 <Input
-        //                     placeholder='Qual o idioma?'
-        //                     resize='vertical'
-        //                     size='md'
-        //                     {...register("language", { required: true })}
-        //                 />
-        //                 {errors.language && (<span className='capitalize'>campo obrigatório!</span>)}
-        //             </FormControl>
-
-        //             <FormControl isRequired>
-        //                 <FormLabel fontWeight='bold' color='white'>
-        //                     Documentos
-        //                 </FormLabel>
-        //                 <Textarea
-        //                     borderRadius={5}
-        //                     padding={2}
-        //                     placeholder='Quais documentos são necessários?'
-        //                     resize='vertical'
-        //                     size='md'
-        //                     {...register("documents", { required: true })}
-        //                 />
-        //                 {errors.documents && (<span className='capitalize'>campo obrigatório!</span>)}
-        //             </FormControl>
-        //         </Flex>
-
-        //         <Flex direction='column' gap='.5rem'>
-        //             <FormControl isRequired>
-        //                 <FormLabel fontWeight='bold' color='white'>
-        //                     Segurança
-        //                 </FormLabel>
-        //                 <Textarea
-        //                     borderRadius={5}
-        //                     padding={2}
-        //                     placeholder='Sobre segurança'
-        //                     resize='vertical'
-        //                     size='md'
-        //                     {...register("security", { required: true })}
-        //                 />
-        //                 {errors.security && (<span className='capitalize'>campo obrigatório!</span>)}
-        //             </FormControl>
-
-        //             <FormControl isRequired>
-        //                 <FormLabel fontWeight='bold' color='white'>
-        //                     Custos
-        //                 </FormLabel>
-        //                 <Textarea
-        //                     borderRadius={5}
-        //                     padding={2}
-        //                     placeholder='Sobre os custos'
-        //                     resize='vertical'
-        //                     size='md'
-        //                     {...register("costs", { required: true })}
-        //                 />
-        //                 {errors.costs && (<span className='capitalize'>campo obrigatório!</span>)}
-        //             </FormControl>
-
-        //             <FormControl isRequired>
-        //                 <FormLabel fontWeight='bold' color='white'>
-        //                     Saúde
-        //                 </FormLabel>
-        //                 <Textarea
-        //                     borderRadius={5}
-        //                     padding={2}
-        //                     placeholder='Sobre saúde local'
-        //                     resize='vertical'
-        //                     size='md'
-        //                     {...register("health", { required: true })}
-        //                 />
-        //                 {errors.health && (<span className='capitalize'>campo obrigatório!</span>)}
-        //             </FormControl>
-
-        //             <FormControl isRequired>
-        //                 <FormLabel fontWeight='bold' color='white'>
-        //                     Cultura
-        //                 </FormLabel>
-        //                 <Textarea
-        //                     borderRadius={5}
-        //                     padding={2}
-        //                     placeholder='E a cultura?'
-        //                     resize='vertical'
-        //                     size='md'
-        //                     {...register("culture", { required: true })}
-        //                 />
-        //                 {errors.culture && (<span className='capitalize'>campo obrigatório!</span>)}
-        //             </FormControl>
-        //         </Flex>
-
-        //         <Flex direction='column' gap='.5rem'>
-        //             <FormControl isRequired>
-        //                 <FormLabel fontWeight='bold' color='white'>
-        //                     Compras
-        //                 </FormLabel>
-        //                 <Textarea
-        //                     borderRadius={5}
-        //                     padding={2}
-        //                     placeholder='Sobre compras locais'
-        //                     resize='vertical'
-        //                     size='md'
-        //                     {...register("shopping", { required: true })}
-        //                 />
-        //                 {errors.shopping && (<span className='capitalize'>campo obrigatório!</span>)}
-        //             </FormControl>
-
-        //             <FormControl isRequired>
-        //                 <FormLabel fontWeight='bold' color='white'>
-        //                     Eventos
-        //                 </FormLabel>
-        //                 <Textarea
-        //                     borderRadius={5}
-        //                     padding={2}
-        //                     placeholder='Fale dos Eventos'
-        //                     resize='vertical'
-        //                     size='md'
-        //                     {...register("events", { required: true })}
-        //                 />
-        //                 {errors.events && (<span className='capitalize'>campo obrigatório!</span>)}
-        //             </FormControl>
-
-        //             <FormControl isRequired>
-        //                 <FormLabel fontWeight='bold' color='white'>
-        //                     Distâncias
-        //                 </FormLabel>
-        //                 <Textarea
-        //                     borderRadius={5}
-        //                     padding={2}
-        //                     placeholder='Fale ???'
-        //                     resize='vertical'
-        //                     size='md'
-        //                     {...register("distances", { required: true })}
-        //                 />
-        //                 {errors.distances && (<span className='capitalize'>campo obrigatório!</span>)}
-        //             </FormControl>
-
-        //             <FormControl isRequired>
-        //                 <FormLabel fontWeight='bold' color='white'>
-        //                     Horários
-        //                 </FormLabel>
-        //                 <Textarea
-        //                     borderRadius={5}
-        //                     padding={2}
-        //                     placeholder='Sobre os horários'
-        //                     resize='vertical'
-        //                     size='md'
-        //                     {...register("schedules", { required: true })}
-        //                 />
-        //                 {errors.schedules && (<span className='capitalize'>campo obrigatório!</span>)}
-        //             </FormControl>
-        //         </Flex>
-
-        //         <Flex direction='column' gap='.5rem'>
-        //             <FormControl isRequired>
-        //                 <FormLabel fontWeight='bold' color='white'>
-        //                     Conexão de Internet
-        //                 </FormLabel>
-        //                 <Textarea
-        //                     borderRadius={5}
-        //                     padding={2}
-        //                     placeholder='Conexão é boa?'
-        //                     resize='vertical'
-        //                     size='md'
-        //                     {...register("internetConnection", { required: true })}
-        //                 />
-        //                 {errors.internetConnection && (<span className='capitalize'>campo obrigatório!</span>)}
-        //             </FormControl>
-
-        //             <FormControl isRequired>
-        //                 <FormLabel fontWeight='bold' color='white'>
-        //                     Transporte de Bagagem
-        //                 </FormLabel>
-        //                 <Textarea
-        //                     borderRadius={5}
-        //                     padding={2}
-        //                     placeholder='Sobre transp. da bagagem'
-        //                     resize='vertical'
-        //                     size='md'
-        //                     {...register("baggageTransport", { required: true })}
-        //                 />
-        //                 {errors.baggageTransport && (<span className='capitalize'>campo obrigatório!</span>)}
-        //             </FormControl>
-
-        //             <FormControl>
-        //                 <FormLabel fontWeight='bold' color='white'>
-        //                     Dicas Extras
-        //                 </FormLabel>
-        //                 <Textarea
-        //                     borderRadius={5}
-        //                     padding={2}
-        //                     placeholder='Dê umas dicas'
-        //                     resize='vertical'
-        //                     size='md'
-        //                     {...register("extraTips")}
-        //                 />
-        //                 {errors.extraTips && (<span className='capitalize'>campo obrigatório!</span>)}
-        //             </FormControl>
-
-        //             <FormControl isRequired>
-        //                 <FormLabel fontWeight='bold' color='white'>
-        //                     Informações Úteis
-        //                 </FormLabel>
-        //                 <Textarea
-        //                     borderRadius={5}
-        //                     padding={2}
-        //                     placeholder='Mais informações'
-        //                     resize='vertical'
-        //                     size='md'
-        //                     {...register("usefulInformation", { required: true })}
-        //                 />
-        //                 {errors.usefulInformation && (<span className='capitalize'>campo obrigatório!</span>)}
-        //             </FormControl>
-        //         </Flex>
-
-        //         <Flex direction='column' gap='.5rem'>
-        //             <FormControl isRequired>
-        //                 <FormLabel fontWeight='bold' color='white'>
-        //                     Pagamentos
-        //                 </FormLabel>
-        //                 <Textarea
-        //                     borderRadius={5}
-        //                     padding={2}
-        //                     placeholder='???'
-        //                     resize='vertical'
-        //                     size='md'
-        //                     {...register("meansPayment", { required: true })}
-        //                 />
-        //                 {errors.meansPayment && (<span className='capitalize'>campo obrigatório!</span>)}
-        //             </FormControl>
-
-        //             <FormControl isRequired>
-        //                 <FormLabel fontWeight='bold' color='white'>
-        //                     Contato para Informações
-        //                 </FormLabel>
-        //                 <Textarea
-        //                     borderRadius={5}
-        //                     padding={2}
-        //                     placeholder='Info. para contato'
-        //                     resize='vertical'
-        //                     size='md'
-        //                     {...register("contactInformation", { required: true })}
-        //                 />
-        //                 {errors.contactInformation && (<span className='capitalize'>campo obrigatório!</span>)}
-        //             </FormControl>
-
-        //             <FormControl isRequired>
-        //                 <FormLabel fontWeight='bold' color='white'>
-        //                     Link da Imagem
-        //                 </FormLabel>
-        //                 <Input
-        //                     borderRadius={5}
-        //                     padding={2}
-        //                     type='text'
-        //                     {...register("imageLink", { required: true })}
-        //                 />
-        //                 {errors.imageLink && (<span className='capitalize'>campo obrigatório!</span>)}
-        //             </FormControl>
-
-        //             <FormControl isRequired>
-        //                 <FormLabel fontWeight='bold' color='white'>
-        //                     Cidade
-        //                 </FormLabel>
-        //                 <Input
-        //                     borderRadius={5}
-        //                     padding={2}
-        //                     placeholder='escreva 3 letras'
-        //                     type='text'
-        //                     {...register("city")}
-        //                     // onChange={handleChange}
-        //                     // name='city'
-        //                     // value={destination.city}
-        //                     onKeyDown={validateKeyPress}
-        //                 />
-        //                 {cities.length != 0 ? (
-        //                     <ResponseCityList>
-        //                         {cities.map((city, key) => (
-        //                             <ResponseCityItem
-        //                                 key={key}
-        //                                 idCity={city.idCity}
-        //                                 name={city.name}
-        //                                 externalFunc={choiceCity}
-        //                             />
-        //                         ))}
-        //                     </ResponseCityList>
-        //                 ) : null}
-        //             </FormControl>
-
-        //             <Button
-        //                 onClick={handleSubmit(handleClick)}
-        //                 type='submit'
-        //                 className='rounded-md w-42 capitalize bg-gradient-to-t from-black to-black hover:from-orange-200 hover:to-orange-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm  hover:text-orange-600focus-visible:outline focus-visible:outline-2   focus-visible:outline-offset-2 focus-visible:outline-indigo-600 mt-5'>
-        //                 Cadastrar
-        //             </Button>
-        //         </Flex>
-        //     </form>
-        // </Flex>
+                    <input
+                        className='w-64 md:w-1/2 p-1 rounded-md bg-slate-200 focus:bg-white border border-black'
+                        type='text'
+                        id='nameCity'
+                        {...register('nameCity', { required: true })}
+                    />
+                    {errors.nameCity && (
+                        <span>É obrigatório selecionar 1 cidade</span>
+                    )}
+                    {citiesList.length > 1 && (
+                        <ResponseCityList>
+                            {citiesList.map((cities, index) => (
+                                <ResponseCityItem
+                                    key={index}
+                                    idCity={cities.idCity}
+                                    name={cities.name}
+                                    externalFunc={() => {
+                                        setListOpen(!listOpen);
+                                        setValue('nameCity', cities.name);
+                                    }}
+                                />
+                            ))}
+                        </ResponseCityList>
+                    )}
+                </div>
+                <BoxReferenceField
+                    callView={() => console.log(fields)}
+                    callAdd={() =>
+                        append({
+                            keyReference: '',
+                            imageLink: '',
+                            valor: '',
+                        })
+                    }
+                    childrens={fields.map((field, index) => {
+                        return (
+                            <div
+                                key={field.id}
+                                className='flex flex-col justify-center w-full gap-2 items-center  border-2 bg-blue-400 rounded-md border-slate-100 p-2'
+                            >
+                                <div className='flex justify-center w-full gap-2 items-center '>
+                                    <label
+                                        className='text-2xs font-bold flex justify-start'
+                                        htmlFor={`references.${index}.keyReference`}
+                                    >
+                                        Título Referência
+                                    </label>
+                                    <input
+                                        className='w-64 md:w-1/2 p-1 rounded-md bg-slate-200 focus:bg-white border border-black'
+                                        type='text'
+                                        id='title'
+                                        {...register(
+                                            `references.${index}.keyReference`
+                                        )}
+                                    />
+                                    <label
+                                        className='text-2xs font-bold flex justify-start'
+                                        htmlFor={`references.${index}.imageLink`}
+                                    >
+                                        Link da Imagem
+                                    </label>
+                                    <input
+                                        className='w-64 md:w-1/2 p-1 rounded-md bg-slate-200 focus:bg-white border border-black'
+                                        type='text'
+                                        id='title'
+                                        {...register(
+                                            `references.${index}.imageLink`
+                                        )}
+                                    />
+                                </div>
+                                <div className='w-full flex flex-col items-center justify-center '>
+                                    <label
+                                        className='text-2xs font-bold '
+                                        htmlFor={`references.${index}.valor`}
+                                    >
+                                        Conteúdo
+                                    </label>
+                                    <textarea
+                                        className='h-44 w-full p-1 rounded-md bg-slate-200 focus:bg-white border border-black'
+                                        id='title'
+                                        {...register(
+                                            `references.${index}.valor`
+                                        )}
+                                    />
+                                </div>
+                            </div>
+                        );
+                    })}
+                />
+                <div className='flex justify-center'>
+                    <input
+                        type='submit'
+                        className='bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded w-3/4'
+                    />
+                </div>
+            </form>
+        </div>
     );
 };

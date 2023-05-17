@@ -1,7 +1,8 @@
 {
-  "liveServer.settings.port": 5501,
-  "files.associations": {
-    "*.scss": "postcss"
-  },
-  "typescript.enablePromptUseWorkspaceTsdk": true
+    "liveServer.settings.port": 5501,
+    "files.associations": {
+        "*.scss": "postcss"
+    },
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "console-ninja.fontSize": 12
 }
