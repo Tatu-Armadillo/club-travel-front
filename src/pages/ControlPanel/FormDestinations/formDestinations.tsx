@@ -11,8 +11,14 @@ import { ResponseCityList } from './ResponseCityList/responseCityList';
 
 export const FormDestinations = () => {
     const [listOpen, setListOpen] = React.useState(false);
-    const { register, handleSubmit, watch, setValue, control } =
-        useForm<IDestination>();
+    const {
+        register,
+        handleSubmit,
+        watch,
+        setValue,
+        control,
+        formState: { errors },
+    } = useForm<IDestination>();
     const { fields, append, remove } = useFieldArray({
         control,
         name: 'references',
@@ -25,6 +31,7 @@ export const FormDestinations = () => {
     };
 
     const createNewDestination = (data: IDestination) => {
+        console.log(data);
         const { references, nameCity } = data;
         if (!nameCity) {
             alert('Você precisa escolher uma cidade');
@@ -58,17 +65,6 @@ export const FormDestinations = () => {
             >
                 <div className='flex flex-col justify-center w-full items-center'>
                     <label className='text-2xs font-bold ' htmlFor='title'>
-                        Título
-                    </label>
-                    <input
-                        className='w-64 md:w-1/2 p-1 rounded-md bg-slate-200 focus:bg-white border border-black'
-                        type='text'
-                        id='title'
-                        {...register('title')}
-                    />
-                </div>
-                <div className='flex flex-col justify-center w-full items-center'>
-                    <label className='text-2xs font-bold ' htmlFor='title'>
                         Cidade
                     </label>
 
@@ -76,8 +72,11 @@ export const FormDestinations = () => {
                         className='w-64 md:w-1/2 p-1 rounded-md bg-slate-200 focus:bg-white border border-black'
                         type='text'
                         id='nameCity'
-                        {...register('nameCity')}
+                        {...register('nameCity', { required: true })}
                     />
+                    {errors.nameCity && (
+                        <span>É obrigatório selecionar 1 cidade</span>
+                    )}
                     {citiesList.length > 1 && (
                         <ResponseCityList>
                             {citiesList.map((cities, index) => (
