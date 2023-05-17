@@ -1,5 +1,5 @@
 export interface INewsWithSubnews {
-    newsDto: INews
+    newsRecord: INews
     subNews?: INews[]
 };
 
