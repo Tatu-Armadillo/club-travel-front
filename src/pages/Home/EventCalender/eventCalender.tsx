@@ -1,16 +1,24 @@
 import { Flex } from '@chakra-ui/react';
 import { BsCalendar3 } from 'react-icons/bs';
+import { title } from 'process';
 
 export const EventCalender = () => {
     return (
         <Flex
             width={'60vw'}
             height={'70vh'}
-            backgroundColor={'#03258C'}
+            border={
+                title === 'light' ? '1px solid #03258C' : '1px solid #F2B705'
+            }
+            backgroundColor={
+                title === 'light'
+                    ? 'rgba(0, 0, 0, 0.3)'
+                    : 'rgba(255, 255, 255, 0.3)'
+            }
             borderRadius={'1rem'}
             margin={'15px auto'}
             padding={'15px'}
-            color={'#fff'}
+            color={title === 'light' ? '#000' : '#fff'}
             justifyContent={'start'}
             alignItems={'start'}
             gap={30}

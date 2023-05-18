@@ -15,8 +15,8 @@ const getDestinations = async () => {
 const postDestinations = async (
     data: IDestination
 ): Promise<IPage<IDestination>> => {
-    const response = await axios.post(
-        'http://localhost:8080/blo/destinations',
+    const response = await instance.post(
+        '/destinations',
         data
     );
     return response.data;

@@ -50,12 +50,12 @@ export const FormDestinations = () => {
     };
     React.useEffect(() => {
         const updateList = watch((data) => {
-            if (!data.nameCity || data.nameCity?.length < 3) {
+            if (!data.nameCity || data.nameCity?.length <= 3) {
                 return;
             }
             handleSearchCities(data.nameCity!);
         });
-    }, [watch]);
+    }, [watch('nameCity')]);
 
     return (
         <div className='w-full flex mt-5 justify-center'>
