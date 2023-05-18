@@ -50,7 +50,7 @@ export const FormNews = () => {
                         <label>
                             texto
                         </label>
-                        <textarea cols={30} rows={5} {...register("newsRecord.text", { required: true })}></textarea>
+                        <textarea cols={30} rows={5} {...register("newsRecord.text", { required: true })} />
                         {errors.newsRecord?.text && (<span className="capitalize">campo obrigatório!</span>)}
                     </BoxInput>
                 </BoxForms>
@@ -88,7 +88,7 @@ export const FormNews = () => {
                                 <label>
                                     texto
                                 </label>
-                                <textarea cols={30} rows={5} {...register(`subNews.${index}.text`, { required: true })}></textarea>
+                                <textarea cols={30} rows={5} {...register(`subNews.${index}.text`, { required: true })} />
                                 {errors.subNews?.[index]?.text && (<span className="capitalize">campo obrigatório!</span>)}
                             </BoxInput>
                         </BoxForms>
