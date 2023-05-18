@@ -107,7 +107,7 @@ export const Header = () => {
                                     </Link>
                                 )}
                                 <span onClick={handleTheme} className="flex items-center text-gray-300 hover:text-white hover:bg-blue-900 rounded-md px-3 py-2 hover:cursor-pointer">
-                                    {title === "light" ? <BsSun/> : <BsMoon />}
+                                    {title === "light" ? <BsMoon /> : <BsSun />}
                                 </span>
                             </div>
                         </div>
