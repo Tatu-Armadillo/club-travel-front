@@ -1,17 +1,29 @@
 import styled from "styled-components";
 
+type Props = {
+    index?: string
+}
+
 export const BoxContainer = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    min-height: 100vh; 
 `;
 
-export const BoxMiddle = styled.div`
-    margin: 0 3rem;
+export const BoxMiddle = styled.div<Props>`
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    margin: 2rem 3rem;
     padding: 2rem 3rem 2rem ;
     background-color: rgba(170, 170, 170, 0.17);
     border-radius: .375rem;
+
+    &&:nth-child( n + 2 ):nth-child( -n + 300) { // arrumar outra solução
+        margin: 0 3rem 2rem;
+    }
 
     h3 { 
         color: ${props => props.theme.colors.secundaryTxt};

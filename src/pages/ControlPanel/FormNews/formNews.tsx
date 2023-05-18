@@ -3,16 +3,16 @@ import { Button } from '@/shared/Components';
 import { INewsWithSubnews, INews } from '@/shared/Interface/INews';
 import { NewsService } from '@/shared/services';
 import { BoxContainer, BoxForms, BoxMiddle, BoxButtons, BoxInput, } from './formNews.styled';
+import { useState } from 'react';
 
 export const FormNews = () => {
     const { register, formState: { errors }, handleSubmit, control } = useForm<INewsWithSubnews>();
 
-    const handlePost = (data: INewsWithSubnews) => {
-        const subNewsArr: INews[] = [];
-        subNewsArr.push(data.newsRecord);
-        data.subNews = subNewsArr;
+    const [data, setData] = useState<any>();
 
-        // NewsService.postNews(data);
+    const handlePost = (data: INewsWithSubnews) => {
+        setData(JSON.stringify(data, null, 2))
+        NewsService.postNews(data);
     };
 
     const { append, remove, fields } = useFieldArray({
@@ -27,7 +27,7 @@ export const FormNews = () => {
     return (
         <BoxContainer>
             <BoxMiddle>
-                <h3>Cadastro de Notícia</h3>
+                <h3>Nova Notícia</h3>
                 <span></span>
                 <BoxForms>
                     <BoxInput>
@@ -63,10 +63,11 @@ export const FormNews = () => {
                     </BoxButtons>
                 </div>
             </BoxMiddle>
+            <pre className='text-white'>{data}</pre>
             {fields.map((field, index) => {
                 return (
                     <BoxMiddle key={field.id}>
-                        <h3>Cadastro de Sub Notícia</h3>
+                        <h3>Nova Sub Notícia</h3>
                         <span></span>
                         <BoxForms>
                             <BoxInput>
