@@ -20,13 +20,13 @@ export const Header = () => {
     };
 
     const arrItems: Props[] = [
-        { name: 'início', link: '/club-travel-front' },
-        { name: 'infográficos', link: '/club-travel-front/infographics' },
-        { name: 'login', link: '/club-travel-front/signIn' },
-        { name: 'sobre nós', link: '/club-travel-front/about' },
+        { name: 'início', link: '/clubTravel' },
+        { name: 'infográficos', link: '/clubTravel/infographics' },
+        { name: 'login', link: '/clubTravel/signIn' },
+        { name: 'sobre nós', link: '/clubTravel/about' },
     ];
     if (auth.user) {
-        arrItems.push({ name: 'painel de controle', link: '/club-travel-front/controlPanel' });
+        arrItems.push({ name: 'painel de controle', link: '/clubTravel/controlPanel' });
     };
 
     const handleClassHidden = () => {
@@ -55,7 +55,7 @@ export const Header = () => {
                             />
                         </div>
                         <BoxImages>
-                            <Link to='/club-travel-front'>
+                            <Link to='/clubTravel'>
                                 <BoxLogo
                                     className='hidden lg:block'
                                     src={Logo}
@@ -70,7 +70,7 @@ export const Header = () => {
                         </BoxImages>
                         <div className='flex flex-1 items-center justify-center sm:items-stretch sm:justify-start'>
                             <BoxImages>
-                                <Link to='/club-travel-front'>
+                                <Link to='/clubTravel'>
                                     <BoxLogo
                                         className='lg:hidden sm:block hidden'
                                         src={Logo}
@@ -100,7 +100,7 @@ export const Header = () => {
                                 })}
                                 {auth.user && (
                                     <Link
-                                        to={'/club-travel-front'}
+                                        to={'/clubTravel'}
                                         className='capitalize text-gray-300 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 text-base font-medium'
                                         onClick={() => auth.signOut()} >
                                         Sair
