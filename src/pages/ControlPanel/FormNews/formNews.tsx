@@ -1,6 +1,6 @@
 import { useForm, useFieldArray } from 'react-hook-form';
 import { Button } from '@/shared/Components';
-import { INewsWithSubnews, INews } from '@/shared/Interface/INews';
+import { INewsWithSubnews } from '@/shared/Interface/INews';
 import { NewsService } from '@/shared/services';
 import { BoxContainer, BoxForms, BoxMiddle, BoxButtons, BoxInput, } from './formNews.styled';
 import { useState } from 'react';
