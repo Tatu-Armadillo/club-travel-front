@@ -27,7 +27,7 @@ $ npm install or yarn
 # Run the application in development mode
 $ npm run dev or yarn dev
 
-# The application will open on the port: 5173 - go to http://localhost:5173/club-travel-front
+# The application will open on the port: 5173 - go to http://localhost:5173/clubTravel
 
 ```
 #### 🎲 Backend (servidor)
