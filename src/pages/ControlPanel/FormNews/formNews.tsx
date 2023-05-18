@@ -2,32 +2,17 @@ import { useForm } from 'react-hook-form';
 import { Button } from '@/shared/Components';
 import { INewsWithSubnews, INews } from '@/shared/Interface/INews';
 import { NewsService } from '@/shared/services';
-import {
-    BoxContainer,
-    BoxForms,
-    BoxMiddle,
-    BoxButtons,
-    BoxInput,
-} from './formNews.styled';
-import { SubnewsModal } from './SubnewsModal/subnewsModal';
+import { BoxContainer, BoxForms, BoxMiddle, BoxButtons, BoxInput, } from './formNews.styled';
 
 export const FormNews = () => {
-    const {
-        register,
-        formState: { errors },
-        handleSubmit,
-    } = useForm<INewsWithSubnews>();
+    const { register, formState: { errors }, handleSubmit, } = useForm<INewsWithSubnews>();
 
     const handlePost = (data: INewsWithSubnews) => {
         const subNewsArr: INews[] = [];
         subNewsArr.push(data.newsRecord);
         data.subNews = subNewsArr;
-        NewsService.postNews(data);
-    };
 
-    const handleShowModal = () => {
-        const modal = document.querySelector("#modal");
-        modal?.classList.remove("hidden");
+        // NewsService.postNews(data);
     };
 
     return (
@@ -65,11 +50,10 @@ export const FormNews = () => {
                     <BoxButtons>
                         <Button typeButton={"submit"} text={"enviar"} classButton="text-white bg-green-800 p-2 rounded-md hover:bg-green-900" funcClick={handleSubmit(handlePost)} />
 
-                        <Button typeButton={"submit"} text={"enviar"} classButton="text-white bg-blue-800 p-2 rounded-md hover:bg-blue-900" funcClick={() => handleShowModal()} />
+                        <Button typeButton={"submit"} text={"enviar"} classButton="text-white bg-blue-800 p-2 rounded-md hover:bg-blue-900" />
                     </BoxButtons>
                 </div>
             </BoxMiddle>
-            <SubnewsModal />
         </BoxContainer>
     );
 };
