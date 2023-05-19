@@ -1,4 +1,4 @@
-import React, { SetStateAction } from 'react';
+import React from 'react';
 import { IDestination } from '@/shared/Interface/IDestionation';
 import { CityService, DestinationsService } from '@/shared/services';
 import { ICity } from '@/shared/services/city/CityService';

@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-type Props = {
-    index?: string
-}
-
 export const BoxContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -12,7 +8,7 @@ export const BoxContainer = styled.div`
     min-height: 100vh; 
 `;
 
-export const BoxMiddle = styled.div<Props>`
+export const BoxMiddle = styled.div`
     display: flex; 
     flex-direction: column; 
     justify-content: center; 
