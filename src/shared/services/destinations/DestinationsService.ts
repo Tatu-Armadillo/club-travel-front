@@ -1,7 +1,7 @@
 import { instance } from '../api/api';
 import { IDestination } from '@/shared/Interface/IDestionation';
 import { IPage } from '@/shared/Interface/IPage';
-import axios from 'axios';
+import { IError } from '@/shared/Interface/IError';
 
 const getDestinations = async () => {
     const response = await instance.get(`/destinations`, {
@@ -14,11 +14,10 @@ const getDestinations = async () => {
 
 const postDestinations = async (
     data: IDestination
-): Promise<IPage<IDestination>> => {
-    const response = await instance.post(
-        '/destinations',
-        data
-    );
+): Promise<IPage<IDestination> | IError> => {
+    const response = await instance.post('/destinations', data);
+    console.log(response.data);
+
     return response.data;
 };
 
