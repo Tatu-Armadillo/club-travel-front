@@ -8,7 +8,7 @@ export type ICity = {
 };
 
 const getAllCities = async (): Promise<IPage<ICity[]>> => {
-    const response = await axios.get('http://localhost:8080/blog/city', {
+    const response = await instance.get('/city', {
         headers: {
             'Content-Type': 'application/json',
         },
@@ -17,14 +17,11 @@ const getAllCities = async (): Promise<IPage<ICity[]>> => {
 };
 
 const getCityByName = async (query: string): Promise<IPage<ICity[]>> => {
-    const response = await axios.get(
-        `http://localhost:8080/blog/city?name=${query}`,
-        {
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        }
-    );
+    const response = await instance.get(`/city?name=${query}`, {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
     return response.data;
 };
 
