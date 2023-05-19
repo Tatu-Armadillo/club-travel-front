@@ -2,9 +2,11 @@ import { IDestination } from '@/shared/Interface/IDestionation';
 import { IReference } from '@/shared/Interface/IReference';
 import { CityService, DestinationsService } from '@/shared/services';
 import { ICity } from '@/shared/services/city/CityService';
+import { Console } from 'console';
 
 import React from 'react';
 import { useForm, useFieldArray } from 'react-hook-form';
+import { IoMdCloseCircle } from 'react-icons/io';
 import { BoxReferenceField } from './BoxReferenceField/boxReferenceField';
 import { ResponseCityItem } from './ResponseCityItem/responseCityItem';
 import { ResponseCityList } from './ResponseCityList/responseCityList';
@@ -16,7 +18,10 @@ export const FormDestinations = () => {
         handleSubmit,
         watch,
         setValue,
+        getValues,
         control,
+        reset,
+        resetField,
         formState: { errors },
     } = useForm<IDestination>();
     const { fields, append, remove } = useFieldArray({
@@ -28,6 +33,9 @@ export const FormDestinations = () => {
     const handleSearchCities = async (query: string) => {
         const response = await CityService.getCityByName(query);
         setCitiesList(response.data);
+    };
+    const removeReference = (indexRef: number) => {
+        remove(indexRef);
     };
 
     const createNewDestination = (data: IDestination) => {
@@ -43,6 +51,9 @@ export const FormDestinations = () => {
         }
         try {
             DestinationsService.postDestinations(data);
+            alert('Destino cadastrado com sucesso!');
+            reset();
+            remove();
         } catch (error) {
             alert('Não foi possível concluir a operação');
             console.error(error);
@@ -94,7 +105,7 @@ export const FormDestinations = () => {
                     )}
                 </div>
                 <BoxReferenceField
-                    callView={() => console.log(fields)}
+                    callbackReset={() => {}}
                     callAdd={() =>
                         append({
                             keyReference: '',
@@ -137,6 +148,16 @@ export const FormDestinations = () => {
                                             `references.${index}.imageLink`
                                         )}
                                     />
+                                    <button
+                                        type='button'
+                                        className='relative -top-5 left-1'
+                                        onClick={() => removeReference(index)}
+                                    >
+                                        <IoMdCloseCircle
+                                            size='1.3em'
+                                            color='red'
+                                        />
+                                    </button>
                                 </div>
                                 <div className='w-full flex flex-col items-center justify-center '>
                                     <label

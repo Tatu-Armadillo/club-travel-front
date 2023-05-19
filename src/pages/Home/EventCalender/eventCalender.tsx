@@ -1,8 +1,10 @@
 import { Flex } from '@chakra-ui/react';
 import { BsCalendar3 } from 'react-icons/bs';
-import { title } from 'process';
+import { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 
 export const EventCalender = () => {
+    const { title } = useContext(ThemeContext);
     return (
         <Flex
             width={'60vw'}
