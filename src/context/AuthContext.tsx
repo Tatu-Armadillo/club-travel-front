@@ -1,9 +1,10 @@
 import { createContext } from 'react';
 import { IAdmin } from "@/shared/Interface/IAdmin";
+import { IUser } from '@/shared/Interface/IUser';
 
 export interface IAuthContext {
     user: IAdmin | null;
-    signIn: (name: string, password: string) => Promise<boolean>;
+    signIn: (data: IUser) => Promise<boolean>;
     signOut: () => void;
     setThemeuser: () => void;
 };
