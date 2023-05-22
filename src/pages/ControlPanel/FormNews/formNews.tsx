@@ -3,16 +3,19 @@ import { Button } from '@/shared/Components';
 import { INewsWithSubnews } from '@/shared/Interface/INews';
 import { NewsService } from '@/shared/services';
 import { BoxContainer, BoxForms, BoxMiddle, BoxButtons, BoxInput, } from './formNews.styled';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const FormNews = () => {
-    const { register, formState: { errors }, handleSubmit, control } = useForm<INewsWithSubnews>();
+    const { register, formState: { errors, isSubmitSuccessful }, handleSubmit, control, resetField, reset } = useForm<INewsWithSubnews>();
 
-    const [data, setData] = useState<any>();
+    const [value, setValue] = useState("flex");
 
     const handlePost = (data: INewsWithSubnews) => {
-        setData(JSON.stringify(data, null, 2))
         NewsService.postNews(data);
+        if (isSubmitSuccessful) {
+            reset({ newsRecord: { title: "", imageLink: "", text: "" } })
+            fields.length = 0
+        };
     };
 
     const { append, remove, fields } = useFieldArray({
@@ -24,8 +27,12 @@ export const FormNews = () => {
         append({ title: "", imageLink: "", text: "" });
     };
 
+    useEffect(() => {
+        fields.length !== 0 ? setValue("grid") : setValue("flex");
+    }, [fields.length])
+
     return (
-        <BoxContainer>
+        <BoxContainer display={value}>
             <BoxMiddle>
                 <h3>Nova Notícia</h3>
                 <span></span>
@@ -63,7 +70,6 @@ export const FormNews = () => {
                     </BoxButtons>
                 </div>
             </BoxMiddle>
-            <pre className='text-white'>{data}</pre>
             {fields.map((field, index) => {
                 return (
                     <BoxMiddle key={field.id}>
@@ -96,7 +102,7 @@ export const FormNews = () => {
 
                         <div className='flex lg:justify-center sm:justify-center justify-center'>
                             <BoxButtons>
-                                <Button typeButton={"submit"} text={"sub notícia"} classButton="text-white bg-blue-800 p-2 rounded-md hover:bg-blue-900" funcClick={() => addNewNews()} />
+                                {/* <Button typeButton={"submit"} text={"sub notícia"} classButton="text-white bg-blue-800 p-2 rounded-md hover:bg-blue-900" funcClick={() => addNewNews()} /> */}
 
                                 <Button typeButton={"submit"} text={"remover"} classButton="text-white bg-red-800 p-2 rounded-md hover:bg-red-900" funcClick={() => remove(index)} />
                             </BoxButtons>

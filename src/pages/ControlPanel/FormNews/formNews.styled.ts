@@ -1,29 +1,28 @@
 import styled from "styled-components";
-
 type Props = {
-    index?: string
+    display: string
 }
-
-export const BoxContainer = styled.div`
-    display: flex;
-    flex-direction: column;
+export const BoxContainer = styled.div<Props>`
+    display: ${props => props.display};
+    grid-template-columns: repeat(3, 27rem);
     justify-content: center;
     align-items: center;
     min-height: 100vh; 
+
+    @media (max-width: 1300px) { 
+        grid-template-columns: repeat(2, 27rem);
+    }
+
+    @media (max-width: 830px) { 
+        grid-template-columns: repeat(1, 27rem);
+    }
 `;
 
-export const BoxMiddle = styled.div<Props>`
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
+export const BoxMiddle = styled.div`
     margin: 2rem 3rem;
-    padding: 2rem 3rem 2rem ;
+    padding: 2rem 3rem 2rem;
     background-color: rgba(170, 170, 170, 0.17);
     border-radius: .375rem;
-
-    &&:nth-child( n + 2 ):nth-child( -n + 300) { // arrumar outra solução
-        margin: 0 3rem 2rem;
-    }
 
     h3 { 
         color: ${props => props.theme.colors.secundaryTxt};
