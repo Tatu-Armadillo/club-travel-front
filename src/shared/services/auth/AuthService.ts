@@ -10,7 +10,12 @@ const signOut = async () => {
     return { status: true };
 };
 
+const validToken = async () => {
+    return { user: { id: 3, username: 'king' }, token: 'king123456'};
+}
+
 export const AuthService = {
     postSignin,
-    signOut
+    signOut,
+    validToken
 };

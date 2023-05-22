@@ -1,17 +1,15 @@
 import { IAdmin } from '@/shared/Interface/IAdmin';
 import { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
-import { useApi } from '@/shared/hooks';
 import { setToken } from '@/shared/services/setToken';
 import light from '@/styles/themes/light';
 import dark from '@/styles/themes/dark';
 import { ThemeProvider } from 'styled-components';
 import { AuthService } from "@/shared/services"
+import { IUser } from '@/shared/Interface/IUser';
 
 export const AuthProvider = ({ children }: { children: JSX.Element }) => {
-    const api = useApi();
     const [user, setUser] = useState<IAdmin | null>(null);
-
     const sessionTheme = JSON.parse(sessionStorage.getItem("Theme") || JSON.stringify(light));
     const [theme, setTheme] = useState(sessionTheme);
 
@@ -19,17 +17,17 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
         const hasToken = async () => {
             const saveData = localStorage.getItem('authenticationToken');
             if (saveData) {
-                const data = await api.loginConnections.validateToken(saveData);
-                if (data.token) {
-                    setUser(data.user);
+                const { user, token } = await AuthService.validToken();
+                if (token) {
+                    setUser(user);
                 }
             }
         };
         hasToken();
     }, []);
 
-    const signIn = async (username: string, password: string) => {
-        const response = await api.loginConnections.signIn(username, password);
+    const signIn = async (data: IUser) => {
+        const response = await AuthService.postSignin(data)
 
         if (response.data.username && response.data.token) {
             setUser(response.data);

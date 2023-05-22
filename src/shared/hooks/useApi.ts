@@ -16,32 +16,6 @@ export const useApi = () => {
                 return response.data;
             },
         },
-        loginConnections: {
-            signIn: async (username: string, password: string) => {
-                try {
-                    const res = await axios.post(
-                        'http://localhost:8080/blog/auth/signin',
-                        { username, password }
-                    );
-                    return res.data;
-                } catch (error) {
-                    console.error(error);
-                }
-            },
-            validateToken: async (token: string) => {
-                return {
-                    user: { id: 3, username: 'king' },
-                    token: 'king123456',
-                };
-                const response = await axios.post('/validate', token);
-                return response.data;
-            },
-            signOut: async () => {
-                return { status: true };
-                const response = await axios.post('/logout');
-                return response.data;
-            },
-        },
     };
     return api;
 };
