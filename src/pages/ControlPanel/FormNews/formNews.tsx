@@ -11,9 +11,9 @@ export const FormNews = () => {
         try {
             await NewsService.postNews(data);
             remove();
-            reset({ newsRecord: { title: "", imageLink: "", text: "" } })
-        } catch (error) {
-            throw new Error('error');
+            reset({ newsRecord: { title: "", imageLink: "", text: "" } });
+        } catch (error: any) {
+            throw new Error('error', error);
         }
     };
 
@@ -28,7 +28,7 @@ export const FormNews = () => {
 
     return (
         <BoxContainer>
-            <form onSubmit={handleSubmit(handlePost)} className='flex flex-wrap w-4/5 justify-center'>
+            <div className='flex flex-wrap w-4/5 justify-center'>
                 <BoxMiddle>
                     <h3>Nova Notícia</h3>
                     <span></span>
@@ -60,7 +60,8 @@ export const FormNews = () => {
 
                     <div className='flex lg:justify-end sm:justify-center justify-center'>
                         <BoxButtons>
-                            <Button typeButton={"submit"} text={"enviar"} classButton="text-white bg-green-800 p-2 rounded-md hover:bg-green-900" />
+                            <Button typeButton={"submit"} text={"enviar"} classButton="text-white bg-green-800 p-2 rounded-md hover:bg-green-900" funcClick={handleSubmit(handlePost)} />
+
                             <Button typeButton={"submit"} text={"sub notícia"} classButton="text-white bg-blue-800 p-2 rounded-md hover:bg-blue-900" funcClick={() => addNewNews()} />
                         </BoxButtons>
                     </div>
@@ -103,7 +104,7 @@ export const FormNews = () => {
                         </BoxMiddle>
                     )
                 })}
-            </form>
+            </div>
         </BoxContainer>
     );
 };
