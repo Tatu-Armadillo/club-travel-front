@@ -17,7 +17,7 @@ export const NotFound = () => {
                 Página não encontrada clique
                 {
                     <Link
-                        to={'/'}
+                        to={'/clubTravel'}
                         className='text-sm font-semibold leading-6 text-orange-500'
                     >
                         AQUI
