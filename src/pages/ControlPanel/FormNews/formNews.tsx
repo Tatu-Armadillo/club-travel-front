@@ -102,8 +102,8 @@ export const FormNews = () => {
                                 </BoxButtons>
                             </div>
                         </BoxMiddle>
-                    )
-                })}
+                    );
+                })};
             </div>
         </BoxContainer>
     );
