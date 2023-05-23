@@ -1,31 +1,24 @@
 import { Routes, Route } from 'react-router-dom';
-import {
-    Home,
-    About,
-    Infographics,
-    SignIn,
-    ControlPanel,
-    NotFound,
-} from '@/pages';
+import { Home, About, Infographics, SignIn, ControlPanel, NotFound, } from '@/pages';
 import { RequireAuth } from '@/context/RequireAuth';
 import { Notice } from '@/pages/Notice/notice';
 
 export const Router = () => {
     return (
         <Routes>
-            <Route path='/clubTravel' element={<Home />} />
-            <Route path='/clubTravel/about' element={<About />} />
+            <Route path='/' element={<Home />} />
+            <Route path='/about' element={<About />} />
             <Route
-                path='/clubTravel/infographics'
+                path='/infographics'
                 element={
                     <RequireAuth>
                         <Infographics />
                     </RequireAuth>
                 }
             />
-            <Route path='/clubTravel/signIn' element={<SignIn />} />
+            <Route path='/signIn' element={<SignIn />} />
             <Route
-                path='/clubTravel/controlPanel'
+                path='/controlPanel'
                 element={
                     <RequireAuth>
                         <ControlPanel />
@@ -33,7 +26,7 @@ export const Router = () => {
                 }
             />
             <Route path='*' element={<NotFound />} />
-            <Route path='/clubTravel/notice' element={<Notice />} />
+            <Route path='/notice' element={<Notice />} />
         </Routes>
     );
 };
