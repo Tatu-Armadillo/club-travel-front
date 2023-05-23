@@ -5,14 +5,16 @@ import { NewsService } from '@/shared/services';
 import { BoxContainer, BoxForms, BoxMiddle, BoxButtons, BoxInput, } from './formNews.styled';
 
 export const FormNews = () => {
-    const { register, formState: { errors, isSubmitSuccessful }, handleSubmit, control, reset } = useForm<INewsWithSubnews>();
+    const { register, formState: { errors }, handleSubmit, control, reset } = useForm<INewsWithSubnews>();
 
-    const handlePost = (data: INewsWithSubnews) => {
-        NewsService.postNews(data);
-        if (isSubmitSuccessful) {
-            reset();
+    const handlePost = async (data: INewsWithSubnews) => {
+        try {
+            await NewsService.postNews(data);
             remove();
-        };
+            reset({ newsRecord: { title: "", imageLink: "", text: "" } });
+        } catch (error: any) {
+            throw new Error('error', error);
+        }
     };
 
     const { append, remove, fields } = useFieldArray({
