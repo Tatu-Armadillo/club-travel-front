@@ -26,7 +26,7 @@ export const SignIn = () => {
         if (data.username && data.password) {
             try {
                 await auth.signIn(data);
-                navigate('/clubTravel');
+                navigate('/');
                 return true;
             } catch (e) {
                 alert('O username ou senha não correspondem ao banco de dados');
