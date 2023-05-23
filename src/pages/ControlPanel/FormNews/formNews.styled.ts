@@ -1,9 +1,7 @@
 import styled from "styled-components";
-type Props = {
-    display: string
-}
-export const BoxContainer = styled.div<Props>`
-    display: ${props => props.display};
+
+export const BoxContainer = styled.div`
+    display: flex;
     grid-template-columns: repeat(3, 27rem);
     justify-content: center;
     align-items: center;
