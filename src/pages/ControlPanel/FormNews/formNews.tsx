@@ -5,14 +5,16 @@ import { NewsService } from '@/shared/services';
 import { BoxContainer, BoxForms, BoxMiddle, BoxButtons, BoxInput, } from './formNews.styled';
 
 export const FormNews = () => {
-    const { register, formState: { errors, isSubmitSuccessful }, handleSubmit, control, reset } = useForm<INewsWithSubnews>();
+    const { register, formState: { errors }, handleSubmit, control, reset } = useForm<INewsWithSubnews>();
 
-    const handlePost = (data: INewsWithSubnews) => {
-        NewsService.postNews(data);
-        if (isSubmitSuccessful) {
-            reset();
+    const handlePost = async (data: INewsWithSubnews) => {
+        try {
+            await NewsService.postNews(data);
             remove();
-        };
+            reset({ newsRecord: { title: "", imageLink: "", text: "" } })
+        } catch (error) {
+            throw new Error('error');
+        }
     };
 
     const { append, remove, fields } = useFieldArray({
@@ -26,7 +28,7 @@ export const FormNews = () => {
 
     return (
         <BoxContainer>
-            <div className='flex flex-wrap w-4/5 justify-center'>
+            <form onSubmit={handleSubmit(handlePost)} className='flex flex-wrap w-4/5 justify-center'>
                 <BoxMiddle>
                     <h3>Nova Notícia</h3>
                     <span></span>
@@ -58,8 +60,7 @@ export const FormNews = () => {
 
                     <div className='flex lg:justify-end sm:justify-center justify-center'>
                         <BoxButtons>
-                            <Button typeButton={"submit"} text={"enviar"} classButton="text-white bg-green-800 p-2 rounded-md hover:bg-green-900" funcClick={handleSubmit(handlePost)} />
-
+                            <Button typeButton={"submit"} text={"enviar"} classButton="text-white bg-green-800 p-2 rounded-md hover:bg-green-900" />
                             <Button typeButton={"submit"} text={"sub notícia"} classButton="text-white bg-blue-800 p-2 rounded-md hover:bg-blue-900" funcClick={() => addNewNews()} />
                         </BoxButtons>
                     </div>
@@ -102,7 +103,7 @@ export const FormNews = () => {
                         </BoxMiddle>
                     )
                 })}
-            </div>
+            </form>
         </BoxContainer>
     );
 };
