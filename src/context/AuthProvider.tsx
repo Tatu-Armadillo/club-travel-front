@@ -1,12 +1,11 @@
-import { IAdmin } from '@/shared/Interface/IAdmin';
+import { IAdmin, IUser } from '@/shared/Interface';
+import { setToken } from '@/shared/services/setToken';
 import { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
-import { setToken } from '@/shared/services/setToken';
 import light from '@/styles/themes/light';
 import dark from '@/styles/themes/dark';
 import { ThemeProvider } from 'styled-components';
 import { AuthService } from "@/shared/services"
-import { IUser } from '@/shared/Interface/IUser';
 
 export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     const [user, setUser] = useState<IAdmin | null>(null);

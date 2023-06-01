@@ -4,3 +4,4 @@ export { Infographics } from "./Infographics/infographics";
 export { SignIn } from "./SignIn/signIn";
 export { NotFound } from "./NotFound/notFound";
 export { ControlPanel } from "./ControlPanel/controlPanel";
+export { Notice } from "./Notice/notice";

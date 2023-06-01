@@ -9,7 +9,7 @@ import { AuthContext } from '@/context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { ThemeContext } from 'styled-components';
 import { useForm } from 'react-hook-form';
-import { IUser } from '@/shared/Interface/IUser';
+import { IUser } from '@/shared/Interface';
 
 export const SignIn = () => {
     const { title } = useContext(ThemeContext)

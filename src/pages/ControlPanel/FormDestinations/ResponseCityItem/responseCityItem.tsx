@@ -1,4 +1,4 @@
-import { ICity } from "@/shared/services/city/CityService";
+import { ICity } from "@/shared/Interface";
 
 export interface ResponseCityItemProps extends ICity {
     externalFunc: (cityName: string) => void;

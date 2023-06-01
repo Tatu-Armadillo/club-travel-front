@@ -1,4 +1,4 @@
-import { IContact } from "@/shared/Interface/IContact";
+import { IContact } from "@/shared/Interface";
 import { instance } from "../api/api";
 
 const postContact = async (data: IContact) => {

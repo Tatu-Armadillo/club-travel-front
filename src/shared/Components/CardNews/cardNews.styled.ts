@@ -57,11 +57,9 @@ export const BoxBottom = styled.div`
 
 export const Img = styled.img`
     height: 300px;
-    min-width: 200px;
-    max-width: 200px;
-    margin: 0 auto;
+    max-width: 40%;
     border-radius: 0 1rem 1rem 0;
-    
+    object-fit: cover;
     
     @media (max-width: 1024px) {
         min-width: 100%;

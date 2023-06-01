@@ -1,11 +1,5 @@
 import { instance } from '../api/api';
-import { IPage } from '@/shared/Interface/IPage';
-import axios from 'axios';
-
-export type ICity = {
-    idCity: number;
-    name: string;
-};
+import { IPage, ICity } from '@/shared/Interface';
 
 const getAllCities = async (): Promise<IPage<ICity[]>> => {
     const response = await instance.get('/city', {

@@ -1,8 +1,10 @@
-import { IPage } from "@/shared/Interface/IPage";
 import { instance } from "../api/api";
-import { INewsWithSubnews, INews } from "@/shared/Interface/INews";
+import { INewsWithSubnews, INews, IPage } from "@/shared/Interface";
 
-const getNews = async (): Promise<IPage<INews[]>> => await instance.get("/news");
+const getNews = async (): Promise<IPage<INews[]>> => {
+    const response = await instance.get("/news");
+    return response.data;
+};
 
 const getNewsId = async (query: number): Promise<IPage<INews[]>> => await instance.get(`/news/${query}`);
 
