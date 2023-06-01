@@ -10,8 +10,7 @@ export const Notice = () => {
     const params = useParams();
     const { generalSearchs } = useApi();
     const loadInfomation = async () => {
-        // const json = await NewsService.getNewsId(params.slug!);
-        // setActualNews(json); ajustar pois o service recebe como parametro um "number" para a busca de noticia
+    
     };
     useEffect(() => {
         loadInfomation();
