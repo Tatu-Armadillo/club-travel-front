@@ -1,5 +1,4 @@
-import { AuthContext } from '@/context/AuthContext';
-import { Flex, useConst } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { useContext } from 'react';
 import { BsCalendar3 } from 'react-icons/bs';
 import { ThemeContext } from 'styled-components';

@@ -1,7 +1,5 @@
 import { ChangeEvent, useState } from 'react';
-import { useApi } from '@/shared/hooks';
 import { Button } from '@/shared/Components';
-import { loginIsValid } from '@/shared/services/loginIsValid';
 import { ContactService } from '@/shared/services';
 
 interface ModalProps {
@@ -14,7 +12,6 @@ interface ModalFormProps {
 }
 
 export const Modal = ({ externFunc }: ModalProps) => {
-    const api = useApi();
     const [inputValues, setInputValue] = useState<ModalFormProps>({
         name: '',
         phone: '',
@@ -22,16 +19,13 @@ export const Modal = ({ externFunc }: ModalProps) => {
     });
     const handleClick = async () => {
         const data = inputValues;
-        // if (loginIsValid(name, phone, email)) { //verificar
-            try {
-                const action = await ContactService.postContact(
-                    data
-                );
-                alert('Parabens seu cadastro funfou newba');
-                externFunc();
-            } catch (error) {
-                console.log(error);
-            }
+        try {
+            await ContactService.postContact(data);
+            alert('Parabens seu cadastro funfou newba');
+            externFunc();
+        } catch (error) {
+            console.log(error);
+        }
     };
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setInputValue({
@@ -40,12 +34,7 @@ export const Modal = ({ externFunc }: ModalProps) => {
         });
     };
     return (
-        <div
-            className='relative z-10'
-            aria-labelledby='modal-title'
-            role='dialog'
-            aria-modal='true'
-        >
+        <div className='relative z-10' aria-labelledby='modal-title' role='dialog' aria-modal='true'>
             <div className='fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity'></div>
 
             <div className='fixed inset-0 z-10 overflow-y-auto mb-10'>
@@ -54,22 +43,13 @@ export const Modal = ({ externFunc }: ModalProps) => {
                         <div className='bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4'>
                             <div className='sm:flex sm:items-start'>
                                 <div className='mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left'>
-                                    <h3
-                                        className='text-base font-semibold leading-6 text-gray-900'
-                                        id='modal-title'
-                                    >
+                                    <h3 className='text-base font-semibold leading-6 text-gray-900' id='modal-title'>
                                         Preencha os dados e esteja sempre ligado
                                         nos melhores lugares para me mamar
                                     </h3>
-                                    <form
-                                        className='flex flex-col mt-5'
-                                        action=''
-                                    >
+                                    <form className='flex flex-col mt-5' action='#'>
                                         <div className='col-span-6 sm:col-span-3'>
-                                            <label
-                                                htmlFor='name'
-                                                className='block text-sm font-medium leading-6 text-gray-900'
-                                            >
+                                            <label htmlFor='name' className='block text-sm font-medium leading-6 text-gray-900'>
                                                 Nome
                                             </label>
                                             <input
@@ -84,10 +64,7 @@ export const Modal = ({ externFunc }: ModalProps) => {
                                             />
                                         </div>
                                         <div className='col-span-6 sm:col-span-3'>
-                                            <label
-                                                htmlFor='phone'
-                                                className='block text-sm font-medium leading-6 text-gray-900'
-                                            >
+                                            <label htmlFor='phone' className='block text-sm font-medium leading-6 text-gray-900'>
                                                 Número
                                             </label>
                                             <input
@@ -102,10 +79,7 @@ export const Modal = ({ externFunc }: ModalProps) => {
                                             />
                                         </div>
                                         <div className='col-span-6 sm:col-span-4'>
-                                            <label
-                                                htmlFor='mail'
-                                                className='block text-sm font-medium leading-6 text-gray-900'
-                                            >
+                                            <label htmlFor='mail' className='block text-sm font-medium leading-6 text-gray-900'>
                                                 Email
                                             </label>
                                             <input
@@ -123,19 +97,14 @@ export const Modal = ({ externFunc }: ModalProps) => {
                             </div>
                         </div>
                         <div className='bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6'>
-                            <Button
-                                classButton={
-                                    'capitalize inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-400  sm:ml-3 sm:w-auto'
-                                }
+                            <Button classButton={'capitalize inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-400  sm:ml-3 sm:w-auto'}
                                 text={'enviar'}
                                 typeButton={'submit'}
                                 funcClick={handleClick}
                             />
 
                             <Button
-                                classButton={
-                                    'mt - 3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset capitalize ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto'
-                                }
+                                classButton={'mt - 3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset capitalize ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto'}
                                 text={'cancelar'}
                                 typeButton={'button'}
                                 funcClick={externFunc}

@@ -1,5 +1,5 @@
 import { Swiper } from 'swiper/react';
-import { ISlider } from '../../Interface/ISlider';
+import { ISlider } from '@/shared/Interface';
 import { Navigation, Pagination, A11y } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';

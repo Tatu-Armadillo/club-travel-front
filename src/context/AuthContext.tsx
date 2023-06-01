@@ -1,6 +1,5 @@
 import { createContext } from 'react';
-import { IAdmin } from "@/shared/Interface/IAdmin";
-import { IUser } from '@/shared/Interface/IUser';
+import { IAdmin, IUser } from "@/shared/Interface";
 
 export interface IAuthContext {
     user: IAdmin | null;

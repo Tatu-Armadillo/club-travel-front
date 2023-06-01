@@ -1,7 +1,6 @@
 import React from 'react';
-import { IDestination } from '@/shared/Interface/IDestionation';
+import { IDestination, ICity } from '@/shared/Interface';
 import { CityService, DestinationsService } from '@/shared/services';
-import { ICity } from '@/shared/services/city/CityService';
 import { useForm, useFieldArray } from 'react-hook-form';
 import { IoMdCloseCircle } from 'react-icons/io';
 import { BoxReferenceField } from './BoxReferenceField/boxReferenceField';

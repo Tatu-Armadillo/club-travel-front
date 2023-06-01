@@ -1,8 +1,9 @@
 import { useForm, useFieldArray } from 'react-hook-form';
 import { Button } from '@/shared/Components';
-import { INewsWithSubnews } from '@/shared/Interface/INews';
+import { INewsWithSubnews } from '@/shared/Interface';
 import { NewsService } from '@/shared/services';
 import { BoxContainer, BoxForms, BoxMiddle, BoxButtons, BoxInput, } from './formNews.styled';
+import { toast } from 'react-toastify';
 
 export const FormNews = () => {
     const { register, formState: { errors }, handleSubmit, control, reset } = useForm<INewsWithSubnews>();
@@ -12,6 +13,7 @@ export const FormNews = () => {
             await NewsService.postNews(data);
             remove();
             reset({ newsRecord: { title: "", imageLink: "", text: "" } });
+            toast.success("Notícia Cadastrada com Sucesso!");
         } catch (error: any) {
             throw new Error('error', error);
         }

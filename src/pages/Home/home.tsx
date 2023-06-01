@@ -1,7 +1,6 @@
 import { FlexContainer } from './home.styled';
 import { CardNews, Destinations, LastNews, Modal } from '@/shared/Components';
 import { useContext, useEffect, useState } from 'react';
-import { useApi } from '@/shared/hooks';
 import { AuthContext } from '@/context/AuthContext';
 import { EventCalender } from './EventCalender/eventCalender';
 
@@ -13,21 +12,14 @@ interface CardProps {
 
 export const Home = () => {
     const auth = useContext(AuthContext);
-    const { generalSearchs } = useApi();
     const ApiImageLink = 'https://image.tmdb.org/t/p/w500/';
-    const [card, setCard] = useState<CardProps[]>([]);
     const [modalOpen, setModalOpen] = useState(true);
+    const [ ] = useState()
     const loadInformation = async () => {
         try {
-            let json = await generalSearchs.getAll();
-            const limitedCard: CardProps[] = json.results.filter(
-                (item: any, index: number) => index <= 5
-            );
-            setCard(limitedCard);
+
         } catch (error) {
-            alert(
-                'não foi possível carregar o feed, tente novamente mais tarde'
-            );
+            alert('não foi possível carregar o feed, tente novamente mais tarde');
         }
     };
     useEffect(() => {

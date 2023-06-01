@@ -1,7 +1,5 @@
 import { instance } from '../api/api';
-import { IDestination } from '@/shared/Interface/IDestionation';
-import { IPage } from '@/shared/Interface/IPage';
-import { IError } from '@/shared/Interface/IError';
+import { IPage, IError, IDestination } from '@/shared/Interface';
 
 const getDestinations = async () => {
     const response = await instance.get(`/destinations`, {

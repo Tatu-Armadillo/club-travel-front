@@ -1,4 +1,4 @@
-import { IUser } from "@/shared/Interface/IUser";
+import { IUser } from "@/shared/Interface";
 import { instance } from "../api/api";
 
 const postSignin = async (data: IUser) => {
