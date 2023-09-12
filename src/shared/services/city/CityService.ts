@@ -21,5 +21,5 @@ const getCityByName = async (query: string): Promise<IPage<ICity[]>> => {
 
 export const CityService = {
     getAllCities,
-    getCityByName,
+    getCityByName
 };
