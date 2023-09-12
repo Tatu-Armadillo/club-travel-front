@@ -5,7 +5,7 @@ export const loginIsValid = (
 ): boolean => {
     if (name === '' || phone === '' || email === '') {
         alert('Preencha todos os dados para enviar o formulário');
-        return false;
+        return false
     }
     return true;
 };
