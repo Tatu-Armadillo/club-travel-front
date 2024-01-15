@@ -3,6 +3,8 @@ import { instance } from "../api/api";
 
 const postSignin = async (data: IUser) => {
     const response = await instance.post("/auth/signin", data);
+    console.log(response.data);
+    
     return response.data;
 };
 
